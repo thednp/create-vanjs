@@ -1,0 +1,10 @@
+node_modules
+experiments
+/template-*/dist
+/template-*/pnpm-lock.yaml
+/template-*/deno.lock
+/template-*/yarn.lock
+/template-*/bun.lockb
+/template-*/package-lock.json
+/template-*/node_modules
+vanjs-project

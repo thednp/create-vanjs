@@ -1,0 +1,20 @@
+{
+  "name": "vanjs-jsx-ts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  },
+  "dependencies": {
+    "vanjs-core": "^1.5.3",
+    "vite-plugin-vanjs": "^0.0.5",
+    "vite-vanjs-svg": "^0.0.4"
+  }
+}

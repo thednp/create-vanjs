@@ -1,0 +1,45 @@
+{
+  "name": "create-vanjs",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "MIT",
+  "author": "thednp",
+  "bin": {
+    "create-vanjs": "index.js"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "!template-*/dist",
+    "!template-*/node_modules",
+    "!template-*/package-lock.json",
+    "!template-*/pnpm-lock.json",
+    "!template-*/bun.lockb",
+    "!template-*/deno.lock"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thednp/create-vanjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thednp/create-vanjs/issues"
+  },
+  "homepage": "https://github.com/thednp/create-vanjs#readme",
+  "scripts": {
+    "format": "deno fmt .",
+    "update-deps": "pnpm update -r --latest && node update-deno-deps.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.8",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10"
+  },
+  "packageManager": "pnpm@9.14.2"
+}

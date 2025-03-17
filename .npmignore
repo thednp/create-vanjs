@@ -1,0 +1,14 @@
+.nyc_output
+.vscode
+.github
+.gitignore
+node_modules
+experiments
+/template-*/dist
+/template-*/pnpm-lock.yaml
+/template-*/deno.lock
+/template-*/bun.lockb
+/template-*/yarn.lock
+/template-*/package-lock.json
+/template-*/node_modules
+vanjs-project
