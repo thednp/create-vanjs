@@ -319,13 +319,6 @@ async function init() {
   const root = path.join(cwd, targetDir)
   fs.mkdirSync(root, { recursive: true })
 
-  // determine template
-  let isReactSwc = false
-  if (template.includes('-swc')) {
-    isReactSwc = true
-    template = template.replace('-swc', '')
-  }
-
   const pkgManager = pkgInfo ? pkgInfo.name : 'npm'
 
   const { customCommand } =
@@ -367,16 +360,15 @@ async function init() {
     write(file)
   }
 
-  const pkg = JSON.parse(
-    fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'),
-  )
+  const isDeno = template.startsWith("deno-");
+  if (!isDeno) {
+    const pkg = JSON.parse(
+      fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'),
+    )
 
-  pkg.name = packageName
+    pkg.name = packageName
 
-  write('package.json', JSON.stringify(pkg, null, 2) + '\n')
-
-  if (isReactSwc) {
-    setupReactSwc(root, template.endsWith('-ts'))
+    write('package.json', JSON.stringify(pkg, null, 2) + '\n')
   }
 
   let doneMessage = ''
@@ -387,15 +379,19 @@ async function init() {
       cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName
     }`
   }
-  switch (pkgManager) {
-    case 'yarn':
-      doneMessage += '\n  yarn'
-      doneMessage += '\n  yarn dev'
-      break
-    default:
-      doneMessage += `\n  ${pkgManager} install`
-      doneMessage += `\n  ${pkgManager} run dev`
-      break
+  if (!isDeno) {
+    switch (pkgManager) {
+      case 'yarn':
+        doneMessage += '\n  yarn'
+        doneMessage += '\n  yarn dev'
+        break
+      default:
+        doneMessage += `\n  ${pkgManager} install`
+        doneMessage += `\n  ${pkgManager} run dev`
+        break
+    }
+  } else {
+    doneMessage += `\n  deno task dev`;
   }
   prompts.outro(doneMessage)
 }
@@ -462,29 +458,6 @@ function pkgFromUserAgent(userAgent) {
     name: pkgSpecArr[0],
     version: pkgSpecArr[1],
   }
-}
-
-function setupReactSwc(root, isTs) {
-  // renovate: datasource=npm depName=@vitejs/plugin-react-swc
-  const reactSwcPluginVersion = '3.8.0'
-
-  editFile(path.resolve(root, 'package.json'), (content) => {
-    return content.replace(
-      /"@vitejs\/plugin-react": ".+?"/,
-      `"@vitejs/plugin-react-swc": "^${reactSwcPluginVersion}"`,
-    )
-  })
-  editFile(
-    path.resolve(root, `vite.config.${isTs ? 'ts' : 'js'}`),
-    (content) => {
-      return content.replace('@vitejs/plugin-react', '@vitejs/plugin-react-swc')
-    },
-  )
-}
-
-function editFile(file, callback) {
-  const content = fs.readFileSync(file, 'utf-8')
-  fs.writeFileSync(file, callback(content), 'utf-8')
 }
 
 function getFullCustomCommand(customCommand, pkgInfo) {
