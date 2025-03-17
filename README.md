@@ -26,10 +26,6 @@ $ deno run -A npm:create-vanjs
 $ bun create vanjs
 ```
 
-```bash
-# Yarn:
-$ yarn create vanjs
-```
 
 Then follow the prompts!
 
