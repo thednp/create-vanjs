@@ -14,6 +14,6 @@
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
     "vite": "npm:vite@^6.2.2",
     "vanjs-core": "npm:vanjs-core@^1.5.3",
-    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.0.5"
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.0.6"
   }
 }

@@ -112,9 +112,9 @@ npx degit user/project#main my-project
 ## About
 
 This project is crafted by developers, for developers! You really don't need the
-mental gymnastics of React to manage local, derived or global state,
-composability or scalability, there is no barrier anywhere, you can really
-develop applications of any kind or size with VanJS.
+mental gymnastics of React to manage local, derived or global state, composability or
+scalability, you can really develop applications of any kind or size with VanJS.
+
 
 ## Attribution
 

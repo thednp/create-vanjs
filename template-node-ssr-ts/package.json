@@ -25,7 +25,7 @@
     "vanjs-ext": "^0.6.2",
     "vanjs-feather": "^0.1.1",
     "vanjs-lucide": "^0.0.2",
-    "vite-plugin-vanjs": "github:thednp/vite-plugin-vanjs",
+    "vite-plugin-vanjs": "^0.0.6",
     "vite-vanjs-svg": "^0.0.4"
   },
   "devDependencies": {
