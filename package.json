@@ -1,5 +1,6 @@
 {
   "name": "create-vanjs",
+  "description": "🍦 Quick tool for scaffolding your first VanJS project",
   "version": "0.0.1",
   "type": "module",
   "license": "MIT",

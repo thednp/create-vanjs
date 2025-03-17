@@ -70,20 +70,21 @@ Currently supported template presets include:
 | `node-base-ts`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base-ts)    |
 | `node-jsx`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx)        |
 | `node-jsx-ts`     | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx-ts)     |
-| `node-ssr`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr)        |
-| `node-ssr-ts`     | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr-ts)     |
-| `node-ssr-jsx`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr-jsx)    |
-| `node-ssr-jsx-ts` | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr-jsx-ts) |
-| `vike`            | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike)            |
-| `vike-ts`         | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike-ts)         |
-| `vike-jsx`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike-jsx)        |
-| `vike-jsx-ts`     | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike-jsx-ts)     |
-| `deno-base`       |                                                                                                           |
-| `deno-base-ts`    |                                                                                                           |
-| `deno-jsx`        |                                                                                                           |
-| `deno-jsx-ts`     |                                                                                                           |
+| `node-ssr`        | |
+| `node-ssr-ts`     | |
+| `node-ssr-jsx`    | |
+| `node-ssr-jsx-ts` | |
+| `vike`            | |
+| `vike-ts`         | |
+| `vike-jsx`        | |
+| `vike-jsx-ts`     | |
+| `deno-base`       | |
+| `deno-base-ts`    | |
+| `deno-jsx`        | |
+| `deno-jsx-ts`     | |
 
 You can use `.` for the project name to scaffold in the current directory.
+
 
 ## Community Templates
 
