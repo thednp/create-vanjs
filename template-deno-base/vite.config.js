@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "npm:vite";
 import deno from "@deno/vite-plugin";
 
 // https://vite.dev/config/

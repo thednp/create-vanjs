@@ -1,10 +1,15 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
+  "keywords": [
+    "vanjs",
+    "vite",
+    "starter-template"
+  ],
   "bin": {
     "create-vanjs": "index.js"
   },

@@ -17,5 +17,5 @@ export const Page = () => {
         <A class="btn" href="/">Go Back Home</A>
       </div>
     </div>
-  )
+  );
 };

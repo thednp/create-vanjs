@@ -14,7 +14,6 @@ const getSystemTheme = () => {
   return "light";
 };
 
-
 // create a persisten state of the system theme
 const systemTheme = persistentState("ui-theme", getSystemTheme());
 
@@ -77,7 +76,7 @@ export const ThemeController = (
 };
 
 export const ThemeToggle = (
-  initialProps
+  initialProps,
 ) => {
   const { input, label, span, button } = van.tags;
   const props = Object.fromEntries(

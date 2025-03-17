@@ -26,7 +26,6 @@ $ deno run -A npm:create-vanjs
 $ bun create vanjs
 ```
 
-
 Then follow the prompts!
 
 You can also directly specify the project name and the template you want to use
@@ -60,27 +59,26 @@ bun create vanjs my-vanjs-app --template node-base
 
 Currently supported template presets include:
 
-| Template          | Try online                                                                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------------- |
-| `node-base`       | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base)       |
-| `node-base-ts`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base-ts)    |
-| `node-jsx`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx)        |
-| `node-jsx-ts`     | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx-ts)     |
-| `node-ssr`        | |
-| `node-ssr-ts`     | |
-| `node-ssr-jsx`    | |
-| `node-ssr-jsx-ts` | |
-| `vike`            | |
-| `vike-ts`         | |
-| `vike-jsx`        | |
-| `vike-jsx-ts`     | |
-| `deno-base`       | |
-| `deno-base-ts`    | |
-| `deno-jsx`        | |
-| `deno-jsx-ts`     | |
+| Template          | Try online                                                                                             |
+| ----------------- | ------------------------------------------------------------------------------------------------------ |
+| `node-base`       | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base)    |
+| `node-base-ts`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base-ts) |
+| `node-jsx`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx)     |
+| `node-jsx-ts`     | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx-ts)  |
+| `node-ssr`        |                                                                                                        |
+| `node-ssr-ts`     |                                                                                                        |
+| `node-ssr-jsx`    |                                                                                                        |
+| `node-ssr-jsx-ts` |                                                                                                        |
+| `vike`            |                                                                                                        |
+| `vike-ts`         |                                                                                                        |
+| `vike-jsx`        |                                                                                                        |
+| `vike-jsx-ts`     |                                                                                                        |
+| `deno-base`       |                                                                                                        |
+| `deno-base-ts`    |                                                                                                        |
+| `deno-jsx`        |                                                                                                        |
+| `deno-jsx-ts`     |                                                                                                        |
 
 You can use `.` for the project name to scaffold in the current directory.
-
 
 ## Community Templates
 
@@ -109,9 +107,9 @@ npx degit user/project#master my-project
 ## About
 
 This project is crafted by developers, for developers! You really don't need the
-mental gymnastics of React to manage local, derived or global state, composability or
-scalability, you can really develop applications of any kind or size with VanJS.
-
+mental gymnastics of React to manage local, derived or global state,
+composability or scalability, you can really develop applications of any kind or
+size with VanJS.
 
 ## Attribution
 

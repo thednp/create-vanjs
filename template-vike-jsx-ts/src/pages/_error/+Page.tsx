@@ -5,13 +5,16 @@ import { usePageContext } from "../../renderer/usePageContext";
 export function Page() {
   const pageContext = usePageContext();
   const { is404 } = pageContext;
-  const pageTitle = () => is404 ? (
-    <>
-      <span class="font-bold">404</span>
-      {" / "}
-      Page Not Found
-    </>
-    ) : "Unknown Error"
+  const pageTitle = () =>
+    is404
+      ? (
+        <>
+          <span class="font-bold">404</span>
+          {" / "}
+          Page Not Found
+        </>
+      )
+      : "Unknown Error";
 
   return (
     <div class="flex h-screen">
@@ -23,5 +26,5 @@ export function Page() {
         <Link class="btn" href="/">Go Back Home</Link>
       </div>
     </div>
-  )
+  );
 }

@@ -6,5 +6,5 @@ export function Page() {
         <p>This is the about page</p>
       </div>
     </div>
-  )
+  );
 }

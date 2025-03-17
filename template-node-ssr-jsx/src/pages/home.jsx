@@ -36,6 +36,6 @@ export const Page = () => {
           Click on the VanJS logo to learn more
         </p>
       </div>
-    </div>
+    </div>,
   ];
 };
