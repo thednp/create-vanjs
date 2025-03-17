@@ -1,6 +1,6 @@
 # create-vanjs
 
-## Scaffolding Your First VanJS Project
+Scaffolding your first VanJS project in seconds!
 
 > **Compatibility Note:** Vite requires [Node.js](https://nodejs.org/en/)
 > version 18+, 20+, 22+. However, some templates require a higher Node.js
@@ -107,7 +107,7 @@ If the project uses `master` as the default branch, suffix the project repo with
 `#master`
 
 ```bash
-npx degit user/project#main my-project
+npx degit user/project#master my-project
 ```
 
 ## About
