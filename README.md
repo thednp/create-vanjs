@@ -8,22 +8,22 @@ Scaffolding your first VanJS project in seconds!
 
 ```bash
 # NPM:
-$ npm create vanjs@latest
+npm create vanjs@latest
 ```
 
 ```bash
 # PNPM:
-$ pnpm create vanjs
+pnpm create vanjs@latest
 ```
 
 ```bash
 # Deno:
-$ deno run -A npm:create-vanjs
+deno run -A npm:create-vanjs@latest
 ```
 
 ```bash
 # Bun:
-$ bun create vanjs
+bun create vanjs@latest
 ```
 
 Then follow the prompts!
@@ -35,11 +35,6 @@ SSR + VanJS project, run:
 ```bash
 # npm
 npm create vanjs@latest my-vanjs-app -- --template node-base
-```
-
-```bash
-# yarn
-yarn create vanjs my-vanjs-app --template node-base
 ```
 
 ```bash
