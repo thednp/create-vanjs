@@ -36,11 +36,11 @@ Options:
 
 Available templates:
 ${green     ('node-base-ts        node-base'       )}
-${green     ('node-base-jsx-ts    node-base-jsx'   )}
-${green     ('node-base-ts        node-base'       )}
-${green     ('node-base-jsx-ts    node-base-jsx'   )}
+${green     ('node-jsx-ts         node-jsx'        )}
+${green     ('node-ssr-ts         node-ssr'        )}
+${green     ('node-ssr-jsx-ts     node-ssr-jsx'    )}
 ${cyan      ('deno-base-ts        deno-base'       )}
-${cyan      ('deno-base-jsx-ts    deno-base-jsx'   )}
+${cyan      ('deno-jsx-ts         deno-jsx'        )}
 ${magenta   ('vike-ts             vike'            )}
 ${magenta   ('vike-jsx-ts         vike-jsx'        )}`;
 
