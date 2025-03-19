@@ -99,7 +99,7 @@ export const ThemeToggle = (
 ) => {
   const { input, label, span, button } = van.tags;
   const props = Object.fromEntries(
-    Object.entries(initialProps).filter(([_, val]) => val),
+    Object.entries(initialProps).filter(([_, val]) => val !== undefined),
   ) as ThemeControllerProps;
   const themes: Theme[] = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));

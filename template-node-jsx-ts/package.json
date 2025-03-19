@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "vanjs-core": "^1.5.3",
-    "vite-plugin-vanjs": "^0.0.7",
+    "vite-plugin-vanjs": "^0.0.9",
     "vite-vanjs-svg": "^0.0.4"
   }
 }

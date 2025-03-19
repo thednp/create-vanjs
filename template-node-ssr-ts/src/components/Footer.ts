@@ -11,7 +11,7 @@ export const Footer = () => {
     A({ href: "/" }, span({ class: "font-bold" }, "VanJS"), " ", "App"),
     span(
       { class: "ml-auto flex gap-1" },
-      span({ class: "font-bold" }, "thednp"),
+      span({ class: "font-bold" }, "author"),
       span("©"),
       span(new Date().getFullYear()),
     ),

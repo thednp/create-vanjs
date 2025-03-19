@@ -18,10 +18,9 @@ const getSystemTheme = () => {
 const systemTheme = persistentState("ui-theme", getSystemTheme());
 
 export const ThemeController = (
-  initialProps,
+  { theme, ...props },
   ...children
 ) => {
-  const { theme, ...props } = initialProps;
   if (!theme) {
     throw new Error(
       "ThemeController requires a theme property with valid value",

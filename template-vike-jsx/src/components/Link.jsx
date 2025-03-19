@@ -2,11 +2,7 @@ import { usePageContext } from "../renderer/usePageContext";
 
 export { Link };
 
-const Link = ({ href, children, ...rest } = {}) => {
-  const props = Object.fromEntries(
-    Object.entries(rest).filter(([_, val]) => val !== undefined),
-  );
-
+const Link = ({ href, children, ...props } = {}) => {
   const { urlPathname } = usePageContext();
   const hrefAtt = () => href?.val ? href.val : href;
   const isActive = hrefAtt() === "/"

@@ -7,7 +7,7 @@ export const Footer = () => {
         <span class="font-bold">VanJS</span> App
       </A>
       <span class="ml-auto flex gap-1">
-        <span class="font-bold">thednp</span>
+        <span class="font-bold">author</span>
         <span>©</span>
         <span>{new Date().getFullYear()}</span>
       </span>
