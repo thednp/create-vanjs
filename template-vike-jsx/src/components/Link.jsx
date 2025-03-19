@@ -14,7 +14,7 @@ const Link = ({ href, children, ...rest } = {}) => {
     : urlPathname?.startsWith(hrefAtt()) || false;
 
   return (
-    <a href={hrefAtt()} aria-current={isActive ? "page" : undefined} {...props}>
+    <a href={hrefAtt} aria-current={isActive ? "page" : undefined} {...props}>
       {children}
     </a>
   );

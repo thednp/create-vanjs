@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
@@ -37,6 +37,8 @@
   "homepage": "https://github.com/thednp/create-vanjs#readme",
   "scripts": {
     "format": "deno fmt .",
+    "lint": "deno lint --rules-exclude=require-await,jsx-key .",
+    "prepublishOnly": "pnpm update-deps && pnpm lint && pnpm format",
     "update-deps": "pnpm update -r --latest && node update-deno-deps.js"
   },
   "dependencies": {

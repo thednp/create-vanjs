@@ -11,7 +11,6 @@ export type {
 
 import type { PageContextClient, PageContextServer } from "vike/types";
 import type {
-  ChildDom,
   Props,
   PropsWithKnownKeys,
   PropValueOrDerived,
@@ -19,17 +18,10 @@ import type {
 } from "vanjs-core";
 import { Element as VanElement } from "mini-van-plate/van-plate";
 
-export type PageComponent = (
-  pageProps?: Partial<PageProps>,
-) => HTMLElement | VanElement;
-
-export type PageProps = {
-  // define any Page Props here
-};
+export type PageComponent = () => HTMLElement | VanElement;
 
 type PageContextCustom = {
   Page: PageComponent;
-  pageProps?: PageProps;
   title?: string;
   description?: string;
   // add more meta tags here

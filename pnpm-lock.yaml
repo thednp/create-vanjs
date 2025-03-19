@@ -19,9 +19,6 @@ importers:
       picocolors:
         specifier: ^1.1.1
         version: 1.1.1
-      prompts:
-        specifier: ^2.4.2
-        version: 2.4.2
     devDependencies:
       "@types/node":
         specifier: ^22.13.10
@@ -54,12 +51,6 @@ packages:
       integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==,
     }
 
-  kleur@3.0.3:
-    resolution: {
-      integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==,
-    }
-    engines: { node: ">=6" }
-
   minimist@1.2.8:
     resolution: {
       integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==,
@@ -75,12 +66,6 @@ packages:
     resolution: {
       integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==,
     }
-
-  prompts@2.4.2:
-    resolution: {
-      integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==,
-    }
-    engines: { node: ">= 6" }
 
   shebang-command@2.0.0:
     resolution: {
@@ -135,18 +120,11 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  kleur@3.0.3: {}
-
   minimist@1.2.8: {}
 
   path-key@3.1.1: {}
 
   picocolors@1.1.1: {}
-
-  prompts@2.4.2:
-    dependencies:
-      kleur: 3.0.3
-      sisteransi: 1.0.5
 
   shebang-command@2.0.0:
     dependencies:

@@ -1,4 +1,3 @@
-import van from "vanjs-core";
 import { Link } from "../../components/Link";
 import { usePageContext } from "../../renderer/usePageContext";
 

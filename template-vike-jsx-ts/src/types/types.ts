@@ -19,17 +19,10 @@ import type {
 } from "vanjs-core";
 // import { Element as VanElement } from "mini-van-plate/van-plate";
 
-export type PageComponent = (
-  pageProps?: Partial<PageProps>,
-) => JSX.Element;
-
-export type PageProps = {
-  // define any Page Props here
-};
+export type PageComponent = () => JSX.Element;
 
 type PageContextCustom = {
   Page: PageComponent;
-  pageProps?: PageProps;
   title?: string;
   description?: string;
   // add more meta tags here
@@ -38,7 +31,7 @@ type PageContextCustom = {
 type PageContextCLIENT = PageContextClient & PageContextCustom;
 type PageContextSERVER = PageContextServer & PageContextCustom;
 type PageContext = PageContextCLIENT | PageContextSERVER;
-type LayoutProps = { Page: PageComponent; pageContext: PageContext };
+type LayoutProps = { children: JSX.Element; pageContext: PageContext };
 
 type ChangeEvent<T extends EventTarget & Element = HTMLInputElement> =
   & InputEvent

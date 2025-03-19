@@ -13,5 +13,5 @@ export const Footer = () => {
       span("©"),
       span(new Date().getFullYear()),
     ),
-  ) as Element | VanElement;
+  ) as HTMLElement | VanElement;
 };

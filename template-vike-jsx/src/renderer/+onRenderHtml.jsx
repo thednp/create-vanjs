@@ -1,20 +1,23 @@
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import type { OnRenderHtmlAsync } from "vike/types";
-import type { Element as VanElement } from "mini-van-plate/van-plate";
-import type { PageContextSERVER } from "../types/types";
+import { renderToString } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import { getPageMeta } from "../util/getPageMeta";
 import "../assets/app.css";
+import { setPageContext } from "./usePageContext";
 
-const onRenderHtml: OnRenderHtmlAsync = async (
-  pageContext: PageContextSERVER,
-) => {
+const onRenderHtml = async (pageContext) => {
+  setPageContext(pageContext);
   const { Page } = pageContext;
-  const main = Layout({ Page, pageContext }) as VanElement;
-  const header = Header() as VanElement;
-  const footer = Footer() as VanElement;
+
+  const main = await renderToString(
+    <Layout pageContext={pageContext}>
+      <Page />
+    </Layout>,
+  );
+  const header = await renderToString(<Header />);
+  const footer = await renderToString(<Footer />);
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
 
@@ -30,9 +33,9 @@ const onRenderHtml: OnRenderHtmlAsync = async (
         <meta name="og:description" content="${description}">
       </head>
       <body class="flex flex-col bg-base-300">
-        ${dangerouslySkipEscape(header.render())}
-        ${dangerouslySkipEscape(main.render())}
-        ${dangerouslySkipEscape(footer.render())}
+        ${dangerouslySkipEscape(header)}
+        ${dangerouslySkipEscape(main)}
+        ${dangerouslySkipEscape(footer)}
       </body>
     </html>`;
 
@@ -41,7 +44,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (
     pageContext: {
       title,
       description,
-    } as PageContextSERVER,
+    },
   };
 };
 

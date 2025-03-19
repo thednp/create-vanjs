@@ -1,5 +1,3 @@
-import type { Config } from "vike/types";
-
 // https://vike.dev/config
 export const config = {
   // prerender: true,
@@ -43,17 +41,4 @@ export const config = {
       warning: 10 * 1000,
     },
   },
-} satisfies Config;
-
-// https://vike.dev/meta#typescript
-declare global {
-  namespace Vike {
-    interface Config {
-      /** The page's `<title>` */
-      title?: string;
-      /** The page's `<meta name="description">` */
-      description?: string;
-      // define more tags here
-    }
-  }
-}
+};

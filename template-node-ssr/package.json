@@ -15,7 +15,7 @@
   "dependencies": {
     "@tailwindcss/vite": "4.0.14",
     "compression": "^1.8.0",
-    "daisyui": "5.0.4",
+    "daisyui": "5.0.6",
     "express": "^5.0.1",
     "mini-van-plate": "^0.6.3",
     "serve-static": "^1.16.2",

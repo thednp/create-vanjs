@@ -6,7 +6,7 @@ import VanJSLogo from "/vanjs-cone.svg?van";
 export const Nav = () => {
   return (
     <nav aria-label="Main Navigation" class="dropdown">
-      <button class="btn btn-ghost btn-square ml-2 md:hidden">
+      <button type="button" class="btn btn-ghost btn-square ml-2 md:hidden">
         <span class="sr-only">Open Navigation</span>
         <Menu />
       </button>

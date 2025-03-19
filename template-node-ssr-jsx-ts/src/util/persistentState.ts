@@ -9,7 +9,7 @@ const getStoredValue = (key: string) => {
   try {
     const raw = localStorage.getItem(key) || "";
     if (raw.length) return JSON.parse(raw);
-  } catch (e) {
+  } catch (_e) {
     return null;
   }
 };

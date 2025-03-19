@@ -2,10 +2,6 @@ import van from "vanjs-core";
 import { Moon, Sun, SunMoon } from "vanjs-lucide";
 import { persistentState } from "../../util/persistentState";
 
-/** @typedef {import("vanjs-core").ChildDom} ChildDom */
-/** @typedef {import("../../types/types.ts").ThemeControllerProps} ThemeControllerProps */
-/** @typedef {import("../../types/types.ts").ChangeEvent} ChangeEvent */
-
 const isClient = () => typeof window !== "undefined";
 
 const getSystemTheme = () => {
@@ -21,15 +17,13 @@ const getSystemTheme = () => {
 // create a persisten state of the system theme
 const systemTheme = persistentState("ui-theme", getSystemTheme());
 
-/**
- * @param {ThemeControllerProps} initialProps
- * @param  {...[]} children
- */
 export const ThemeController = (
-  initialProps,
+  { theme, ...rest },
   ...children
 ) => {
-  const { theme, ...props } = initialProps;
+  const props = Object.fromEntries(
+    Object.entries(rest).filter(([_, val]) => val),
+  );
   if (!theme) {
     throw new Error(
       "ThemeController requires a theme property with valid value",
@@ -62,15 +56,16 @@ export const ThemeController = (
   van.derive(() => {
     if (!isClient()) return;
     if (isConnected.val) {
-      window?.matchMedia("(prefers-color-scheme: dark)").addEventListener(
+      globalThis?.matchMedia("(prefers-color-scheme: dark)").addEventListener(
         "change",
         themeCallback,
       );
     } else {
-      window?.matchMedia("(prefers-color-scheme: dark)").removeEventListener(
-        "change",
-        themeCallback,
-      );
+      globalThis?.matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener(
+          "change",
+          themeCallback,
+        );
     }
   });
 
@@ -81,11 +76,13 @@ export const ThemeController = (
   return controllerForm;
 };
 
-/**
- * @param {Omit<ThemeControllerProps, "theme">} props
- */
-export const ThemeToggle = (props) => {
+export const ThemeToggle = (
+  initialProps,
+) => {
   const { input, label, span, button } = van.tags;
+  const props = Object.fromEntries(
+    Object.entries(initialProps).filter(([_, val]) => val),
+  );
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
@@ -93,11 +90,11 @@ export const ThemeToggle = (props) => {
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
-      return Moon({ class: "h-6 w-6" });
+      return { icon: Moon({ class: "h-6 w-6" }) };
     } else if (currentTheme === "light") {
-      return Sun({ class: "h-6 w-6" });
+      return { icon: Sun({ class: "h-6 w-6" }) };
     }
-    return SunMoon({ class: "h-6 w-6" });
+    return { icon: SunMoon({ class: "h-6 w-6" }) };
   });
 
   return ThemeController(
@@ -117,7 +114,7 @@ export const ThemeToggle = (props) => {
           systemTheme.val = themes[newIdx];
         },
       },
-      icon,
+      icon.val.icon,
       span({ class: "sr-only" }, "Toggle Theme"),
     ),
     label(
@@ -151,10 +148,6 @@ export const ThemeToggle = (props) => {
   );
 };
 
-/**
- * @param {Omit<ThemeControllerProps, "theme">} props
- * @returns {typeof (Sun | SunMoon | Moon)}
- */
 export const ThemeDropdown = (props) => {
   const { input, div, ul, li, button } = van.tags;
   const themes = ["light", "dark", "system"];
@@ -171,9 +164,6 @@ export const ThemeDropdown = (props) => {
     return SunMoon({ class: "h-6 w-6 mr-2" });
   });
 
-  /**
-   * @param {ChangeEvent} e
-   */
   const onSelect = (e) => {
     const value = e.target.value;
     theme.val = value;

@@ -78,30 +78,15 @@ You can use `.` for the project name to scaffold in the current directory.
 ## Community Templates
 
 **create-vanjs** is a tool to quickly start a project from a basic template for
-popular frameworks. Check out Awesome Vite for
+VanJS. Check out Awesome Vite for
 [community maintained templates](https://github.com/vitejs/awesome-vite#templates)
 that include other tools or target different frameworks. You can use a tool like
 [degit](https://github.com/Rich-Harris/degit) to scaffold your project with one
 of the templates.
 
-```bash
-npx degit user/project my-project
-cd my-project
-
-npm install
-npm run dev
-```
-
-If the project uses `master` as the default branch, suffix the project repo with
-`#master`
-
-```bash
-npx degit user/project#master my-project
-```
-
 ## About
 
-This project is crafted by developers, for developers! You really don't need the
+This project is crafted by developers, for developers! If you don't need the
 mental gymnastics of React to manage local, derived or global state,
 composability or scalability, you can really develop applications of any kind or
 size with VanJS.

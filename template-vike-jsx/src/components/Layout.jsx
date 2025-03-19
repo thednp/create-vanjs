@@ -1,11 +1,7 @@
-import { setPageContext } from "../renderer/usePageContext";
-
-export function Layout({ Page, pageContext }) {
-  setPageContext(pageContext);
-
+export function Layout({ children /*, pageContext */ }) {
   return (
     <main id="main">
-      <Page />
+      {children}
     </main>
   );
 }

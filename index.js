@@ -2,23 +2,18 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import process from "node:process";
 import { fileURLToPath } from "node:url";
 import spawn from "cross-spawn";
-// import mri from 'mri'
 import minimist from "minimist";
 import * as prompts from "@clack/prompts";
 import colors from "picocolors";
 
 const {
   blue,
-  // blueBright,
   cyan,
   green,
-  // greenBright,
   magenta,
-  // red,
-  // redBright,
-  // reset,
   yellow,
 } = colors;
 
@@ -37,14 +32,14 @@ Options:
   -t, --template NAME        use a specific template
 
 Available templates:
-${green("node-base-ts        node-base")}
-${green("node-jsx-ts         node-jsx")}
-${green("node-ssr-ts         node-ssr")}
-${green("node-ssr-jsx-ts     node-ssr-jsx")}
-${cyan("deno-base-ts        deno-base")}
-${cyan("deno-jsx-ts         deno-jsx")}
-${magenta("vike-ts             vike")}
-${magenta("vike-jsx-ts         vike-jsx")}`;
+${green("node-base-ts       node-base")}
+${green("node-jsx-ts        node-jsx")}
+${green("node-ssr-ts        node-ssr")}
+${green("node-ssr-jsx-ts    node-ssr-jsx")}
+${cyan("deno-base-ts       deno-base")}
+${cyan("deno-jsx-ts        deno-jsx")}
+${magenta("vike-ts            vike")}
+${magenta("vike-jsx-ts        vike-jsx")}`;
 
 const FRAMEWORKS = [
   {
@@ -181,9 +176,6 @@ const TEMPLATES = FRAMEWORKS.map((f) => f.variants.map((v) => v.name)).reduce(
   (a, b) => a.concat(b),
   [],
 );
-// const TEMPLATES = FRAMEWORKS.map(
-//   (f) => (f.variants && f.variants.map((v) => v.name)) || [f.name],
-// ).reduce((a, b) => a.concat(b), []);
 
 const renameFiles = {
   _gitignore: ".gitignore",

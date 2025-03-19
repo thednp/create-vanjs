@@ -17,7 +17,7 @@ function Link(props: LinkProps, ...children: ChildDom[]) {
     : urlPathname?.startsWith(hrefAtt()) || false;
 
   return a({
-    href: hrefAtt(),
+    href: hrefAtt,
     "aria-current": isActive ? "page" : "",
     ...rest,
   }, ...children);

@@ -19,17 +19,10 @@ import type {
 } from "vanjs-core";
 import { Element as VanElement } from "mini-van-plate/van-plate";
 
-export type PageComponent = (
-  pageProps?: Partial<PageProps>,
-) => (HTMLElement | VanElement) & JSX.Element;
-
-export type PageProps = {
-  // define any Page Props here
-};
+export type PageComponent = () => (HTMLElement | VanElement) & JSX.Element;
 
 type PageContextCustom = {
   Page: PageComponent;
-  pageProps?: PageProps;
   title?: string;
   description?: string;
   // add more meta tags here

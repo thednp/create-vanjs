@@ -1,6 +1,7 @@
 import van from "vanjs-core";
 import { /*ThemeDropdown,*/ ThemeToggle } from "./ui/ThemeController";
 import { Github, Menu } from "vanjs-lucide";
+import { Element as VanElement } from "mini-van-plate/van-plate";
 import VanJSLogo from "/vanjs-cone.svg?van";
 import { Link } from "./Link";
 
@@ -54,5 +55,5 @@ export const Header = () => {
     ),
     ThemeToggle({ class: "theme" }),
     // ThemeDropdown({ class: "theme" }),
-  );
+  ) as HTMLElement | VanElement;
 };

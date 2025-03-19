@@ -2,31 +2,42 @@ import van from "vanjs-core";
 
 const isClient = () => typeof window !== "undefined";
 
-type StateValues = string | number | boolean | Record<string, unknown>;
+/** @typedef {string | number | boolean | Record<string, unknown>} StateValues */
 
-const getStoredValue = (key: string) => {
+/**
+ * @param {string} key
+ * @return {string | object | null}
+ */
+const getStoredValue = (key) => {
   if (!isClient()) return;
   const raw = localStorage.getItem(key) || "";
   if (raw.length) return JSON.parse(raw);
   else return null;
 };
 
-const removeStoredValue = (key: string) => {
+/** @param {string} key */
+const removeStoredValue = (key) => {
   if (!isClient()) return;
   localStorage.removeItem(key);
 };
 
-const setStoredValue = (key: string, newValue: StateValues) => {
+/**
+ * @param {string} key
+ * @param {StateValues} newValue
+ */
+const setStoredValue = (key, newValue) => {
   if (!isClient()) return;
   localStorage.setItem(key, JSON.stringify(newValue));
 };
 
-export const persistentState = <T extends StateValues>(
-  key: string,
-  defaultValue: T,
-) => {
+/**
+ * @param {string} key
+ * @param {StateValues} defaultValue
+ * @returns {State<typeof defaultValue>}
+ */
+export const persistentState = (key, defaultValue) => {
   const initialValue = getStoredValue(key) || defaultValue;
-  const stateValue = van.state<T>(initialValue);
+  const stateValue = van.state(initialValue);
 
   van.derive(() => {
     const newValue = stateValue.val;

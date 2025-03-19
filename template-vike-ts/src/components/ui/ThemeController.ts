@@ -70,15 +70,16 @@ export const ThemeController = (
   van.derive(() => {
     if (!isClient()) return;
     if (isConnected.val) {
-      window?.matchMedia("(prefers-color-scheme: dark)").addEventListener(
+      globalThis?.matchMedia("(prefers-color-scheme: dark)").addEventListener(
         "change",
         themeCallback,
       );
     } else {
-      window?.matchMedia("(prefers-color-scheme: dark)").removeEventListener(
-        "change",
-        themeCallback,
-      );
+      globalThis?.matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener(
+          "change",
+          themeCallback,
+        );
     }
   });
 

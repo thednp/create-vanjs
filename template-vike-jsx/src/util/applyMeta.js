@@ -1,7 +1,6 @@
-import { PageContextCLIENT } from "../types/types";
 import { getPageMeta } from "./getPageMeta";
 
-export const applyMeta = (pageContext: PageContextCLIENT) => {
+export const applyMeta = (pageContext) => {
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
   const tags = ["og:title", "description", "og:description"];
