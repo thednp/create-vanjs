@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
@@ -42,13 +42,13 @@
     "update-deps": "pnpm update -r --latest && node update-deno-deps.js"
   },
   "dependencies": {
-    "@clack/prompts": "^0.10.0",
+    "@clack/prompts": "^0.10.1",
     "cross-spawn": "^7.0.6",
     "minimist": "^1.2.8",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^22.13.10"
+    "@types/node": "^22.14.0"
   },
   "packageManager": "pnpm@9.14.2"
 }

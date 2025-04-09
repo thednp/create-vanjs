@@ -13,7 +13,6 @@ export async function render(url, manifest) {
   const head = await renderToString(Head());
   const header = await renderToString(<Header />);
   const footer = await renderToString(<Footer />);
-  // console.log(await main)
 
   // allow code splitting for multiple pages
   // by disabling the preloading of page components

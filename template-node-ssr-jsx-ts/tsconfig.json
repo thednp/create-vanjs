@@ -23,5 +23,5 @@
     "jsx": "preserve",
     "jsxImportSource": "@vanjs/jsx"
   },
-  "include": ["src", "vite-vanjs-svg"]
+  "include": ["src"]
 }

@@ -9,12 +9,12 @@
     "start": "vite preview"
   },
   "devDependencies": {
-    "typescript": "^5.8.2",
-    "vite": "^6.2.2"
+    "typescript": "^5.8.3",
+    "vite": "^6.2.5"
   },
   "dependencies": {
     "vanjs-core": "^1.5.3",
-    "vite-plugin-vanjs": "^0.0.9",
+    "vite-plugin-vanjs": "^0.0.10",
     "vite-vanjs-svg": "^0.0.4"
   }
 }

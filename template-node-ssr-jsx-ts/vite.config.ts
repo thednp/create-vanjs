@@ -4,10 +4,10 @@ import vanSVG from "vite-vanjs-svg";
 import tailwind from "@tailwindcss/vite";
 
 export default defineConfig({
-  optimizeDeps: {
-    noDiscovery: true,
-    include: [],
-  },
+  // optimizeDeps: {
+  //   noDiscovery: true,
+  //   include: [],
+  // },
   plugins: [
     vanjs(),
     vanSVG(),

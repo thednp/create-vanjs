@@ -2,7 +2,9 @@ import van from "vanjs-core";
 import { Meta, Title } from "@vanjs/meta";
 import Counter from "../components/Counter";
 
-export const Page = () => {
+export const route = {};
+
+export const Home = () => {
   const { div, h1, img, p, a } = van.tags;
 
   Title("VanJS + Vite Homepage");

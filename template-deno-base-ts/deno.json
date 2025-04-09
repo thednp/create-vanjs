@@ -10,7 +10,7 @@
   },
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
-    "vite": "npm:vite@^6.2.2",
+    "vite": "npm:vite@^6.2.5",
     "vanjs-core": "npm:vanjs-core@^1.5.3"
   }
 }

@@ -15,6 +15,7 @@ const {
   green,
   magenta,
   yellow,
+  // gray
 } = colors;
 
 const argv = minimist(process.argv.slice(2), { string: ["_"] });
@@ -39,7 +40,9 @@ ${green("node-ssr-jsx-ts    node-ssr-jsx")}
 ${cyan("deno-base-ts       deno-base")}
 ${cyan("deno-jsx-ts        deno-jsx")}
 ${magenta("vike-ts            vike")}
-${magenta("vike-jsx-ts        vike-jsx")}`;
+${magenta("vike-jsx-ts        vike-jsx")}
+`;
+// ${gray("experimental")}
 
 const FRAMEWORKS = [
   {
@@ -170,6 +173,17 @@ const FRAMEWORKS = [
       },
     ],
   },
+  // {
+  //   name: "experimental",
+  //   color: gray,
+  //   variants: [
+  //     {
+  //       name: "experimental",
+  //       display: "TypeScript",
+  //       color: blue,
+  //     },
+  //   ],
+  // },
 ];
 
 const TEMPLATES = FRAMEWORKS.map((f) => f.variants.map((v) => v.name)).reduce(

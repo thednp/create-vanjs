@@ -1,9 +1,10 @@
 import { lazy, Route } from "@vanjs/router";
+import { Page } from "./pages/home";
 
 // Register routes
 Route({
   path: "/",
-  component: lazy(() => import("./pages/home")),
+  component: Page,
 });
 
 Route({

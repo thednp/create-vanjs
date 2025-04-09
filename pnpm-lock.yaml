@@ -8,8 +8,8 @@ importers:
   .:
     dependencies:
       "@clack/prompts":
-        specifier: ^0.10.0
-        version: 0.10.0
+        specifier: ^0.10.1
+        version: 0.10.1
       cross-spawn:
         specifier: ^7.0.6
         version: 7.0.6
@@ -21,23 +21,23 @@ importers:
         version: 1.1.1
     devDependencies:
       "@types/node":
-        specifier: ^22.13.10
-        version: 22.13.10
+        specifier: ^22.14.0
+        version: 22.14.0
 
 packages:
-  "@clack/core@0.4.1":
+  "@clack/core@0.4.2":
     resolution: {
-      integrity: sha512-Pxhij4UXg8KSr7rPek6Zowm+5M22rbd2g1nfojHJkxp5YkFqiZ2+YLEM/XGVIzvGOcM0nqjIFxrpDwWRZYWYjA==,
+      integrity: sha512-NYQfcEy8MWIxrT5Fj8nIVchfRFA26yYKJcvBS7WlUIlw2OmQOY9DhGGXMovyI5J5PpxrCPGkgUi207EBrjpBvg==,
     }
 
-  "@clack/prompts@0.10.0":
+  "@clack/prompts@0.10.1":
     resolution: {
-      integrity: sha512-H3rCl6CwW1NdQt9rE3n373t7o5cthPv7yUoxF2ytZvyvlJv89C5RYMJu83Hed8ODgys5vpBU0GKxIRG83jd8NQ==,
+      integrity: sha512-Q0T02vx8ZM9XSv9/Yde0jTmmBQufZhPJfYAg2XrrrxWWaZgq1rr8nU8Hv710BQ1dhoP8rtY7YUdpGej2Qza/cw==,
     }
 
-  "@types/node@22.13.10":
+  "@types/node@22.14.0":
     resolution: {
-      integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==,
+      integrity: sha512-Kmpl+z84ILoG+3T/zQFyAJsU6EPTmOCj8/2+83fSN6djd6I4o7uOuGIH6vq3PrjY5BGitSbFuMN18j3iknubbA==,
     }
 
   cross-spawn@7.0.6:
@@ -84,9 +84,9 @@ packages:
       integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==,
     }
 
-  undici-types@6.20.0:
+  undici-types@6.21.0:
     resolution: {
-      integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==,
+      integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==,
     }
 
   which@2.0.2:
@@ -97,20 +97,20 @@ packages:
     hasBin: true
 
 snapshots:
-  "@clack/core@0.4.1":
+  "@clack/core@0.4.2":
     dependencies:
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
-  "@clack/prompts@0.10.0":
+  "@clack/prompts@0.10.1":
     dependencies:
-      "@clack/core": 0.4.1
+      "@clack/core": 0.4.2
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
-  "@types/node@22.13.10":
+  "@types/node@22.14.0":
     dependencies:
-      undici-types: 6.20.0
+      undici-types: 6.21.0
 
   cross-spawn@7.0.6:
     dependencies:
@@ -134,7 +134,7 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.21.0: {}
 
   which@2.0.2:
     dependencies:

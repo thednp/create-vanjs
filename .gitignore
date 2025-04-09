@@ -1,5 +1,6 @@
 node_modules
 experiments
+template-experimental
 /template-*/dist
 /template-*/pnpm-lock.yaml
 /template-*/deno.lock
