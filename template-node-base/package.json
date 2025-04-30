@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "vite preview"
+    "start": "vite preview --port 5173"
   },
   "devDependencies": {
-    "vite": "^6.2.5"
+    "vite": "^6.3.4"
   },
   "dependencies": {
-    "vanjs-core": "^1.5.3"
+    "vanjs-core": "^1.5.5"
   }
 }

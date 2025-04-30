@@ -14,13 +14,17 @@ const getSystemTheme = () => {
   return "light";
 };
 
+
 // create a persisten state of the system theme
-const systemTheme = persistentState("ui-theme", getSystemTheme());
+const systemTheme = persistentState<Theme>("ui-theme", getSystemTheme());
 
 export const ThemeController = (
-  { theme, ...props },
+  { theme, ...rest },
   ...children
 ) => {
+  const props = Object.fromEntries(
+    Object.entries(rest).filter(([_, val]) => val !== undefined),
+  );
   if (!theme) {
     throw new Error(
       "ThemeController requires a theme property with valid value",
@@ -73,20 +77,25 @@ export const ThemeController = (
   return controllerForm;
 };
 
-export const ThemeToggle = (props) => {
+export const ThemeToggle = (
+  initialProps,
+) => {
   const { input, label, span, button } = van.tags;
+  const props = Object.fromEntries(
+    Object.entries(initialProps).filter(([_, val]) => val !== undefined),
+  );
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
-  const theme = van.state(themes[themeIndex.val]);
+  const theme = van.state<Theme>(themes[themeIndex.val]);
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
-      return Moon({ class: "h-6 w-6" });
+      return { icon: Moon({ class: "h-6 w-6" }) };
     } else if (currentTheme === "light") {
-      return Sun({ class: "h-6 w-6" });
+      return { icon: Sun({ class: "h-6 w-6" }) };
     }
-    return SunMoon({ class: "h-6 w-6" });
+    return { icon: SunMoon({ class: "h-6 w-6" }) };
   });
 
   return ThemeController(
@@ -106,7 +115,7 @@ export const ThemeToggle = (props) => {
           systemTheme.val = themes[newIdx];
         },
       },
-      icon,
+      icon.val.icon,
       span({ class: "sr-only" }, "Toggle Theme"),
     ),
     label(
@@ -117,7 +126,7 @@ export const ThemeToggle = (props) => {
         name: "theme-buttons",
         class: "theme-controller",
         "aria-label": "Light",
-        checked: systemTheme.val === "light",
+        checked: () => systemTheme.val === "light",
         value: "light",
       }),
       input({
@@ -125,7 +134,7 @@ export const ThemeToggle = (props) => {
         name: "theme-buttons",
         class: "theme-controller",
         "aria-label": "Dard",
-        checked: systemTheme.val === "dark",
+        checked: () => systemTheme.val === "dark",
         value: "dark",
       }),
       input({
@@ -133,7 +142,7 @@ export const ThemeToggle = (props) => {
         name: "theme-buttons",
         class: "theme-controller",
         "aria-label": "System",
-        checked: systemTheme.val === "system",
+        checked: () => systemTheme.val === "system",
         value: "system",
       }),
     ),
@@ -145,7 +154,7 @@ export const ThemeDropdown = (props) => {
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
-  const theme = van.state(themes[themeIndex.val]);
+  const theme = van.state<Theme>(themes[themeIndex.val]);
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
@@ -188,7 +197,7 @@ export const ThemeDropdown = (props) => {
             class:
               "theme-controller btn btn-sm btn-block btn-ghost justify-start",
             "aria-label": "Default",
-            checked: systemTheme.val === "light",
+            checked: () => systemTheme.val === "light",
             value: "light",
           }),
         ),
@@ -200,7 +209,7 @@ export const ThemeDropdown = (props) => {
             class:
               "theme-controller btn btn-sm btn-block btn-ghost justify-start",
             "aria-label": "Dark",
-            checked: systemTheme.val === "dark",
+            checked: () => systemTheme.val === "dark",
             value: "dark",
           }),
         ),
@@ -212,7 +221,7 @@ export const ThemeDropdown = (props) => {
             class:
               "theme-controller btn btn-sm btn-block btn-ghost justify-start",
             "aria-label": "System",
-            checked: systemTheme.val === "system",
+            checked: () => systemTheme.val === "system",
             value: "system",
           }),
         ),

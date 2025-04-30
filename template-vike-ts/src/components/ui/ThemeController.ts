@@ -1,6 +1,7 @@
 import van from "vanjs-core";
-import type {
+import {
   ChildDom,
+  Props,
   PropsWithKnownKeys,
   PropValueOrDerived,
   State,
@@ -26,6 +27,7 @@ const getSystemTheme = () => {
 
 type Theme = "dark" | "light" | "system";
 type ThemeControllerProps =
+  & Props
   & { theme: State<Theme> }
   & Record<string, PropValueOrDerived>
   & PropsWithKnownKeys<HTMLFormElement>;
@@ -34,10 +36,12 @@ type ThemeControllerProps =
 const systemTheme = persistentState<Theme>("ui-theme", getSystemTheme());
 
 export const ThemeController = (
-  initialProps: ThemeControllerProps,
+  { theme, ...rest }: ThemeControllerProps,
   ...children: ChildDom[]
 ) => {
-  const { theme, ...props } = initialProps;
+  const props = Object.fromEntries(
+    Object.entries(rest).filter(([_, val]) => val !== undefined),
+  ) as ThemeControllerProps;
   if (!theme) {
     throw new Error(
       "ThemeController requires a theme property with valid value",
@@ -90,8 +94,13 @@ export const ThemeController = (
   return controllerForm;
 };
 
-export const ThemeToggle = (props: Omit<ThemeControllerProps, "theme">) => {
+export const ThemeToggle = (
+  initialProps: Omit<ThemeControllerProps, "theme">,
+) => {
   const { input, label, span, button } = van.tags;
+  const props = Object.fromEntries(
+    Object.entries(initialProps).filter(([_, val]) => val !== undefined),
+  ) as ThemeControllerProps;
   const themes: Theme[] = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
@@ -99,11 +108,11 @@ export const ThemeToggle = (props: Omit<ThemeControllerProps, "theme">) => {
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
-      return Moon({ class: "h-6 w-6" });
+      return { icon: Moon({ class: "h-6 w-6" }) };
     } else if (currentTheme === "light") {
-      return Sun({ class: "h-6 w-6" });
+      return { icon: Sun({ class: "h-6 w-6" }) };
     }
-    return SunMoon({ class: "h-6 w-6" });
+    return { icon: SunMoon({ class: "h-6 w-6" }) };
   });
 
   return ThemeController(
@@ -123,7 +132,7 @@ export const ThemeToggle = (props: Omit<ThemeControllerProps, "theme">) => {
           systemTheme.val = themes[newIdx];
         },
       },
-      icon as unknown as ChildDom,
+      icon.val.icon,
       span({ class: "sr-only" }, "Toggle Theme"),
     ),
     label(

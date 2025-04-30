@@ -34,6 +34,7 @@ Options:
 
 Available templates:
 ${green("node-base-ts       node-base")}
+${green("node-routing-ts    node-routing")}
 ${green("node-jsx-ts        node-jsx")}
 ${green("node-ssr-ts        node-ssr")}
 ${green("node-ssr-jsx-ts    node-ssr-jsx")}
@@ -56,6 +57,22 @@ const FRAMEWORKS = [
       },
       {
         name: "node-base-ts",
+        display: "TypeScript",
+        color: blue,
+      },
+    ],
+  },
+  {
+    name: "node-routing",
+    color: green,
+    variants: [
+      {
+        name: "node-routing",
+        display: "JavaScript",
+        color: yellow,
+      },
+      {
+        name: "node-routing-ts",
         display: "TypeScript",
         color: blue,
       },

@@ -8,6 +8,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import { fileToRoute, getRoutes } from "vite-plugin-vanjs/server";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const toAbsolute = (p) => path.resolve(__dirname, p);
@@ -18,31 +19,76 @@ const manifest = JSON.parse(
 const template = fs.readFileSync(toAbsolute("dist/static/index.html"), "utf-8");
 const { render } = await import("./dist/server/entry-server.js");
 
-// determine routes to pre-render from src/pages
-const routesToPrerender = fs.existsSync(toAbsolute("src/pages"))
-  ? fs
-    .readdirSync(toAbsolute("src/pages"))
-    .map((file) => {
-      const name = file.replace(/\.(ts|js|tsx|jsx)$/, "").toLowerCase();
-      return name === "home" ? `/` : `/${name}`;
-    })
+// determine routes to pre-render from src/pages | src/routes
+const routesFolder = fs.existsSync(toAbsolute("src/routes"))
+  ? "src/routes"
+  : fs.existsSync(toAbsolute("src/pages"))
+  ? "src/pages"
+  : null;
+
+// Use default vite config
+const viteConfig = {
+  root: toAbsolute(""),
+};
+const pluginConfig = {
+  routesDir: routesFolder,
+  extensions: [".tsx", ".jsx", ".ts", ".js"],
+};
+
+const routesToPrerender = routesFolder
+  ? (await getRoutes(viteConfig, pluginConfig))
+    .map((route) => route.path)
+    .map((file) => fileToRoute(file, toAbsolute(routesFolder)))
+    .filter((route, index, self) =>
+      // Remove duplicate routes
+      self.indexOf(route) === index &&
+      // Filter out layout files
+      !route.includes("(")
+    )
   : ["/"];
 
 (async () => {
+  // Ensure the static directory exists
+  const staticDir = toAbsolute("dist/static");
+  if (!fs.existsSync(staticDir)) {
+    fs.mkdirSync(staticDir, { recursive: true });
+  }
+
   // pre-render each route...
-  for (const url of routesToPrerender) {
-    const rendered = await render(url, manifest, template);
+  for (const route of routesToPrerender) {
+    const rendered = await render(route, manifest);
 
     const html = template
-      .replace(`<!--preload-links-->`, rendered.preloadLinks)
-      .replace(`<!--app-head-->`, rendered.head)
-      .replace(`<!--app-footer-->`, rendered.footer)
-      .replace(`<!--app-html-->`, rendered.html)
+      .replace(`<!-- preload-links -->`, rendered.preloadLinks)
+      .replace(`<!-- app-head -->`, rendered.head)
+      .replace(`<!-- app-header -->`, rendered.header)
+      .replace(`<!-- app-footer -->`, rendered.footer)
+      .replace(`<!-- app-main -->`, rendered.main)
       .replace(/\n\s*(?=\<?)|\n|\t/g, "");
 
-    const filePath = `dist/static${url === "/" ? "/index" : url}.html`;
-    fs.writeFileSync(toAbsolute(filePath), html);
-    console.log("pre-rendered:", filePath);
+    // Handle route path to file path conversion
+    let fileDir;
+    let fileName;
+    if (route === "/") {
+      fileDir = staticDir;
+      fileName = "index.html";
+    } else if (route.endsWith("*")) {
+      // For catch-all routes in root & subdirectories
+      fileDir = path.join(staticDir, route.slice(1, -1)); // Remove leading slash and asterisk
+      fileName = "404.html";
+    } else {
+      fileDir = path.join(staticDir, route.slice(1)); // Remove leading slash
+      fileName = "index.html";
+    }
+
+    // Ensure the directory exists
+    if (!fs.existsSync(fileDir)) {
+      fs.mkdirSync(fileDir, { recursive: true });
+    }
+
+    const filePath = path.join(fileDir, fileName);
+    fs.writeFileSync(filePath, html);
+    console.log("pre-rendered:", path.relative(staticDir, filePath));
   }
 
   // done, delete .vite directory including ssr manifest

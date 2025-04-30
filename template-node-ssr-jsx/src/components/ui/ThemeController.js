@@ -14,13 +14,17 @@ const getSystemTheme = () => {
   return "light";
 };
 
+
 // create a persisten state of the system theme
-const systemTheme = persistentState("ui-theme", getSystemTheme());
+const systemTheme = persistentState<Theme>("ui-theme", getSystemTheme());
 
 export const ThemeController = (
-  { theme, ...props },
+  { theme, ...rest },
   ...children
 ) => {
+  const props = Object.fromEntries(
+    Object.entries(rest).filter(([_, val]) => val !== undefined),
+  );
   if (!theme) {
     throw new Error(
       "ThemeController requires a theme property with valid value",
@@ -78,12 +82,12 @@ export const ThemeToggle = (
 ) => {
   const { input, label, span, button } = van.tags;
   const props = Object.fromEntries(
-    Object.entries(initialProps).filter(([_, val]) => val),
+    Object.entries(initialProps).filter(([_, val]) => val !== undefined),
   );
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
-  const theme = van.state(themes[themeIndex.val]);
+  const theme = van.state<Theme>(themes[themeIndex.val]);
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
@@ -150,7 +154,7 @@ export const ThemeDropdown = (props) => {
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
-  const theme = van.state(themes[themeIndex.val]);
+  const theme = van.state<Theme>(themes[themeIndex.val]);
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {

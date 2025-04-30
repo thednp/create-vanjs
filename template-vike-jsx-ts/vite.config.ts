@@ -6,9 +6,5 @@ import tailwind from "@tailwindcss/vite";
 import { UserConfig } from "vite";
 
 export default {
-  // optimizeDeps: {
-  //   noDiscovery: true,
-  //   include: [],
-  // },
   plugins: [vanjs(), vike(), svg(), tailwind()],
 } satisfies UserConfig;

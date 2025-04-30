@@ -1,6 +1,5 @@
 import { Router } from "@vanjs/router";
 import { Link, Meta, Title } from "@vanjs/meta";
-import "./routes";
 
 export const App = () => {
   Title("VanJS + Vite App");

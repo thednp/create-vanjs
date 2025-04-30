@@ -1,6 +1,6 @@
 import van from "vanjs-core";
 import { A } from "@vanjs/router";
-import { ThemeToggle } from "./ui/ThemeController";
+import { /*ThemeDropdown,*/ ThemeToggle } from "./ui/ThemeController";
 import { Github, Menu } from "vanjs-lucide";
 import VanJSLogo from "/vanjs-cone.svg?van";
 
@@ -30,6 +30,12 @@ export const Nav = () => {
           "About",
         ),
       ),
+      li(
+        A(
+          { class: "aria-[current=page]:text-primary", href: "/admin" },
+          "Admin",
+        ),
+      ),
     ),
   );
 };
@@ -37,6 +43,7 @@ export const Nav = () => {
 export const Header = () => {
   const { header, a, span } = van.tags;
   return header(
+    { id: "app-header", class: "navbar bg-base-100" },
     A(
       { class: "py-0", href: "/" },
       VanJSLogo({ width: "2rem", height: "2rem", class: "w-8 h-8" }),
@@ -51,6 +58,7 @@ export const Header = () => {
       span({ class: "sr-only" }, "Create VanJS project on Github"),
       Github(),
     ),
-    ThemeToggle({ class: "" }),
+    ThemeToggle({ class: "theme" }),
+    // ThemeDropdown({ class: "theme" }),
   );
 };

@@ -13,12 +13,11 @@ export async function render(url: string, manifest: Record<string, string[]>) {
   const head = await renderToString(Head());
   const header = await renderToString(<Header />);
   const footer = await renderToString(<Footer />);
-  // console.log(await main)
 
   // allow code splitting for multiple pages
   // by disabling the preloading of page components
   const manifestFiles = Object.keys(manifest).filter((file) =>
-    !file || !file.includes("src/pages/")
+    file !== undefined
   );
   const preloadLinks = renderPreloadLinks(manifestFiles, manifest);
 

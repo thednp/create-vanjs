@@ -9,13 +9,11 @@ const header = document.getElementById("app-header") as HTMLElement;
 const footer = document.getElementById("app-footer") as HTMLElement;
 
 van.hydrate(main, (mainDom) => {
-  const app = App();
-
-  van.hydrate(footer, (dom) => {
-    return hydrate(dom, Footer());
-  });
   van.hydrate(header, (dom) => {
     return hydrate(dom, Header());
   });
-  return hydrate(mainDom, app);
+  van.hydrate(footer, (dom) => {
+    return hydrate(dom, Footer());
+  });
+  return hydrate(mainDom, App());
 });

@@ -15,11 +15,18 @@ export const Nav = () => {
         tabindex="0"
       >
         <li>
-          <A class="aria-[current=page]:text-primary" href="/">Home</A>
+          <A class="aria-[current=page]:text-primary" href="/">
+            Home
+          </A>
         </li>
         <li>
           <A class="aria-[current=page]:text-primary" href="/about">
             About
+          </A>
+        </li>
+        <li>
+          <A class="aria-[current=page]:text-primary" href="/admin">
+            Admin
           </A>
         </li>
       </ul>

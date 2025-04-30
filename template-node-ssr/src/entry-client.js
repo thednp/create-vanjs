@@ -1,22 +1,19 @@
 import van from "vanjs-core";
-import { App } from "./app.js";
 import { hydrate } from "@vanjs/client";
+import { App } from "./app";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
-const root = document.getElementById("app");
+const main = document.getElementById("main");
 const header = document.getElementById("app-header");
 const footer = document.getElementById("app-footer");
 
-van.hydrate(root, (dom) => {
-  dom = hydrate(dom, App());
-
-  van.hydrate(header, (h) => {
-    return hydrate(h, Header());
+van.hydrate(main, (mainDom) => {
+  van.hydrate(header, (dom) => {
+    return hydrate(dom, Header());
   });
-  van.hydrate(footer, (f) => {
-    return hydrate(f, Footer());
+  van.hydrate(footer, (dom) => {
+    return hydrate(dom, Footer());
   });
-
-  return hydrate(dom, App());
+  return hydrate(mainDom, App());
 });
