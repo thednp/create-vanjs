@@ -14,9 +14,8 @@ const getSystemTheme = () => {
   return "light";
 };
 
-
 // create a persisten state of the system theme
-const systemTheme = persistentState<Theme>("ui-theme", getSystemTheme());
+const systemTheme = persistentState < Theme > ("ui-theme", getSystemTheme());
 
 export const ThemeController = (
   { theme, ...rest },
@@ -87,7 +86,7 @@ export const ThemeToggle = (
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
-  const theme = van.state<Theme>(themes[themeIndex.val]);
+  const theme = van.state < Theme > (themes[themeIndex.val]);
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
@@ -154,7 +153,7 @@ export const ThemeDropdown = (props) => {
   const themes = ["light", "dark", "system"];
   const themeIndex = van.state(themes.indexOf(systemTheme.val));
   // the internal theme state
-  const theme = van.state<Theme>(themes[themeIndex.val]);
+  const theme = van.state < Theme > (themes[themeIndex.val]);
   const icon = van.derive(() => {
     const currentTheme = theme.val;
     if (currentTheme === "dark") {
