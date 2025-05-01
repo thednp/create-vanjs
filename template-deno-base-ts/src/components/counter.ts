@@ -1,4 +1,4 @@
-import van from "npm:vanjs-core";
+import van from "vanjs-core";
 
 const Counter = () => {
   const { button } = van.tags;

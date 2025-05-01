@@ -12,8 +12,8 @@ import "../assets/app.css";
 const onRenderHtml: OnRenderHtmlAsync = async (
   pageContext: PageContextSERVER,
 ) => {
-  setPageContext(pageContext);
   const { Page } = pageContext;
+  setPageContext(pageContext);
 
   const main = await renderToString(
     <Layout pageContext={pageContext}>

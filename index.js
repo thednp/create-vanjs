@@ -33,15 +33,18 @@ Options:
   -t, --template NAME        use a specific template
 
 Available templates:
-${green("node-base-ts       node-base")}
-${green("node-routing-ts    node-routing")}
-${green("node-jsx-ts        node-jsx")}
-${green("node-ssr-ts        node-ssr")}
-${green("node-ssr-jsx-ts    node-ssr-jsx")}
-${cyan("deno-base-ts       deno-base")}
-${cyan("deno-jsx-ts        deno-jsx")}
-${magenta("vike-ts            vike")}
-${magenta("vike-jsx-ts        vike-jsx")}
+${green("node-base-ts        node-base")}
+${green("node-routing-ts     node-routing")}
+${green("node-fs-routing-ts  node-fs-routing")}
+${green("node-jsx-ts         node-jsx")}
+${green("node-ssr-ts         node-ssr")}
+${green("node-ssr-jsx-ts     node-ssr-jsx")}
+${cyan("deno-base-ts        deno-base")}
+${cyan("deno-jsx-ts         deno-jsx")}
+${cyan("deno-routing-ts     deno-routing")}
+${cyan("deno-fs-routing-ts  deno-fs-routing")}
+${magenta("vike-ts             vike")}
+${magenta("vike-jsx-ts         vike-jsx")}
 `;
 // ${gray("experimental")}
 
@@ -73,6 +76,22 @@ const FRAMEWORKS = [
       },
       {
         name: "node-routing-ts",
+        display: "TypeScript",
+        color: blue,
+      },
+    ],
+  },
+  {
+    name: "node-file-system-routing",
+    color: green,
+    variants: [
+      {
+        name: "node-fs-routing",
+        display: "JavaScript",
+        color: yellow,
+      },
+      {
+        name: "node-fs-routing-ts",
         display: "TypeScript",
         color: blue,
       },
@@ -169,6 +188,38 @@ const FRAMEWORKS = [
       },
       {
         name: "deno-base-ts",
+        display: "TypeScript",
+        color: blue,
+      },
+    ],
+  },
+  {
+    name: "deno-routing",
+    color: magenta,
+    variants: [
+      {
+        name: "deno-routing",
+        display: "JavaScript",
+        color: yellow,
+      },
+      {
+        name: "deno-routing-ts",
+        display: "TypeScript",
+        color: blue,
+      },
+    ],
+  },
+  {
+    name: "deno-file-system-routing",
+    color: magenta,
+    variants: [
+      {
+        name: "deno-fs-routing",
+        display: "JavaScript",
+        color: yellow,
+      },
+      {
+        name: "deno-fs-routing-ts",
         display: "TypeScript",
         color: blue,
       },
@@ -426,7 +477,12 @@ function copy(src, dest) {
   if (stat.isDirectory()) {
     copyDir(src, dest);
   } else {
-    fs.copyFileSync(src, dest);
+    if (
+      !["pnpm-lock", "bun.lockb", "yarn.lock", "package-lock"]
+        .some((str) => src.includes(str))
+    ) {
+      fs.copyFileSync(src, dest);
+    }
   }
 }
 
@@ -446,6 +502,8 @@ function toValidPackageName(projectName) {
 }
 
 function copyDir(srcDir, destDir) {
+  // don't copy the node_modules and dist folders
+  if (["/node_modules", "/dist/"].some((str) => srcDir.includes(str))) return;
   fs.mkdirSync(destDir, { recursive: true });
   for (const file of fs.readdirSync(srcDir)) {
     const srcFile = path.resolve(srcDir, file);

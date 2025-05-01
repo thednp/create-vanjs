@@ -8,8 +8,8 @@ import "../assets/app.css";
 import { setPageContext } from "./usePageContext";
 
 const onRenderHtml = async (pageContext) => {
-  setPageContext(pageContext);
   const { Page } = pageContext;
+  setPageContext(pageContext);
 
   const main = await renderToString(
     <Layout pageContext={pageContext}>

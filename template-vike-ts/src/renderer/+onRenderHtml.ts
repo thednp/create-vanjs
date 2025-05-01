@@ -9,9 +9,11 @@ import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import { getPageMeta } from "../util/getPageMeta";
 import "../assets/app.css";
+import { setPageContext } from "./usePageContext";
 
 const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   const { Page } = pageContext;
+  setPageContext(pageContext);
   const main = await renderToString(Layout({ Page, pageContext }));
   const header = await renderToString(Header());
   const footer = await renderToString(Footer());

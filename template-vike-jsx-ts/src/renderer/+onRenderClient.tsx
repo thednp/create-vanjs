@@ -1,3 +1,5 @@
+export { onRenderClient };
+
 import van from "vanjs-core";
 import { Layout } from "../components/Layout";
 import type { PageContextCLIENT } from "../types/types";
@@ -25,12 +27,13 @@ const onRenderClient: OnRenderClientAsync = async (
     );
   };
 
-  van.hydrate(main, (dom) => hydrate(dom, <App />));
-  van.hydrate(header, (dom) => hydrate(dom, <Header />));
-  // only hydrate if you have interactive/dynamic elements in Footer
-  // van.hydrate(footer, (dom) => hydrate(dom, <Footer />));
+  van.hydrate(main, (mainDom) => {
+    van.hydrate(header, (dom) => hydrate(dom, <Header />));
+    // only hydrate if you have interactive/dynamic elements in Footer
+    // van.hydrate(footer, (dom) => hydrate(dom, <Footer />));
+
+    return hydrate(mainDom, <App />);
+  });
 
   applyMeta(pageContext);
 };
-
-export { onRenderClient };

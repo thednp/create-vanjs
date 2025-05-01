@@ -13,19 +13,19 @@
     "start": "cross-env NODE_ENV=production node server"
   },
   "dependencies": {
-    "@tailwindcss/vite": "4.1.4",
+    "@tailwindcss/vite": "4.1.5",
     "compression": "^1.8.0",
-    "daisyui": "5.0.30",
+    "daisyui": "5.0.35",
     "express": "^5.1.0",
     "mini-van-plate": "^0.6.3",
     "serve-static": "^2.2.0",
     "sirv": "^3.0.1",
-    "tailwindcss": "4.1.4",
+    "tailwindcss": "4.1.5",
     "vanjs-core": "^1.5.5",
     "vanjs-ext": "^0.6.2",
     "vanjs-feather": "^0.1.2",
     "vanjs-lucide": "^0.0.3",
-    "vite-plugin-vanjs": "^0.1.5",
+    "vite-plugin-vanjs": "^0.1.6",
     "vite-vanjs-svg": "^0.0.5"
   },
   "devDependencies": {

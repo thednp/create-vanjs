@@ -9,17 +9,18 @@
     "preview": "vike build && vike preview"
   },
   "dependencies": {
-    "daisyui": "^5.0.30",
+    "daisyui": "^5.0.35",
     "mini-van-plate": "^0.6.3",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^4.1.5",
     "vanjs-core": "^1.5.5",
+    "vanjs-ext": "^0.6.2",
     "vanjs-lucide": "^0.0.3",
     "vike": "0.4.229",
     "vite": "^6.3.4",
-    "vite-plugin-vanjs": "^0.1.5",
+    "vite-plugin-vanjs": "^0.1.6",
     "vite-vanjs-svg": "^0.0.5"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.4"
+    "@tailwindcss/vite": "^4.1.5"
   }
 }

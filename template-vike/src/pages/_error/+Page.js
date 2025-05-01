@@ -14,8 +14,10 @@ export function Page() {
       h1(
         { class: "text-5xl my-8" },
         is404
-          ? (
-            span({ class: "font-bold" }, "404"), " / ", "Page Not Found"
+          ? span(
+            span({ class: "font-bold" }, "404"),
+            " / ",
+            "Page Not Found",
           )
           : "An Error has occured",
       ),

@@ -23,10 +23,13 @@ const onRenderClient: OnRenderClientAsync = async (
     return Layout({ Page, pageContext }) as HTMLElement;
   };
 
-  van.hydrate(main, (dom) => hydrate(dom, App()));
-  van.hydrate(header, (dom) => hydrate(dom, Header() as HTMLElement));
-  // only hydrate if you have interactive/dynamic elements in Footer
-  // van.hydrate(footer, (dom) => hydrate(dom, Footer() as HTMLElement));
+  van.hydrate(main, (mainDom) => {
+    van.hydrate(header, (dom) => hydrate(dom, Header()));
+    // only hydrate if you have interactive/dynamic elements in Footer
+    // van.hydrate(footer, (dom) => hydrate(dom, Footer()));
+
+    return hydrate(mainDom, App());
+  });
 
   applyMeta(pageContext);
 };

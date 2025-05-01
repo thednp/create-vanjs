@@ -54,26 +54,32 @@ bun create vanjs my-vanjs-app --template node-base
 
 Currently supported template presets include:
 
-| Template          | Try online                                                                                                |
-| ----------------- | --------------------------------------------------------------------------------------------------------- |
-| `node-base`       | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base)       |
-| `node-base-ts`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base-ts)    |
-| `node-routing`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-routing)    |
-| `node-routing-ts` | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-routing-ts) |
-| `node-jsx`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx)        |
-| `node-jsx-ts`     | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx-ts)     |
-| `node-ssr`        |                                                                                                           |
-| `node-ssr-ts`     |                                                                                                           |
-| `node-ssr-jsx`    |                                                                                                           |
-| `node-ssr-jsx-ts` |                                                                                                           |
-| `vike`            |                                                                                                           |
-| `vike-ts`         |                                                                                                           |
-| `vike-jsx`        |                                                                                                           |
-| `vike-jsx-ts`     |                                                                                                           |
-| `deno-base`       |                                                                                                           |
-| `deno-base-ts`    |                                                                                                           |
-| `deno-jsx`        |                                                                                                           |
-| `deno-jsx-ts`     |                                                                                                           |
+| Template             | Try online                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `node-base`          | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base)          |
+| `node-base-ts`       | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-base-ts)       |
+| `node-routing`       | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-routing)       |
+| `node-routing-ts`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-routing-ts)    |
+| `node-fs-routing`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-fs-routing)    |
+| `node-fs-routing-ts` | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-fs-routing-ts) |
+| `node-jsx`           | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx)           |
+| `node-jsx-ts`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx-ts)        |
+| `node-ssr`           |                                                                                                              |
+| `node-ssr-ts`        |                                                                                                              |
+| `node-ssr-jsx`       |                                                                                                              |
+| `node-ssr-jsx-ts`    |                                                                                                              |
+| `vike`               |                                                                                                              |
+| `vike-ts`            |                                                                                                              |
+| `vike-jsx`           |                                                                                                              |
+| `vike-jsx-ts`        |                                                                                                              |
+| `deno-base`          |                                                                                                              |
+| `deno-base-ts`       |                                                                                                              |
+| `deno-routing`       |                                                                                                              |
+| `deno-routing-ts`    |                                                                                                              |
+| `deno-fs-routing`    |                                                                                                              |
+| `deno-fs-routing-ts` |                                                                                                              |
+| `deno-jsx`           |                                                                                                              |
+| `deno-jsx-ts`        |                                                                                                              |
 
 You can use `.` for the project name to scaffold in the current directory.
 
@@ -88,10 +94,8 @@ of the templates.
 
 ## About
 
-This project is crafted by developers, for developers! If you don't need the
-mental gymnastics of React to manage local, derived or global state,
-composability or scalability, you can really develop applications of any kind or
-size with VanJS.
+This project is crafted by developers, for developers! Now you can really
+develop applications of any kind or size with VanJS.
 
 ## Attribution
 
