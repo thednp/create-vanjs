@@ -4,11 +4,11 @@ export const Page = () => {
   return (
     <div class="flex h-screen">
       <div class="p-4 m-auto text-center">
-        <a href="https://vite.dev" class="p-4" target="_blank">
+        <a href="https://vike.dev" class="p-4" target="_blank">
           <img
-            src="/vite.svg"
+            src="/vike.svg"
             class="h-32 w-32 p-4 inline hover:drop-shadow-[0_0_2em_#646cffaa]"
-            alt="Vite logo"
+            alt="Vike logo"
             width="96"
             height="96"
           />

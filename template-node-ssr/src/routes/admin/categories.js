@@ -119,7 +119,7 @@ export const Page = () => {
                     div(
                       div(
                         { class: "font-bold" },
-                        "Last chance to join the 8th of March event",
+                        "Sports",
                       ),
                     ),
                   ),

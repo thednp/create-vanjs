@@ -99,7 +99,7 @@ export const Page = () => {
                   <div class="flex items-center gap-3">
                     <div>
                       <div class="font-bold">
-                        Last chance to join the 8th of March event
+                        Sports
                       </div>
                     </div>
                   </div>

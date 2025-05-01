@@ -64,14 +64,14 @@ Currently supported template presets include:
 | `node-fs-routing-ts` | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-fs-routing-ts) |
 | `node-jsx`           | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx)           |
 | `node-jsx-ts`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-jsx-ts)        |
-| `node-ssr`           |                                                                                                              |
-| `node-ssr-ts`        |                                                                                                              |
-| `node-ssr-jsx`       |                                                                                                              |
-| `node-ssr-jsx-ts`    |                                                                                                              |
-| `vike`               |                                                                                                              |
-| `vike-ts`            |                                                                                                              |
-| `vike-jsx`           |                                                                                                              |
-| `vike-jsx-ts`        |                                                                                                              |
+| `node-ssr`           | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr)           |
+| `node-ssr-ts`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr-ts)        |
+| `node-ssr-jsx`       | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr-jsx)       |
+| `node-ssr-jsx-ts`    | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-node-ssr-jsx-ts)    |
+| `vike`               | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike)               |
+| `vike-ts`            | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike-ts)            |
+| `vike-jsx`           | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike-jsx)           |
+| `vike-jsx-ts`        | [StackBlitz](https://stackblitz.com/fork/github/thednp/create-vanjs/tree/master/template-vike-jsx-ts)        |
 | `deno-base`          |                                                                                                              |
 | `deno-base-ts`       |                                                                                                              |
 | `deno-routing`       |                                                                                                              |
