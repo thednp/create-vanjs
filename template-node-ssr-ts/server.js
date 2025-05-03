@@ -90,9 +90,9 @@ app.use("*all", async (req, res) => {
           `./dist/static${url?.length > 0 ? "/" + url : ""}/index.html`,
           "utf-8",
         );
-      } catch (error) {
+      } catch (_error) {
         // If exact path fails, try to find a 404.html going up the directory tree
-        let currentPath = urlParts;
+        const currentPath = urlParts;
         if (currentPath.length > 0) {
           while (currentPath.length > 0) {
             try {

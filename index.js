@@ -40,9 +40,11 @@ ${green("node-jsx-ts         node-jsx")}
 ${green("node-ssr-ts         node-ssr")}
 ${green("node-ssr-jsx-ts     node-ssr-jsx")}
 ${cyan("deno-base-ts        deno-base")}
-${cyan("deno-jsx-ts         deno-jsx")}
 ${cyan("deno-routing-ts     deno-routing")}
 ${cyan("deno-fs-routing-ts  deno-fs-routing")}
+${cyan("deno-jsx-ts         deno-jsx")}
+${cyan("deno-ssr-ts         deno-ssr")}
+${cyan("deno-ssr-jsx-ts     deno-ssr-jsx")}
 ${magenta("vike-ts             vike")}
 ${magenta("vike-jsx-ts         vike-jsx")}
 `;
@@ -226,6 +228,22 @@ const FRAMEWORKS = [
     ],
   },
   {
+    name: "deno-ssr",
+    color: magenta,
+    variants: [
+      {
+        name: "deno-ssr",
+        display: "JavaScript",
+        color: yellow,
+      },
+      {
+        name: "deno-ssr-ts",
+        display: "TypeScript",
+        color: blue,
+      },
+    ],
+  },
+  {
     name: "deno-jsx",
     color: magenta,
     variants: [
@@ -236,6 +254,22 @@ const FRAMEWORKS = [
       },
       {
         name: "deno-jsx-ts",
+        display: "TypeScript",
+        color: blue,
+      },
+    ],
+  },
+  {
+    name: "deno-ssr-jsx",
+    color: magenta,
+    variants: [
+      {
+        name: "deno-ssr-jsx",
+        display: "JavaScript",
+        color: yellow,
+      },
+      {
+        name: "deno-ssr-jsx-ts",
         display: "TypeScript",
         color: blue,
       },
@@ -439,8 +473,12 @@ async function init() {
     );
 
     pkg.name = packageName;
+    let packageJSON = JSON.stringify(pkg, null, 2);
+    if (pkgManager !== "npm") {
+      packageJSON = packageJSON.replace(/npm run/gm, pkgManager + " run");
+    }
 
-    write("package.json", JSON.stringify(pkg, null, 2) + "\n");
+    write("package.json", packageJSON + "\n");
   }
 
   let doneMessage = "";

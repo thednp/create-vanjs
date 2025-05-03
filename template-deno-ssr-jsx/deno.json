@@ -1,0 +1,33 @@
+{
+  "tasks": {
+    "dev": "NODE_ENV=development deno run -A --node-modules-dir server.js",
+    "clean": "deno cache --reload npm:vite-plugin-vanjs npm:vanjs-core npm:mini-van-plate",
+    "build": "deno run build:client && deno run build:server",
+    "build:client": "NODE_ENV=production deno run -A --node-modules-dir npm:vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/client --mode=production",
+    "build:server": "NODE_ENV=production deno run -A --node-modules-dir npm:vite build --sourcemap=false --ssr src/entry-server.jsx --outDir dist/server --mode=production",
+    "generate": "deno run build:client && NODE_ENV=production deno run -A --node-modules-dir npm:vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/static && deno run build:server && deno run -A prerender.js",
+    "preview": "deno run generate && NODE_ENV=production STATIC=true deno run --allow-env --allow-net --allow-read server.js --port 5173",
+    "start": "NODE_ENV=production deno run --allow-env --allow-net --allow-read server.js"
+  },
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
+  },
+  "imports": {
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.4",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@4.1.5",
+    "@types/compression": "npm:@types/compression@^1.7.5",
+    "@types/express": "npm:@types/express@^5.0.1",
+    "compression": "npm:compression@^1.8.0",
+    "daisyui": "npm:daisyui@5.0.35",
+    "express": "npm:express@^5.1.0",
+    "mini-van-plate": "npm:mini-van-plate@^0.6.3",
+    "sirv": "npm:sirv@^3.0.1",
+    "tailwindcss": "npm:tailwindcss@4.1.5",
+    "vanjs-lucide": "npm:vanjs-lucide@^0.0.3",
+    "vite": "npm:vite@^6.3.4",
+    "vanjs-core": "npm:vanjs-core@^1.5.5",
+    "vanjs-ext": "npm:vanjs-ext@^0.6.2",
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.7",
+    "vite-vanjs-svg": "npm:vite-vanjs-svg@^0.0.5"
+  }
+}

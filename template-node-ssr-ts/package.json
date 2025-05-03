@@ -8,7 +8,7 @@
     "build": "npm run build:client && npm run build:server",
     "build:client": "NODE_ENV=production vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/client --mode=production",
     "build:server": "NODE_ENV=production vite build --sourcemap=false --ssr src/entry-server.ts --outDir dist/server --mode=production",
-    "generate": "npm run build:client && NODE_ENV=production vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/static && npm run build:server && node prerender --mode=production",
+    "generate": "npm run build:client && NODE_ENV=production vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/static && pnpm run build:server && node prerender --mode=production",
     "preview": "npm run generate && NODE_ENV=production STATIC=true node server --port 5173",
     "start": "cross-env NODE_ENV=production node server"
   },
@@ -18,17 +18,18 @@
     "daisyui": "5.0.35",
     "express": "^5.1.0",
     "mini-van-plate": "^0.6.3",
-    "serve-static": "^2.2.0",
     "sirv": "^3.0.1",
     "tailwindcss": "4.1.5",
     "vanjs-core": "^1.5.5",
     "vanjs-ext": "^0.6.2",
     "vanjs-feather": "^0.1.2",
     "vanjs-lucide": "^0.0.3",
-    "vite-plugin-vanjs": "^0.1.6",
+    "vite-plugin-vanjs": "github:thednp/vite-plugin-vanjs",
     "vite-vanjs-svg": "^0.0.5"
   },
   "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/express": "^5.0.1",
     "cross-env": "^7.0.3",
     "vite": "^6.3.4"
   }

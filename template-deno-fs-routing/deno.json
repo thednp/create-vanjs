@@ -14,6 +14,6 @@
     "vite": "npm:vite@^6.3.4",
     "vanjs-core": "npm:vanjs-core@^1.5.5",
     "vanjs-ext": "npm:vanjs-ext@^0.6.2",
-    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.6"
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.7"
   }
 }

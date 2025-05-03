@@ -25,10 +25,12 @@
     "vanjs-ext": "^0.6.2",
     "vanjs-feather": "^0.1.2",
     "vanjs-lucide": "^0.0.3",
-    "vite-plugin-vanjs": "^0.1.6",
+    "vite-plugin-vanjs": "^0.1.7",
     "vite-vanjs-svg": "^0.0.5"
   },
   "devDependencies": {
+    "@types/compression": "^1.7.5",
+    "@types/express": "^5.0.1",
     "cross-env": "^7.0.3",
     "vite": "^6.3.4"
   }

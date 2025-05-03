@@ -17,7 +17,7 @@
     "vanjs-lucide": "^0.0.3",
     "vike": "0.4.229",
     "vite": "^6.3.4",
-    "vite-plugin-vanjs": "^0.1.6",
+    "vite-plugin-vanjs": "^0.1.7",
     "vite-vanjs-svg": "^0.0.5"
   },
   "devDependencies": {

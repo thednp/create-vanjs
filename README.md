@@ -80,6 +80,10 @@ Currently supported template presets include:
 | `deno-fs-routing-ts` |                                                                                                              |
 | `deno-jsx`           |                                                                                                              |
 | `deno-jsx-ts`        |                                                                                                              |
+| `deno-ssr`           |                                                                                                              |
+| `deno-ssr-ts`        |                                                                                                              |
+| `deno-ssr-jsx`       |                                                                                                              |
+| `deno-ssr-jsx-ts`    |                                                                                                              |
 
 You can use `.` for the project name to scaffold in the current directory.
 

@@ -6,7 +6,7 @@
     "start": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
   },
   "compilerOptions": {
-    "lib": ["ES2020", "DOM", "DOM.Iterable"]
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   },
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
@@ -14,6 +14,6 @@
     "vite": "npm:vite@^6.3.4",
     "vanjs-core": "npm:vanjs-core@^1.5.5",
     "vanjs-ext": "npm:vanjs-ext@^0.6.2",
-    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.6"
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.7"
   }
 }
