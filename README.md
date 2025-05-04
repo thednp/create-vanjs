@@ -1,4 +1,4 @@
-# create-vanjs
+## create-vanjs
 
 Scaffolding your first VanJS project in seconds!
 
@@ -29,8 +29,7 @@ bun create vanjs@latest
 Then follow the prompts!
 
 You can also directly specify the project name and the template you want to use
-via additional command line options. For example, to scaffold a basic Vite +
-SSR + VanJS project, run:
+via additional command line options. For example, to scaffold a basic Vite + VanJS project, run:
 
 ```bash
 # npm
@@ -39,18 +38,25 @@ npm create vanjs@latest my-vanjs-app -- --template node-base
 
 ```bash
 # pnpm
-pnpm create vanjs my-vanjs-app --template node-base
+pnpm create vanjs@latest my-vanjs-app --template node-base
 ```
 
 ```bash
 # Deno
-deno run -A npm:create-vanjs --template deno-base
+deno run -A npm:create-vanjs@latest --template deno-base
 ```
 
 ```bash
 # Bun
-bun create vanjs my-vanjs-app --template node-base
+bun create vanjs@latest my-vanjs-app --template node-base
 ```
+Notes:
+- if you execute the _create_ command with other package manager than _npm_, your project's `package.json` scripts will be updated to use that package manager. (EG: `bun create vanjs` => `bun run dev`).
+- You can use `.` for the project name to scaffold in the current directory.
+
+
+
+### Templates
 
 Currently supported template presets include:
 
@@ -85,9 +91,8 @@ Currently supported template presets include:
 | `deno-ssr-jsx`       |                                                                                                              |
 | `deno-ssr-jsx-ts`    |                                                                                                              |
 
-You can use `.` for the project name to scaffold in the current directory.
 
-## Community Templates
+### Community Templates
 
 **create-vanjs** is a tool to quickly start a project from a basic template for
 VanJS. Check out Awesome Vite for
@@ -96,12 +101,12 @@ that include other tools or target different frameworks. You can use a tool like
 [degit](https://github.com/Rich-Harris/degit) to scaffold your project with one
 of the templates.
 
-## About
+### About
 
 This project is crafted by developers, for developers! Now you can really
 develop applications of any kind or size with VanJS.
 
-## Attribution
+### Attribution
 
 This project is originally a fork of
 [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite).
