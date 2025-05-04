@@ -1,6 +1,6 @@
 ## deno-base
 
-A Deno minimalist Single Page Application (SPA) starter template for VanJS. Perfect for learning VanJS in Deno environment.
+A Deno based, minimalist Single Page Application (SPA) starter template for VanJS. Perfect for learning VanJS in Deno environment.
 
 
 ### Tasks
@@ -15,4 +15,11 @@ A Deno minimalist Single Page Application (SPA) starter template for VanJS. Perf
 ### What's included
 
 * `@deno/vite-plugin` - A plugin to enable Deno resolution inside Vite configurations.
-* `vanjs-core` - The core VanJS library for building reactive UIs.
+* `vanjs-core` - The VanJS core library for building reactive UIs.
+
+
+### Resources
+
+* [deno](https://deno.com): The Official Website.
+* [vite](https://vite.dev): The Official Vite Website.
+* [vanjs-core](https://vanjs.org/tutorial): The Official VanJS Tutorial.

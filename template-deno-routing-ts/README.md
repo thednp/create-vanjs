@@ -1,6 +1,6 @@
 ## deno-routing-ts
 
-A Deno Single Page Application (SPA) starter template for VanJS with TypeScript support and client-side routing. Perfect for type-safe multi-page apps.
+A Deno based, Single Page Application (SPA) starter template for VanJS with TypeScript support and basic client-side routing. Perfect for type-safe multi-page apps.
 
 
 ### Tasks
@@ -16,6 +16,16 @@ A Deno Single Page Application (SPA) starter template for VanJS with TypeScript 
 
 * `@deno/vite-plugin` - A plugin to enable Deno resolution inside Vite configurations.
 * `mini-van-plate` - A Minimalist Template Engine for Client/Server-side Rendering for VanJS.
-* `vanjs-core` - The core VanJS library for building reactive UIs.
+* `vanjs-core` - The VanJS core library for building reactive UIs.
 * `vanjs-ext` - A collection of utilities to boost productivity and DX for VanJS.
 * `vite-plugin-vanjs` - A mini meta-framework for VanJS that provides basic/file-system routing, metadata management, JSX support, isomorphic rendering and more.
+
+
+### Resources
+
+* [deno](https://deno.com): The Official Website.
+* [mini-van](https://vanjs.org/minivan): The Official `mini-van` Documentation.
+* [vite](https://vite.dev): The Official Vite Website.
+* [vanjs-core](https://vanjs.org/tutorial): The Official VanJS Tutorial.
+* [vanjs-ext](https://vanjs.org/x): The Official `vanjs-ext` Documentation.
+* [vite-plugin-vanjs](https://github.com/thednp/vite-plugin-vanjs/wiki): The `vite-plugin-vanjs` wiki page.
