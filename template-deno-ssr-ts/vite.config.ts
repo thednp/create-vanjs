@@ -12,14 +12,4 @@ export default defineConfig({
     vanSVG(),
     tailwind(),
   ],
-  build: {
-    // Enable more verbose logging
-    minify: false,
-    sourcemap: true,
-    rollupOptions: {
-      onLog(level, log) {
-        console.log(`[Rollup ${level}]:`, log.message);
-      },
-    },
-  },
 });

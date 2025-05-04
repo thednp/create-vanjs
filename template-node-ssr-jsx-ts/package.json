@@ -18,7 +18,6 @@
     "daisyui": "5.0.35",
     "express": "^5.1.0",
     "mini-van-plate": "^0.6.3",
-    "serve-static": "^2.2.0",
     "sirv": "^3.0.1",
     "tailwindcss": "4.1.5",
     "vanjs-core": "^1.5.5",

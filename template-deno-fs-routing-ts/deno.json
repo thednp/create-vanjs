@@ -2,8 +2,9 @@
   "tasks": {
     "dev": "deno run -A --node-modules-dir npm:vite",
     "build": "deno run -A --node-modules-dir npm:vite build",
-    "preview": "deno run -A --node-modules-dir npm:vite preview",
-    "start": "deno run --allow-net --allow-read jsr:@std/http@1/file-server dist/"
+    "start": "deno run -A --node-modules-dir npm:vite preview --port 5173",
+    "preview": "deno run build && deno run start",
+    "serve": "deno run -A npm:vite serve dist/ --host --port 4173"
   },
   "compilerOptions": {
     "lib": ["ES2020", "DOM", "DOM.Iterable"]

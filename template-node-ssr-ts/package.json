@@ -8,7 +8,7 @@
     "build": "npm run build:client && npm run build:server",
     "build:client": "NODE_ENV=production vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/client --mode=production",
     "build:server": "NODE_ENV=production vite build --sourcemap=false --ssr src/entry-server.ts --outDir dist/server --mode=production",
-    "generate": "npm run build:client && NODE_ENV=production vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/static && pnpm run build:server && node prerender --mode=production",
+    "generate": "npm run build:client && NODE_ENV=production vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/static && npm run build:server && node prerender --mode=production",
     "preview": "npm run generate && NODE_ENV=production STATIC=true node server --port 5173",
     "start": "cross-env NODE_ENV=production node server"
   },

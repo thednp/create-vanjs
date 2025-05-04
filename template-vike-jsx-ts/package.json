@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vike dev",
+    "dev": "vike dev --port 5173",
     "build": "vike build",
-    "preview": "vike build && vike preview"
+    "start": "vike preview --port 5173",
+    "preview": "vike build && vike preview --port 5173"
   },
   "dependencies": {
     "daisyui": "^5.0.35",
