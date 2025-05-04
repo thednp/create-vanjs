@@ -1,7 +1,6 @@
 {
   "tasks": {
     "dev": "NODE_ENV=development deno run -A --node-modules-dir server.js",
-    "clean": "deno cache --reload npm:vite-plugin-vanjs npm:vanjs-core npm:mini-van-plate",
     "build": "deno run build:client && deno run build:server",
     "build:client": "NODE_ENV=production deno run -A --node-modules-dir npm:vite build --sourcemap=false --ssrManifest .vite/ssr-manifest.json --outDir dist/client --mode=production",
     "build:server": "NODE_ENV=production deno run -A --node-modules-dir npm:vite build --sourcemap=false --ssr src/entry-server.tsx --outDir dist/server --mode=production",
