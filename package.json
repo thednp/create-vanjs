@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
