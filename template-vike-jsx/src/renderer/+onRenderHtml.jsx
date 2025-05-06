@@ -3,6 +3,7 @@ import { renderToString } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
+import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
 import "../assets/app.css";
 import { setPageContext } from "./usePageContext";
@@ -12,9 +13,17 @@ const onRenderHtml = async (pageContext) => {
   setPageContext(pageContext);
 
   const main = await renderToString(
-    <Layout pageContext={pageContext}>
-      <Page />
-    </Layout>,
+    pageContext.pageId?.includes("/admin")
+      ? (
+        <LayoutAdmin pageContext={pageContext}>
+          <Page />
+        </LayoutAdmin>
+      )
+      : (
+        <Layout pageContext={pageContext}>
+          <Page />
+        </Layout>
+      ),
   );
   const header = await renderToString(<Header />);
   const footer = await renderToString(<Footer />);

@@ -11,14 +11,14 @@ export type {
 
 import type { PageContextClient, PageContextServer } from "vike/types";
 import type {
+  ChildDom,
   Props,
   PropsWithKnownKeys,
   PropValueOrDerived,
   State,
 } from "vanjs-core";
-import { Element as VanElement } from "mini-van-plate/van-plate";
 
-export type PageComponent = () => HTMLElement | VanElement;
+export type PageComponent = () => ChildDom;
 
 type PageContextCustom = {
   Page: PageComponent;

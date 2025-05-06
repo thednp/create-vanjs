@@ -21,7 +21,7 @@ export function Page() {
         <h1 class="text-5xl font-bold my-8">
           {pageTitle()}
         </h1>
-        <p>This is a sample error page</p>
+        <p class="mb-4">This is a sample error page</p>
         <Link class="btn" href="/">Go Back Home</Link>
       </div>
     </div>

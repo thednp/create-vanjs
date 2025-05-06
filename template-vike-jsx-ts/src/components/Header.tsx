@@ -22,6 +22,11 @@ export const Nav = () => {
             About
           </Link>
         </li>
+        <li>
+          <Link class="aria-[current=page]:text-primary" href="/admin">
+            Admin
+          </Link>
+        </li>
       </ul>
     </nav>
   );

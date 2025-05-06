@@ -1,5 +1,5 @@
-import van from "npm:vanjs-core";
-import Counter from "./components/Counter.tsx";
+import van from "vanjs-core";
+import Counter from "./components/Counter";
 import "./App.css";
 
 export const App = () => {

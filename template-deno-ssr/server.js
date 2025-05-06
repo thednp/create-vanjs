@@ -1,4 +1,4 @@
-/// <reference lib="deno.ns" />
+/// <reference types="deno.ns" />
 
 // server.js
 import { existsSync } from "node:fs";
@@ -68,7 +68,7 @@ app.use("*all", async (req, res) => {
 
     /** @type {string} */
     let template = "";
-    /** @type {import('./src/entry-server.ts').render} */
+    /** @type {import('./src/entry-server.js').render} */
     let render;
     if (!isProduction) {
       // Always read fresh template in development

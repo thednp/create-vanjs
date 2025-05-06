@@ -2,7 +2,7 @@
 import { renderPreloadLinks, renderToString } from "@vanjs/server";
 import { setRouterState } from "@vanjs/router";
 import { Head } from "@vanjs/meta";
-import { App } from "./app";
+import { App } from "./App";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 

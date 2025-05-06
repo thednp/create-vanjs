@@ -12,13 +12,14 @@ function Link(props: LinkProps, ...children: ChildDom[]) {
   const { urlPathname } = usePageContext();
   const hrefAtt = () =>
     (href as State<string>)?.val ? (href as State<string>).val : href as string;
-  const isActive = hrefAtt() === "/"
-    ? urlPathname === hrefAtt()
-    : urlPathname?.startsWith(hrefAtt()) || false;
+
+  const ariaCurrent = van.derive(() => {
+    return urlPathname === hrefAtt() ? "page" : "";
+  });
 
   return a({
     href: hrefAtt,
-    "aria-current": isActive ? "page" : "",
+    "aria-current": ariaCurrent,
     ...rest,
   }, ...children);
 }

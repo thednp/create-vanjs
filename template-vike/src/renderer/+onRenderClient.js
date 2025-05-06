@@ -2,6 +2,7 @@ export { onRenderClient };
 
 import van from "vanjs-core";
 import { Layout } from "../components/Layout";
+import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { hydrate } from "@vanjs/client";
 import { Header } from "../components/Header";
 // import { Footer } from "../components/Footer";
@@ -17,6 +18,9 @@ const onRenderClient = async (pageContext) => {
 
   const App = () => {
     setPageContext(pageContext);
+    if (pageContext.pageId.includes("/admin")) {
+      return LayoutAdmin({ Page, pageContext });
+    }
     return Layout({ Page, pageContext });
   };
 

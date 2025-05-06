@@ -9,66 +9,50 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 // Template descriptions
 const DESCRIPTIONS = {
   // Node templates
-  "node-base":
-    "A minimalist Single Page Application (SPA) starter template for VanJS. Perfect for learning VanJS or starting small projects.",
-  "node-base-ts":
-    "A minimalist Single Page Application (SPA) starter template for VanJS with TypeScript support. Ideal for learning type-safe VanJS development.",
+  "node-base": "A minimalist starter template for VanJS.",
+  "node-base-ts": "A minimalist starter template for VanJS.",
   "node-routing":
-    "A Single Page Application (SPA) starter template for VanJS with basic client-side routing. A perfect starter for multi-page SPAs.",
+    "A starter template for VanJS with basic client-side routing.",
   "node-routing-ts":
-    "A Single Page Application (SPA) starter template for VanJS with basic client-side routing and TypeScript support. Perfect for developing type-safe multi-page SPAs.",
+    "A starter template for VanJS with basic client-side routing.",
   "node-fs-routing":
-    "A Single Page Application (SPA) starter template for VanJS with client-side file-system routing. Ideal for convention-based routing.",
+    "A starter template for VanJS with client-side file-system routing.",
   "node-fs-routing-ts":
-    "A Single Page Application (SPA) starter template for VanJS with TypeScript support and client-side file-system routing. Perfect for type-safe convention-based routing.",
-  "node-jsx":
-    "A Single Page Application (SPA) starter template for VanJS with JSX support. Great for developers familiar with React-like syntax.",
-  "node-jsx-ts":
-    "A Single Page Application (SPA) starter template for VanJS with TypeScript and JSX support. Ideal for type-safe React-like development.",
-  "node-ssr":
-    "A fully-featured, Server-Side Rendering (SSR/MPA) starter template for VanJS. Perfect for SEO-friendly, full-stack apps, documentation pages, etc.",
-  "node-ssr-ts":
-    "A fully-featured, Server-Side Rendering (SSR/MPA) starter template for VanJS with TypeScript support. Ideal for type-safe, SEO-friendly, full-stack apps, documentation pages, etc.",
+    "A starter template for VanJS with client-side file-system routing.",
+  "node-jsx": "A starter template for VanJS with JSX support.",
+  "node-jsx-ts": "A starter template for VanJS with JSX support.",
+  "node-ssr": "A fully-featured starter template for VanJS.",
+  "node-ssr-ts": "A fully-featured starter template for VanJS.",
   "node-ssr-jsx":
-    "A fully-featured, Server-Side Rendering (SSR/MPA) starter template for VanJS with JSX support. Great for SEO-friendly, full-stack apps, documentation pages, etc.",
+    "A fully-featured starter template for VanJS with JSX support.",
   "node-ssr-jsx-ts":
-    "A fully-featured, Server-Side Rendering (SSR/MPA) starter template for VanJS with TypeScript and JSX support. Great for type-safe, SEO-friendly, full-stack apps, documentation pages, etc.",
+    "A fully-featured starter template for VanJS with JSX support.",
 
   // Deno templates
-  "deno-base":
-    "A Deno based, minimalist Single Page Application (SPA) starter template for VanJS. Perfect for learning VanJS in Deno environment.",
-  "deno-base-ts":
-    "A Deno based, minimalist Single Page Application (SPA) starter template with TypeScript support for VanJS. Ideal for type-safe Deno development.",
+  "deno-base": "A minimalist starter template for VanJS.",
+  "deno-base-ts": "A minimalist starter template for VanJS.",
   "deno-routing":
-    "A Deno based, Single Page Application (SPA) starter template for VanJS and basic client-side routing. Great for multi-page Deno applications.",
+    "A starter template for VanJS with basic client-side routing.",
   "deno-routing-ts":
-    "A Deno based, Single Page Application (SPA) starter template for VanJS with TypeScript support and basic client-side routing. Perfect for type-safe multi-page apps.",
+    "A starter template for VanJS with basic client-side routing.",
   "deno-fs-routing":
-    "A Deno based, Single Page Application (SPA) starter template for VanJS with client-side file-system routing. Ideal for convention-based routing.",
+    "A starter template for VanJS with client-side file-system routing.",
   "deno-fs-routing-ts":
-    "A Deno based, Single Page Application (SPA) starter template for VanJS with TypeScript support and client-side file-system routing. Perfect for type-safe convention-based routing.",
-  "deno-jsx":
-    "A Deno based, Single Page Application (SPA) starter template for VanJS with JSX support. Great for Deno developers familiar with React-like syntax.",
-  "deno-jsx-ts":
-    "A Deno based, Single Page Application (SPA) starter template for VanJS with TypeScript and JSX support. Ideal for type-safe React-like development.",
-  "deno-ssr":
-    "A fully-featured, Deno based, Server-Side Rendering (SSR/MPA) starter template for VanJS. Perfect for SEO-friendly, full-stack apps, documentation pages, etc.",
-  "deno-ssr-ts":
-    "A fully-featured, Deno based, Server-Side Rendering (SSR/MPA) starter template for VanJS with TypeScript support. Ideal for type-safe, SEO-friendly, full-stack apps, documentation pages, etc.",
+    "A starter template for VanJS with client-side file-system routing.",
+  "deno-jsx": "A starter template for VanJS with JSX support.",
+  "deno-jsx-ts": "A starter template for VanJS with JSX support.",
+  "deno-ssr": "A fully-featured starter template for VanJS.",
+  "deno-ssr-ts": "A fully-featured starter template for VanJS.",
   "deno-ssr-jsx":
-    "A fully-featured, Deno based, Server-Side Rendering (SSR/MPA) starter template for VanJS with JSX support. Great for SEO-friendly, full-stack apps, documentation pages, etc.",
+    "A fully-featured starter template for VanJS with JSX support.",
   "deno-ssr-jsx-ts":
-    "A fully-featured, Deno based, Server-Side Rendering (SSR/MPA) starter template for VanJS with TypeScript and JSX support. Perfect for type-safe, SEO-friendly, full-stack apps, documentation pages, etc.",
+    "A fully-featured starter template for VanJS with JSX support.",
 
   // Vike templates
-  "vike":
-    "A fully-featured, full-stack starter template for VanJS powered by Vike. Probably your best choices for scalable applications.",
-  "vike-ts":
-    "A fully-featured, full-stack starter template with TypeScript support for VanJS powered by Vike. Probably your best choices for scalable, type-safe applications.",
-  "vike-jsx":
-    "A fully-featured, full-stack, JSX enabled starter template for VanJS powered by Vike. Perfect for React/SolidJS connoisseurs and junior developers and one of the best choices for building scalable applications.",
-  "vike-jsx-ts":
-    "A fully-featured, full-stack, JSX enabled starter template with TypeScript support for VanJS powered by Vike. Ideal for React/SolidJS connoisseurs and junior developers and one of the best choices for building scalable, type-safe applications.",
+  "vike": "A fully-featured starter template for VanJS powered by Vike.",
+  "vike-ts": "A fully-featured starter template for VanJS powered by Vike.",
+  "vike-jsx": "A fully-featured starter template for VanJS powered by Vike.",
+  "vike-jsx-ts": "A fully-featured starter template for VanJS powered by Vike.",
 };
 
 async function getPackage(templateDir) {
@@ -167,6 +151,32 @@ function getResources(pkg) {
   return result;
 }
 
+function generateFeatures(templateName) {
+  const isDeno = templateName.includes("deno");
+  const isVike = templateName.includes("vike");
+  const isFSRouting = templateName.includes("-fs-routing");
+  const isRouting = templateName.includes("routing-") && !isFSRouting;
+  const isSSR = templateName.includes("-ssr");
+  const isTypescript = templateName.endsWith("-ts");
+  const isJSX = templateName.includes("-jsx");
+  const features = [];
+
+  if (isDeno) {
+    features.push(`* Deno Configuration (works with Deno exclusively)`);
+  }
+  if (!isDeno) features.push(`* NodeJS Configuration (works with any runtime)`);
+  if (isVike) features.push(`* Vike Full Configuration (without dedicated Vike integration plugin)`);
+  if (!isVike && !isSSR) features.push(`* Single Page Application (SPA)`);
+  if (isVike || isSSR) features.push(`* Server Side Rendering (SSR/MPA)`);
+  if (isSSR) features.push(`* Pre-renderer Included (SSG)`);
+  if (isRouting) features.push(`* Basic Client-Side Routing`);
+  if (isFSRouting || isVike) features.push(`* Client-Side File-System Routing`);
+  if (isJSX) features.push(`* JSX Transformation`);
+  if (isTypescript) features.push(`* TypeScript Support`);
+
+  return `### Features\n\n${features.join("\n")}`;
+}
+
 function generateScriptsDocs(templateName, pkg = null) {
   const isNode = !templateName.startsWith("deno-");
   const isVike = templateName.startsWith("vike-");
@@ -237,11 +247,15 @@ function generateResources(templateName, pkg = null) {
 async function generateReadme(templateDir) {
   const templateName = templateDir.replace("template-", "");
   const description = DESCRIPTIONS[templateName];
+  const features = generateFeatures(templateDir);
   const pkg = await getPackage(templateDir);
 
   const content = `## ${templateName}
 
 ${description}
+
+
+${features}
 
 
 ${generateScriptsDocs(templateName, pkg)}

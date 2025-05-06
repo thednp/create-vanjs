@@ -13,7 +13,7 @@ export const route = {
   },
 };
 
-export const Page = (props?: { children?: ChildDom[] }) => {
+export const Layout = (props?: { children?: ChildDom[] }) => {
   const { div, aside, label, input, ul, li, span } = van.tags;
   const { svg, path } = van.tags("http://www.w3.org/2000/svg");
   const open = van.state(false);

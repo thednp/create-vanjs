@@ -30,6 +30,12 @@ export const Nav = () => {
           "About",
         ),
       ),
+      li(
+        Link(
+          { class: "aria-[current=page]:text-primary", href: "/admin" },
+          "Admin",
+        ),
+      ),
     ),
   );
 };

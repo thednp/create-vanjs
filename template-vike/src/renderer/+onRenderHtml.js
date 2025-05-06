@@ -5,15 +5,18 @@ import { renderToString } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
+import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
-import "../assets/app.css";
 import { setPageContext } from "./usePageContext";
+import "../assets/App.css";
 
 const onRenderHtml = async (pageContext) => {
   const { Page } = pageContext;
   setPageContext(pageContext);
 
-  const main = await renderToString(Layout({ Page, pageContext }));
+  const main = pageContext.pageId.includes("/admin")
+    ? await renderToString(LayoutAdmin({ Page, pageContext }))
+    : await renderToString(Layout({ Page, pageContext }));
   const header = await renderToString(Header());
   const footer = await renderToString(Footer());
   const title = getPageMeta(pageContext, "title");

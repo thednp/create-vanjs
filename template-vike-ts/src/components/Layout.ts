@@ -5,5 +5,5 @@ export function Layout({ Page /*, pageContext*/ }: LayoutProps) {
   const { main } = van.tags;
   return main({
     id: "main",
-  }, Page() as HTMLElement);
+  }, Page());
 }

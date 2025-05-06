@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { usePageContext } from "../renderer/usePageContext";
+import { usePageContext } from "../renderer/usePageContext.js";
 
 export { Link };
 
@@ -9,16 +9,16 @@ export { Link };
  */
 function Link(props, ...children) {
   const { a } = van.tags;
-  const { href, ...rest } = props;
   const { urlPathname } = usePageContext();
-  const HREF = href?.val ? href.val : href;
-  const isActive = href === "/"
-    ? urlPathname === href
-    : urlPathname?.startsWith(HREF) || false;
+  const { href, ...rest } = props;
+  const ariaCurrent = van.derive(() => {
+    const HREF = href?.val ? href.val : href;
+    return HREF === urlPathname ? "page" : "";
+  });
 
   return a({
     href,
-    "aria-current": isActive ? "page" : "",
+    "aria-current": ariaCurrent,
     ...rest,
   }, ...children);
 }

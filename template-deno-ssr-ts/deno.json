@@ -23,7 +23,7 @@
     "sirv": "npm:sirv@^3.0.1",
     "tailwindcss": "npm:tailwindcss@4.1.5",
     "vanjs-lucide": "npm:vanjs-lucide@^0.0.3",
-    "vite": "npm:vite@^6.3.4",
+    "vite": "npm:vite@^6.3.5",
     "vanjs-core": "npm:vanjs-core@^1.5.5",
     "vanjs-ext": "npm:vanjs-ext@^0.6.2",
     "vite-plugin-vanjs": "npm:vite-plugin-vanjs@github:thednp/vite-plugin-vanjs",

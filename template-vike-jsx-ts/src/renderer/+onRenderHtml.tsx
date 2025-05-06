@@ -5,6 +5,7 @@ import type { PageContextSERVER } from "../types/types";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
+import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
 import { setPageContext } from "./usePageContext";
 import "../assets/app.css";
@@ -16,9 +17,17 @@ const onRenderHtml: OnRenderHtmlAsync = async (
   setPageContext(pageContext);
 
   const main = await renderToString(
-    <Layout pageContext={pageContext}>
-      <Page />
-    </Layout>,
+    pageContext.pageId?.includes("/admin")
+      ? (
+        <LayoutAdmin pageContext={pageContext}>
+          <Page />
+        </LayoutAdmin>
+      )
+      : (
+        <Layout pageContext={pageContext}>
+          <Page />
+        </Layout>
+      ),
   );
   const header = await renderToString(<Header />);
   const footer = await renderToString(<Footer />);

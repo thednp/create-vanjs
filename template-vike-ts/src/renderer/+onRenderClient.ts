@@ -2,6 +2,7 @@ export { onRenderClient };
 
 import van from "vanjs-core";
 import { Layout } from "../components/Layout";
+import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import type { OnRenderClientAsync } from "vike/types";
 import { hydrate } from "@vanjs/client";
 import { Header } from "../components/Header";
@@ -20,7 +21,10 @@ const onRenderClient: OnRenderClientAsync = async (
 
   const App = () => {
     setPageContext(pageContext);
-    return Layout({ Page, pageContext }) as HTMLElement;
+    if (pageContext.pageId?.includes("/admin")) {
+      return LayoutAdmin({ Page, pageContext });
+    }
+    return Layout({ Page, pageContext });
   };
 
   van.hydrate(main, (mainDom) => {

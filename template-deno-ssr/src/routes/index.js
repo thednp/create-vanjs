@@ -1,6 +1,6 @@
 import van from "@vanjs/van";
 import { Meta, Title } from "@vanjs/meta";
-import Counter from "../components/Counter";
+import { Counter } from "../components/Counter";
 
 export default () => {
   const { div, h1, p } = van.tags;

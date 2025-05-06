@@ -31,6 +31,6 @@
     "@types/compression": "^1.7.5",
     "@types/express": "^5.0.1",
     "cross-env": "^7.0.3",
-    "vite": "^6.3.4"
+    "vite": "^6.3.5"
   }
 }

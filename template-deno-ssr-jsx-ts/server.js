@@ -43,7 +43,7 @@ const manifest = isProduction
 const app = express();
 
 // Add Vite or respective production middlewares
-/** @type {import('vite').ViteDevServer | undefined} */
+/** @type {import('vite').ViteDevServer} */
 let vite;
 if (!isProduction) {
   const { createServer } = await import("npm:vite");
@@ -68,7 +68,7 @@ app.use("*all", async (req, res) => {
 
     /** @type {string} */
     let template = "";
-    /** @type {import('./src/entry-server.ts').render} */
+    /** @type {import('./src/entry-server.tsx').render} */
     let render;
     if (!isProduction) {
       // Always read fresh template in development

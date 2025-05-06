@@ -13,7 +13,7 @@ export const route = {
   },
 };
 
-export const Page = (props) => {
+export const Layout = (props) => {
   const open = van.state(false);
   const onOpenChange = () => {
     const current = open.val;

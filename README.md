@@ -6,6 +6,8 @@ Scaffolding your first VanJS project in seconds!
 > version 18+, 20+, 22+. However, some templates require a higher Node.js
 > version to work, please upgrade if your package manager warns about it.
 
+### Usage
+
 ```bash
 # NPM:
 npm create vanjs@latest
@@ -28,33 +30,29 @@ bun create vanjs@latest
 
 Then follow the prompts!
 
+**Note**: if you execute the _create_ command with other package manager than
+_npm_, your project's `package.json` scripts will be updated to use that package
+manager. (EG: `bun create vanjs` will rename scripts to `bun run build`).
+
+#### Current Directory
+
+You can use `.` for the project name to scaffold in the current directory.
+
+```bash
+# npm
+npm create vanjs@latest .
+```
+
+#### Specify Template
+
 You can also directly specify the project name and the template you want to use
-via additional command line options. For example, to scaffold a basic Vite + VanJS project, run:
+via additional command line options. For example, to scaffold a basic Vite +
+VanJS project, run:
 
 ```bash
 # npm
 npm create vanjs@latest my-vanjs-app -- --template node-base
 ```
-
-```bash
-# pnpm
-pnpm create vanjs@latest my-vanjs-app --template node-base
-```
-
-```bash
-# Deno
-deno run -A npm:create-vanjs@latest --template deno-base
-```
-
-```bash
-# Bun
-bun create vanjs@latest my-vanjs-app --template node-base
-```
-Notes:
-- if you execute the _create_ command with other package manager than _npm_, your project's `package.json` scripts will be updated to use that package manager. (EG: `bun create vanjs` => `bun run dev`).
-- You can use `.` for the project name to scaffold in the current directory.
-
-
 
 ### Templates
 
@@ -90,7 +88,6 @@ Currently supported template presets include:
 | `deno-ssr-ts`        |                                                                                                              |
 | `deno-ssr-jsx`       |                                                                                                              |
 | `deno-ssr-jsx-ts`    |                                                                                                              |
-
 
 ### Community Templates
 

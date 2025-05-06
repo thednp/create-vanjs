@@ -1,8 +1,9 @@
 import van from "vanjs-core";
 import { hydrate } from "@vanjs/client";
-import { App } from "./app";
+import { App } from "./App";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+// import React from "@vanjs/jsx";
 
 const main = document.getElementById("main") as HTMLElement;
 const header = document.getElementById("app-header") as HTMLElement;

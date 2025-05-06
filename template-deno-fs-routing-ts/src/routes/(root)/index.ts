@@ -1,5 +1,6 @@
 import van from "vanjs-core";
 import { Meta, Title } from "@vanjs/meta";
+import Counter from "../../components/Counter";
 
 export const route = {};
 
@@ -13,6 +14,7 @@ export const Page = () => {
     div(
       h1("Hello VanJS!"),
       p("This is the homepage."),
+      Counter(),
     ),
   ];
 };

@@ -1,5 +1,5 @@
 import { type ChildDom } from "vanjs-core";
-import Nav from "../components/nav";
+import Nav from "../components/Nav";
 
 type LayoutProps = {
   children: ChildDom[];

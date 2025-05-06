@@ -1,6 +1,6 @@
 import { lazy, Route } from "@vanjs/router";
 import { Page as NotFound } from "./pages/not-found";
-import Layout from "./components/layout";
+import Layout from "./components/Layout";
 
 Route({
   path: "/",

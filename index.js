@@ -15,7 +15,6 @@ const {
   green,
   magenta,
   yellow,
-  // gray
 } = colors;
 
 const argv = minimist(process.argv.slice(2), { string: ["_"] });
@@ -39,18 +38,17 @@ ${green("node-fs-routing-ts  node-fs-routing")}
 ${green("node-jsx-ts         node-jsx")}
 ${green("node-ssr-ts         node-ssr")}
 ${green("node-ssr-jsx-ts     node-ssr-jsx")}
-${cyan("deno-base-ts        deno-base")}
-${cyan("deno-routing-ts     deno-routing")}
-${cyan("deno-fs-routing-ts  deno-fs-routing")}
-${cyan("deno-jsx-ts         deno-jsx")}
-${cyan("deno-ssr-ts         deno-ssr")}
-${cyan("deno-ssr-jsx-ts     deno-ssr-jsx")}
-${magenta("vike-ts             vike")}
-${magenta("vike-jsx-ts         vike-jsx")}
+${magenta("deno-base-ts        deno-base")}
+${magenta("deno-routing-ts     deno-routing")}
+${magenta("deno-fs-routing-ts  deno-fs-routing")}
+${magenta("deno-jsx-ts         deno-jsx")}
+${magenta("deno-ssr-ts         deno-ssr")}
+${magenta("deno-ssr-jsx-ts     deno-ssr-jsx")}
+${cyan("vike-ts             vike")}
+${cyan("vike-jsx-ts         vike-jsx")}
 `;
-// ${gray("experimental")}
 
-const FRAMEWORKS = [
+const ALL_TEMPLATES = [
   {
     name: "node-base",
     color: green,
@@ -84,7 +82,7 @@ const FRAMEWORKS = [
     ],
   },
   {
-    name: "node-file-system-routing",
+    name: "node-fs-routing",
     color: green,
     variants: [
       {
@@ -212,7 +210,7 @@ const FRAMEWORKS = [
     ],
   },
   {
-    name: "deno-file-system-routing",
+    name: "deno-fs-routing",
     color: magenta,
     variants: [
       {
@@ -275,23 +273,13 @@ const FRAMEWORKS = [
       },
     ],
   },
-  // {
-  //   name: "experimental",
-  //   color: gray,
-  //   variants: [
-  //     {
-  //       name: "experimental",
-  //       display: "TypeScript",
-  //       color: blue,
-  //     },
-  //   ],
-  // },
 ];
 
-const TEMPLATES = FRAMEWORKS.map((f) => f.variants.map((v) => v.name)).reduce(
-  (a, b) => a.concat(b),
-  [],
-);
+const TEMPLATES = ALL_TEMPLATES.map((f) => f.variants.map((v) => v.name))
+  .reduce(
+    (a, b) => a.concat(b),
+    [],
+  );
 
 const renameFiles = {
   _gitignore: ".gitignore",
@@ -377,7 +365,7 @@ async function init() {
     packageName = packageNameResult;
   }
 
-  // 4. Choose a framework and variant
+  // 4. Choose a template and variant
   let template = argTemplate;
   let hasInvalidArgTemplate = false;
   if (argTemplate && !TEMPLATES.includes(argTemplate)) {
@@ -385,23 +373,23 @@ async function init() {
     hasInvalidArgTemplate = true;
   }
   if (!template) {
-    const framework = await prompts.select({
+    const tplStack = await prompts.select({
       message: hasInvalidArgTemplate
         ? `"${argTemplate}" isn't a valid template. Please choose from below: `
-        : "Select a framework:",
-      options: FRAMEWORKS.map((framework) => {
-        const frameworkColor = framework.color;
+        : "Select a template:",
+      options: ALL_TEMPLATES.map((tpl) => {
+        const tplColor = tpl.color;
         return {
-          label: frameworkColor(framework.display || framework.name),
-          value: framework,
+          label: tplColor(tpl.display || tpl.name),
+          value: tpl,
         };
       }),
     });
-    if (prompts.isCancel(framework)) return cancel();
+    if (prompts.isCancel(tplStack)) return cancel();
 
     const variant = await prompts.select({
       message: "Select a variant:",
-      options: framework.variants.map((variant) => {
+      options: tplStack.variants.map((variant) => {
         const variantColor = variant.color;
         const command = variant.customCommand
           ? getFullCustomCommand(variant.customCommand, pkgInfo).replace(
@@ -427,7 +415,7 @@ async function init() {
   const pkgManager = pkgInfo ? pkgInfo.name : "npm";
 
   const { customCommand } =
-    FRAMEWORKS.flatMap((f) => f.variants).find((v) => v.name === template) ??
+    ALL_TEMPLATES.flatMap((f) => f.variants).find((v) => v.name === template) ??
       {};
 
   if (customCommand) {
