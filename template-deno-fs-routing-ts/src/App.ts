@@ -1,6 +1,6 @@
 import van from "vanjs-core";
 import { Router } from "@vanjs/router";
-import "./app.css";
+import "./App.css";
 
 export const App = () => {
   return Router();
