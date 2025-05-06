@@ -528,8 +528,8 @@ function toValidPackageName(projectName) {
 }
 
 function copyDir(srcDir, destDir) {
-  // don't copy the node_modules and dist folders
-  if (["/node_modules", "/dist/"].some((str) => srcDir.includes(str))) return;
+  // don't copy the node_modules and dist folders ?
+  // if (["node_modules/", "dist/"].some((str) => srcDir.includes(str))) return;
   fs.mkdirSync(destDir, { recursive: true });
   for (const file of fs.readdirSync(srcDir)) {
     const srcFile = path.resolve(srcDir, file);

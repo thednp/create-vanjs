@@ -258,15 +258,11 @@ async function generateReadme(templateDir) {
 
 ${description}
 
-
 ${features}
-
 
 ${generateScriptsDocs(templateName, pkg)}
 
-
 ${generateDependenciesDocs(pkg)}
-
 
 ${generateResources(templateName, pkg)}
 `;

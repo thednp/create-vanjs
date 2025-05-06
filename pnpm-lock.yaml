@@ -21,8 +21,8 @@ importers:
         version: 1.1.1
     devDependencies:
       "@types/node":
-        specifier: ^22.15.12
-        version: 22.15.12
+        specifier: ^22.15.14
+        version: 22.15.14
 
 packages:
   "@clack/core@0.4.2":
@@ -35,9 +35,9 @@ packages:
       integrity: sha512-Q0T02vx8ZM9XSv9/Yde0jTmmBQufZhPJfYAg2XrrrxWWaZgq1rr8nU8Hv710BQ1dhoP8rtY7YUdpGej2Qza/cw==,
     }
 
-  "@types/node@22.15.12":
+  "@types/node@22.15.14":
     resolution: {
-      integrity: sha512-K0fpC/ZVeb8G9rm7bH7vI0KAec4XHEhBam616nVJCV51bKzJ6oA3luG4WdKoaztxe70QaNjS/xBmcDLmr4PiGw==,
+      integrity: sha512-BL1eyu/XWsFGTtDWOYULQEs4KR0qdtYfCxYAUYRoB7JP7h9ETYLgQTww6kH8Sj2C0pFGgrpM0XKv6/kbIzYJ1g==,
     }
 
   cross-spawn@7.0.6:
@@ -108,7 +108,7 @@ snapshots:
       picocolors: 1.1.1
       sisteransi: 1.0.5
 
-  "@types/node@22.15.12":
+  "@types/node@22.15.14":
     dependencies:
       undici-types: 6.21.0
 
