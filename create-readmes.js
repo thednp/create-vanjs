@@ -165,7 +165,11 @@ function generateFeatures(templateName) {
     features.push(`* Deno Configuration (works with Deno exclusively)`);
   }
   if (!isDeno) features.push(`* NodeJS Configuration (works with any runtime)`);
-  if (isVike) features.push(`* Vike Full Configuration (without dedicated Vike integration plugin)`);
+  if (isVike) {
+    features.push(
+      `* Vike Full Configuration (without dedicated Vike integration plugin)`,
+    );
+  }
   if (!isVike && !isSSR) features.push(`* Single Page Application (SPA)`);
   if (isVike || isSSR) features.push(`* Server Side Rendering (SSR/MPA)`);
   if (isSSR) features.push(`* Pre-renderer Included (SSG)`);
