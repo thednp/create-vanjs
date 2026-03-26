@@ -11,9 +11,9 @@
     "serve": "vite serve dist/ --host --port 4173"
   },
   "devDependencies": {
-    "vite": "^6.3.5"
+    "vite": "^8.0.3"
   },
   "dependencies": {
-    "vanjs-core": "^1.5.5"
+    "vanjs-core": "^1.6.0"
   }
 }

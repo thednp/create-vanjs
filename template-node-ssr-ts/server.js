@@ -142,7 +142,7 @@ app.use("*all", async (req, res) => {
 // Start http server
 app.listen(port, () => {
   console.log(
-    `Server ${
+    `  ➜  Server ${
       isStatic ? "SSG" : "SSR"
     } mode started at http://localhost:${port}`,
   );

@@ -12,6 +12,6 @@ export default () => {
         <p class="mb-4">This is your homepage.</p>
         <Counter />
       </div>
-    </div>,
+    </div>
   ];
 };

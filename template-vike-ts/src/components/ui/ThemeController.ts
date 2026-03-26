@@ -95,7 +95,7 @@ export const ThemeController = (
 };
 
 export const ThemeToggle = (
-  initialProps: Omit<ThemeControllerProps, "theme">,
+  initialProps: Omit<ThemeControllerProps, "theme">
 ) => {
   const { input, label, span, button } = van.tags;
   const props = Object.fromEntries(

@@ -27,6 +27,6 @@ export const Page = () => {
         </button>
         <A href="/not-found" class="btn">Not found</A>
       </div>
-    </div>,
+    </div>
   ];
 };

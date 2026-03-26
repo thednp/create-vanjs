@@ -100,6 +100,6 @@ export const Layout = (props?: { children?: JSX.Element }) => {
           </aside>
         </div>
       </div>
-    </>,
+    </>
   ];
 };

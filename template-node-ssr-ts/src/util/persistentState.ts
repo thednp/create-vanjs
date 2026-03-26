@@ -4,7 +4,7 @@ const isClient = () => typeof window !== "undefined";
 
 type StateValues = string | number | boolean | Record<string, unknown>;
 
-const getStoredValue = (key: string) => {
+export const getStoredValue = (key: string) => {
   if (!isClient()) return;
   try {
     const raw = localStorage.getItem(key) || "";
@@ -14,12 +14,12 @@ const getStoredValue = (key: string) => {
   }
 };
 
-const removeStoredValue = (key: string) => {
+export const removeStoredValue = (key: string) => {
   if (!isClient()) return;
   localStorage.removeItem(key);
 };
 
-const setStoredValue = (key: string, newValue: StateValues) => {
+export const setStoredValue = (key: string, newValue: StateValues) => {
   if (!isClient()) return;
   localStorage.setItem(key, JSON.stringify(newValue));
 };

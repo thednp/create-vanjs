@@ -44,13 +44,10 @@ export const Layout = (props?: { children?: ChildDom[] }) => {
             "stroke-linecap": "round",
             "stroke-linejoin": "round",
             "stroke-width": "2",
-            "d": "M4 6h16M4 12h16M4 18h16",
+            d: "M4 6h16M4 12h16M4 18h16",
           }),
         ),
-        span(
-          { class: "font-bold" },
-          "Admin Navigation",
-        ),
+        span({ class: "font-bold" }, "Admin Navigation"),
       ),
     ),
     div(
@@ -70,15 +67,20 @@ export const Layout = (props?: { children?: ChildDom[] }) => {
           class: "drawer-side z-40",
           style: "scroll-behavior: smooth; scroll-padding-top: 5rem;",
         },
-        label(
-          { for: "drawer", class: "drawer-overlay", ariaLabel: "Close Menu" },
-        ),
+        label({
+          for: "drawer",
+          class: "drawer-overlay",
+          ariaLabel: "Close Menu",
+        }),
         aside(
           { class: "bg-base-200 min-h-screen w-80" },
-          div({
-            class:
-              "navbar sticky top-0 z-20 pb-0 pt-4 px-4 backdrop-blur-md font-bold",
-          }, "Admin navigation"),
+          div(
+            {
+              class:
+                "navbar sticky top-0 z-20 pb-0 pt-4 px-4 backdrop-blur-md font-bold",
+            },
+            "Admin navigation",
+          ),
           ul(
             { class: "menu w-full z-10" },
             li(
@@ -88,9 +90,7 @@ export const Layout = (props?: { children?: ChildDom[] }) => {
                   class:
                     "aria-[current=page]:bg-primary aria-[current=page]:text-primary-content",
                 },
-                span(
-                  "Dashboard",
-                ),
+                span("Dashboard"),
               ),
             ),
             li(
@@ -100,9 +100,7 @@ export const Layout = (props?: { children?: ChildDom[] }) => {
                   class:
                     "aria-[current=page]:bg-primary aria-[current=page]:text-primary-content",
                 },
-                span(
-                  "Articles",
-                ),
+                span("Articles"),
               ),
               A(
                 {
@@ -110,9 +108,7 @@ export const Layout = (props?: { children?: ChildDom[] }) => {
                   class:
                     "aria-[current=page]:bg-primary aria-[current=page]:text-primary-content",
                 },
-                span(
-                  "Categories",
-                ),
+                span("Categories"),
               ),
               A(
                 {
@@ -120,9 +116,7 @@ export const Layout = (props?: { children?: ChildDom[] }) => {
                   class:
                     "aria-[current=page]:bg-primary aria-[current=page]:text-primary-content",
                 },
-                span(
-                  "Users",
-                ),
+                span("Users"),
               ),
             ),
           ),

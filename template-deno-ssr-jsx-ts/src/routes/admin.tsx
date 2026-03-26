@@ -100,6 +100,6 @@ export const Page = (props?: { children?: JSX.Element }) => {
           </aside>
         </div>
       </div>
-    </>,
+    </>
   ];
 };

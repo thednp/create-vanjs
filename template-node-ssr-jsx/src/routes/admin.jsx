@@ -100,6 +100,6 @@ export const Layout = (props) => {
           </aside>
         </div>
       </div>
-    </>,
+    </>
   ];
 };
