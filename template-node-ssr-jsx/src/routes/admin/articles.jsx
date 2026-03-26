@@ -138,6 +138,6 @@ export const Page = () => {
           </table>
         </div>
       </div>
-    </div>
+    </div>,
   ];
 };

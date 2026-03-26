@@ -100,6 +100,6 @@ export const Page = (props) => {
           </aside>
         </div>
       </div>
-    </>
+    </>,
   ];
 };

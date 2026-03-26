@@ -1,10 +1,5 @@
 import van from "vanjs-core";
-import {
-  ChildDom,
-  Props,
-  PropsWithKnownKeys,
-  State,
-} from "vanjs-core";
+import { ChildDom, Props, PropsWithKnownKeys, State } from "vanjs-core";
 import { Moon, Sun, SunMoon } from "vanjs-lucide";
 import { /*getStoredValue,*/ persistentState } from "../../util/persistentState";
 
@@ -39,7 +34,7 @@ const systemTheme = persistentState<Theme>("ui-theme", getSystemTheme());
 //   systemTheme.val = newTheme;
 //   document.documentElement.setAttribute("data-theme", newTheme);
 //   console.log(newTheme)
-// } 
+// }
 
 export const ThemeController = (
   { theme, ...rest }: ThemeControllerProps,
@@ -101,7 +96,7 @@ export const ThemeController = (
 };
 
 export const ThemeToggle = (
-  initialProps: Omit<ThemeControllerProps, "theme">
+  initialProps: Omit<ThemeControllerProps, "theme">,
 ) => {
   const { input, label, span, button } = van.tags;
   const props = Object.fromEntries(

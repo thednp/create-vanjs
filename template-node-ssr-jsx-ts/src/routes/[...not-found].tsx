@@ -14,6 +14,6 @@ export const Page = () => {
         <p class="mb-4">This is the about page</p>{" "}
         <A href="/" class="btn">Go Home</A>
       </div>
-    </div>
+    </div>,
   ];
 };

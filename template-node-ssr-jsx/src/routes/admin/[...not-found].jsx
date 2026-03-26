@@ -14,6 +14,6 @@ export const Page = () => {
         <p class="mb-4">This is the administrator error page</p>
         <A href="/admin" class="btn">Dashboard</A>
       </div>
-    </div>
+    </div>,
   ];
 };
