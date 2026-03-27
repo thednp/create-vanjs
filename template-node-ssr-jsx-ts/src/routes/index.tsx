@@ -538,7 +538,7 @@ export default () => {
                   <mo>=</mo>
                   <mfrac>
                     <mrow>
-                      <mo>−</mo>
+                      <mo>-</mo>
                       <mi>b</mi>
                       <mo>±</mo>
                       <msqrt>
@@ -546,7 +546,7 @@ export default () => {
                           <mi>b</mi>
                           <mn>2</mn>
                         </msup>
-                        <mo>−</mo>
+                        <mo>-</mo>
                         <mn>4</mn>
                         <mi>a</mi>
                         <mi>c</mi>
