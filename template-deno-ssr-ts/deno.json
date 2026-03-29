@@ -22,11 +22,11 @@
     "mini-van-plate": "npm:mini-van-plate@^0.6.3",
     "sirv": "npm:sirv@^3.0.2",
     "tailwindcss": "npm:tailwindcss@4.2.2",
-    "vanjs-lucide": "npm:vanjs-lucide@^0.0.5",
+    "vanjs-lucide": "npm:vanjs-lucide@^0.0.6",
     "vite": "npm:vite@^8.0.3",
     "vanjs-core": "npm:vanjs-core@^1.6.0",
     "vanjs-ext": "npm:vanjs-ext@^0.6.3",
-    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.12",
-    "vite-vanjs-svg": "npm:vite-vanjs-svg@^0.0.9"
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.14",
+    "vite-vanjs-svg": "npm:vite-vanjs-svg@^0.0.14"
   }
 }

@@ -4,7 +4,6 @@ import {
   Props,
   PropsWithKnownKeys,
   PropValueOrDerived,
-  State,
 } from "vanjs-core";
 import { Moon, Sun, SunMoon } from "vanjs-lucide";
 import { persistentState } from "../../util/persistentState";
@@ -15,41 +14,44 @@ type ChangeEvent<T extends EventTarget & Element = HTMLInputElement> =
   & InputEvent
   & { target: T };
 
+const mediaTarget = isClient() && globalThis
+  ? globalThis.matchMedia("(prefers-color-scheme: dark)")
+  : undefined;
+
 const getSystemTheme = () => {
-  if (isClient() && globalThis?.matchMedia) {
-    return globalThis?.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+  if (isClient() && globalThis && "matchMedia" in globalThis) {
+    return !mediaTarget?.matches ? "light" : "dark";
   }
   // return the default
-  return "light";
+  return "dark";
 };
 
 type Theme = "dark" | "light" | "system";
 type ThemeControllerProps =
   & Props
-  & { theme: State<Theme> }
+  // & { theme: State<Theme> }
   & Record<string, PropValueOrDerived>
   & PropsWithKnownKeys<HTMLFormElement>;
 
 // create a persisten state of the system theme
-const systemTheme = persistentState<Theme>("ui-theme", getSystemTheme());
+const currentTheme = persistentState<Theme>("ui-theme", "system");
+const systemTheme = van.state<Theme>(getSystemTheme());
+const isConnected = van.state(false);
 
 export const ThemeController = (
-  { theme, ...rest }: ThemeControllerProps,
+  { ...rest }: ThemeControllerProps,
   ...children: ChildDom[]
 ) => {
   const props = Object.fromEntries(
     Object.entries(rest).filter(([_, val]) => val !== undefined),
   ) as ThemeControllerProps;
 
-  if (!theme) {
-    throw new Error(
-      "ThemeController requires a theme property with valid value",
-    );
-  }
+  // if (!theme) {
+  //   throw new Error(
+  //     "ThemeController requires a theme property with valid value",
+  //   );
+  // }
   const { form } = van.tags;
-  const isConnected = van.state(false);
 
   // the controller form
   const controllerForm = form(
@@ -62,34 +64,31 @@ export const ThemeController = (
    */
   const themeCallback = (event: MediaQueryListEvent) => {
     const newTheme = event.matches ? "dark" : "light";
-    if (systemTheme.val === "system") {
-      theme.val = newTheme;
-    }
+    systemTheme.val = newTheme;
   };
 
+  // Fix 1: resolve actual theme for data-theme attribute
   van.derive(() => {
     if (!isClient()) return;
-    document.documentElement.setAttribute("data-theme", systemTheme.val);
+    const resolved = currentTheme.val === "system"
+      ? systemTheme.val
+      : currentTheme.val;
+    document.documentElement.setAttribute("data-theme", resolved);
   });
 
   van.derive(() => {
     if (!isClient()) return;
+
     if (isConnected.val) {
-      globalThis?.matchMedia("(prefers-color-scheme: dark)").addEventListener(
-        "change",
-        themeCallback,
-      );
+      mediaTarget?.addEventListener("change", themeCallback);
     } else {
-      globalThis?.matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener(
-          "change",
-          themeCallback,
-        );
+      mediaTarget?.removeEventListener("change", themeCallback);
     }
   });
 
   van.derive(() => {
-    setTimeout(() => isConnected.val = controllerForm.isConnected);
+    const action = isClient() ? requestAnimationFrame : queueMicrotask;
+    action(() => isConnected.val = controllerForm.isConnected);
   });
 
   return controllerForm;
@@ -103,37 +102,27 @@ export const ThemeToggle = (
     Object.entries(initialProps).filter(([_, val]) => val !== undefined),
   ) as ThemeControllerProps;
   const themes: Theme[] = ["light", "dark", "system"];
-  const themeIndex = van.state(themes.indexOf(systemTheme.val));
-  // the internal theme state
-  const theme = van.state<Theme>(themes[themeIndex.val]);
-  const icon = van.derive(() => {
-    const currentTheme = theme.val;
-    if (currentTheme === "dark") {
-      return { icon: Moon({ class: "h-6 w-6" }) };
-    } else if (currentTheme === "light") {
-      return { icon: Sun({ class: "h-6 w-6" }) };
-    }
-    return { icon: SunMoon({ class: "h-6 w-6" }) };
-  });
 
   return ThemeController(
-    {
-      ...props,
-      theme,
-    },
+    props,
     button(
       {
         class: "btn btn-ghost btn-square",
         type: "button",
         onclick: () => {
-          const oldVal = themeIndex.oldVal;
-          const newIdx = oldVal < 2 ? themeIndex.oldVal + 1 : 0;
-          themeIndex.val = newIdx;
-          theme.val = themes[newIdx];
-          systemTheme.val = themes[newIdx];
+          const idx = themes.indexOf(currentTheme.val);
+          currentTheme.val = themes[(idx + 1) % 3];
         },
       },
-      icon.val.icon,
+      () => {
+        const theme = currentTheme.val;
+        if (theme === "dark") {
+          return Moon({ class: "h-6 w-6" });
+        } else if (theme === "light") {
+          return Sun({ class: "h-6 w-6" });
+        }
+        return SunMoon({ class: "h-6 w-6" });
+      },
       span({ class: "sr-only" }, "Toggle Theme"),
     ),
     label(
@@ -144,15 +133,15 @@ export const ThemeToggle = (
         name: "theme-buttons",
         class: "theme-controller",
         "aria-label": "Light",
-        checked: () => systemTheme.val === "light",
+        checked: () => currentTheme.val === "light",
         value: "light",
       }),
       input({
         type: "radio",
         name: "theme-buttons",
         class: "theme-controller",
-        "aria-label": "Dard",
-        checked: () => systemTheme.val === "dark",
+        "aria-label": "Dark",
+        checked: () => currentTheme.val === "dark",
         value: "dark",
       }),
       input({
@@ -160,7 +149,7 @@ export const ThemeToggle = (
         name: "theme-buttons",
         class: "theme-controller",
         "aria-label": "System",
-        checked: () => systemTheme.val === "system",
+        checked: () => currentTheme.val === "system",
         value: "system",
       }),
     ),
@@ -168,38 +157,32 @@ export const ThemeToggle = (
 };
 
 export const ThemeDropdown = (props: Omit<ThemeControllerProps, "theme">) => {
-  const { input, div, ul, li, button } = van.tags;
-  const themes: Theme[] = ["light", "dark", "system"];
-  const themeIndex = van.state(themes.indexOf(systemTheme.val));
-  // the internal theme state
-  const theme = van.state<Theme>(themes[themeIndex.val]);
-  const icon = van.derive(() => {
-    const currentTheme = theme.val;
-    if (currentTheme === "dark") {
-      return Moon({ class: "h-6 w-6 mr-2" });
-    } else if (currentTheme === "light") {
-      return Sun({ class: "h-6 w-6 mr-2" });
-    }
-    return SunMoon({ class: "h-6 w-6 mr-2" });
-  });
-
+  const { input, div, ul, li, button, span } = van.tags;
   const onSelect = (e: ChangeEvent) => {
     const value = e.target.value as Theme;
-    theme.val = value;
-    systemTheme.val = value;
+    currentTheme.val = value;
   };
 
   return ThemeController(
-    {
-      ...props,
-      theme,
-    },
+    props,
     div(
       { class: "dropdown dropdown-end" },
       button(
-        { type: "button", class: "btn btn-ghost" },
-        icon as unknown as ChildDom,
-        "Theme",
+        {
+          type: "button",
+          class: "btn btn-ghost btn-square",
+          ariaLabel: "Theme",
+        },
+        () => {
+          const theme = currentTheme.val;
+          if (theme === "dark") return Moon({ class: "h-6 w-6" });
+          if (theme === "light") return Sun({ class: "h-6 w-6" });
+          return SunMoon({ class: "h-6 w-6" });
+        },
+        span(
+          { class: "sr-only" },
+          "Theme",
+        ),
       ),
       ul(
         {
@@ -214,8 +197,8 @@ export const ThemeDropdown = (props: Omit<ThemeControllerProps, "theme">) => {
             onchange: onSelect,
             class:
               "theme-controller btn btn-sm btn-block btn-ghost justify-start",
-            "aria-label": "Default",
-            checked: () => systemTheme.val === "light",
+            "aria-label": "Light",
+            checked: () => currentTheme.val === "light",
             value: "light",
           }),
         ),
@@ -227,7 +210,7 @@ export const ThemeDropdown = (props: Omit<ThemeControllerProps, "theme">) => {
             class:
               "theme-controller btn btn-sm btn-block btn-ghost justify-start",
             "aria-label": "Dark",
-            checked: () => systemTheme.val === "dark",
+            checked: () => currentTheme.val === "dark",
             value: "dark",
           }),
         ),
@@ -239,7 +222,7 @@ export const ThemeDropdown = (props: Omit<ThemeControllerProps, "theme">) => {
             class:
               "theme-controller btn btn-sm btn-block btn-ghost justify-start",
             "aria-label": "System",
-            checked: () => systemTheme.val === "system",
+            checked: () => currentTheme.val === "system",
             value: "system",
           }),
         ),

@@ -23,7 +23,7 @@ const onRenderHtml = async (pageContext) => {
   const description = getPageMeta(pageContext, "description");
 
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" data-theme="system">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />

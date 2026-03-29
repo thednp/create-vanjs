@@ -61,9 +61,7 @@ export const ThemeController = (
    */
   const themeCallback = (event: MediaQueryListEvent) => {
     const newTheme = event.matches ? "dark" : "light";
-    if (systemTheme.val === "system") {
-      theme.val = newTheme;
-    }
+    systemTheme.val = newTheme;
   };
 
   van.derive(() => {
@@ -73,22 +71,17 @@ export const ThemeController = (
 
   van.derive(() => {
     if (!isClient()) return;
+    const target = globalThis?.matchMedia("(prefers-color-scheme: dark)");
     if (isConnected.val) {
-      globalThis?.matchMedia("(prefers-color-scheme: dark)").addEventListener(
-        "change",
-        themeCallback,
-      );
+      target.addEventListener("change", themeCallback);
     } else {
-      globalThis?.matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener(
-          "change",
-          themeCallback,
-        );
+      target.removeEventListener("change", themeCallback);
     }
   });
 
   van.derive(() => {
-    setTimeout(() => isConnected.val = controllerForm.isConnected);
+    const action = isClient() ? requestAnimationFrame : queueMicrotask;
+    action(() => isConnected.val = controllerForm.isConnected);
   });
 
   return controllerForm;

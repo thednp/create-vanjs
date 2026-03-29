@@ -7,7 +7,6 @@
  * @returns {string}
  */
 export function getPageMeta(pageContext, meta) {
-  // console.log("getPageTitle", pageContext)
   const str =
     // Title defined dynamically by data()
     pageContext.data?.[meta] ||

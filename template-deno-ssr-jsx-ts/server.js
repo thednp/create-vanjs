@@ -1,5 +1,3 @@
-/// <reference lib="deno.ns" />
-
 // server.js
 import { existsSync } from "node:fs";
 import path from "node:path";

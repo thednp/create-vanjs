@@ -1,7 +1,6 @@
 import type { MetaType, PageContext } from "../types/types";
 
 export function getPageMeta(pageContext: PageContext, meta: MetaType): string {
-  // console.log("getPageTitle", pageContext)
   const str =
     // Title defined dynamically by data()
     pageContext.data?.[meta as keyof PageContext["data"]] ||

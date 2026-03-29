@@ -15,11 +15,11 @@
     "tailwindcss": "^4.2.2",
     "vanjs-core": "^1.6.0",
     "vanjs-ext": "^0.6.3",
-    "vanjs-lucide": "^0.0.5",
+    "vanjs-lucide": "^0.0.6",
     "vike": "0.4.255",
     "vite": "^8.0.3",
-    "vite-plugin-vanjs": "^0.1.12",
-    "vite-vanjs-svg": "^0.0.9"
+    "vite-plugin-vanjs": "^0.1.14",
+    "vite-vanjs-svg": "^0.0.14"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.2"

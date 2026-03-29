@@ -1,5 +1,5 @@
 import { A } from "@vanjs/router";
-import { ThemeToggle } from "./ui/ThemeController";
+import { /*ThemeToggle,*/ ThemeDropdown } from "./ui/ThemeController";
 import { Github, Menu } from "vanjs-lucide";
 import VanJSLogo from "/vanjs-cone.svg?van";
 
@@ -11,7 +11,7 @@ export const Nav = () => {
         <Menu />
       </button>
       <ul
-        class="dropdown-content menu w-48 my-2 md:my-auto bg-base-200 rounded md:bg-transparent md:w-auto md:!flex md:!relative md:menu-horizontal md:!opacity-100 md:!scale-100"
+        class="dropdown-content menu w-48 my-2 md:my-auto bg-base-200 rounded md:bg-transparent md:w-auto md:flex! md:relative! md:menu-horizontal md:opacity-100! md:scale-100!"
         tabindex="0"
       >
         <li>
@@ -49,7 +49,8 @@ export const Header = () => {
         <span class="sr-only">Create VanJS project on Github</span>
         <Github />
       </a>
-      <ThemeToggle class="theme" />
+      {/* <ThemeToggle class="theme" /> */}
+      <ThemeDropdown class="theme" />
     </header>
   );
 };

@@ -22,10 +22,10 @@
     "tailwindcss": "4.2.2",
     "vanjs-core": "^1.6.0",
     "vanjs-ext": "^0.6.3",
-    "vanjs-feather": "^0.1.4",
-    "vanjs-lucide": "^0.0.5",
-    "vite-plugin-vanjs": "^0.1.12",
-    "vite-vanjs-svg": "^0.0.9"
+    "vanjs-feather": "^0.1.6",
+    "vanjs-lucide": "^0.0.6",
+    "vite-plugin-vanjs": "^0.1.14",
+    "vite-vanjs-svg": "^0.0.14"
   },
   "devDependencies": {
     "@types/compression": "^1.8.1",
