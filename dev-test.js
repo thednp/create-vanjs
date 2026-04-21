@@ -31,7 +31,12 @@ const results = [];
 async function run(cmd, args, options = {}, timeoutMs = 60_000) {
   const { cwd: cwdPath, env: envVars, ...rest } = options;
   return new Promise((resolve, reject) => {
-    const proc = spawn(cmd, args, { cwd: cwdPath, stdio: "pipe", env: { ...process.env, ...envVars }, ...rest });
+    const proc = spawn(cmd, args, {
+      cwd: cwdPath,
+      stdio: "pipe",
+      env: { ...process.env, ...envVars },
+      ...rest,
+    });
     let stdout = "";
     let stderr = "";
     proc.stdout.on("data", (d) => (stdout += d.toString()));
@@ -49,12 +54,15 @@ async function run(cmd, args, options = {}, timeoutMs = 60_000) {
     proc.on("close", (code) => {
       clearTimeout(timer);
       if (code === 0) resolve(stdout);
-      else
+      else {
         reject(
           new Error(
-            `Command failed with code ${code}: ${cmd} ${args.join(" ")}\n${stderr}`,
+            `Command failed with code ${code}: ${cmd} ${
+              args.join(" ")
+            }\n${stderr}`,
           ),
         );
+      }
     });
     proc.on("error", (err) => {
       clearTimeout(timer);
@@ -73,8 +81,9 @@ async function waitForPort(port, timeoutMs = 15_000) {
         res.status === 301 ||
         res.status === 302 ||
         res.status === 404
-      )
+      ) {
         return true;
+      }
     } catch {
       // port not ready
     }
@@ -103,8 +112,7 @@ if (filterRe) templates = templates.filter((d) => filterRe.test(d));
 
 for (const template of templates) {
   const templatePath = path.join(cwd, template);
-  const isNode =
-    template.startsWith("template-node-") ||
+  const isNode = template.startsWith("template-node-") ||
     template.startsWith("template-vike");
   const isDeno = template.startsWith("template-deno-");
   const start = Date.now();
@@ -129,10 +137,16 @@ for (const template of templates) {
       try {
         if (hasNodeModules) {
           console.log(`[${template}] Updating dependencies...`);
-          await run("pnpm", ["update"], { cwd: templatePath, env: { ...process.env, CI: "true" } }, 120_000);
+          await run("pnpm", ["update"], {
+            cwd: templatePath,
+            env: { ...process.env, CI: "true" },
+          }, 120_000);
         } else {
           console.log(`[${template}] Installing dependencies...`);
-          await run("pnpm", ["install"], { cwd: templatePath, env: { ...process.env, CI: "true" } }, 120_000);
+          await run("pnpm", ["install"], {
+            cwd: templatePath,
+            env: { ...process.env, CI: "true" },
+          }, 120_000);
         }
       } finally {
         if (movedWorkspace) {
@@ -160,7 +174,12 @@ for (const template of templates) {
         );
       } else {
         console.log(`[${template}] Caching dependencies...`);
-        await run("deno", ["cache", "deno.json"], { cwd: templatePath }, 120_000);
+        await run(
+          "deno",
+          ["cache", "deno.json"],
+          { cwd: templatePath },
+          120_000,
+        );
       }
       console.log(`[${template}] Starting dev server...`);
       devProc = spawn("deno", ["task", "dev"], {

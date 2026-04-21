@@ -19,7 +19,6 @@ const getSystemTheme = () => {
 // create a persisten state of the system theme
 const currentTheme = persistentState("ui-theme", "system");
 const systemTheme = van.state(getSystemTheme());
-const isConnected = van.state(false);
 
 export const ThemeController = (
   { ...rest },
@@ -56,16 +55,7 @@ export const ThemeController = (
 
   van.derive(() => {
     if (!isClient()) return;
-    if (isConnected.val) {
-      mediaTarget?.addEventListener("change", themeCallback);
-    } else {
-      mediaTarget?.removeEventListener("change", themeCallback);
-    }
-  });
-
-  van.derive(() => {
-    const action = isClient() ? requestAnimationFrame : queueMicrotask;
-    action(() => isConnected.val = controllerForm.isConnected);
+    mediaTarget?.addEventListener("change", themeCallback);
   });
 
   return controllerForm;

@@ -16,9 +16,9 @@
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^2.0.2",
     "mini-van-plate": "npm:mini-van-plate@^0.6.3",
-    "vite": "npm:vite@^8.0.8",
+    "vite": "npm:vite@^8.0.9",
     "vanjs-core": "npm:vanjs-core@^1.6.0",
     "vanjs-ext": "npm:vanjs-ext@^0.6.3",
-    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.14"
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.15"
   }
 }

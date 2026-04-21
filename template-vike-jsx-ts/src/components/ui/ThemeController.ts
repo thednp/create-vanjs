@@ -36,7 +36,6 @@ type ThemeControllerProps =
 // create a persisten state of the system theme
 const currentTheme = persistentState<Theme>("ui-theme", "system");
 const systemTheme = van.state<Theme>(getSystemTheme());
-const isConnected = van.state(false);
 
 export const ThemeController = (
   { ...rest }: ThemeControllerProps,
@@ -75,15 +74,6 @@ export const ThemeController = (
     if (!isClient()) return;
 
     mediaTarget?.addEventListener("change", themeCallback);
-    if (isConnected.val) {
-    } else {
-      mediaTarget?.removeEventListener("change", themeCallback);
-    }
-  });
-
-  van.derive(() => {
-    const action = isClient() ? requestAnimationFrame : queueMicrotask;
-    action(() => isConnected.val = controllerForm.isConnected);
   });
 
   return controllerForm;

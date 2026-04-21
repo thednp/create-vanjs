@@ -12,18 +12,18 @@
   "dependencies": {
     "daisyui": "^5.5.19",
     "mini-van-plate": "^0.6.3",
-    "tailwindcss": "^4.2.2",
+    "tailwindcss": "^4.2.4",
     "vanjs-core": "^1.6.0",
     "vanjs-ext": "^0.6.3",
     "vanjs-feather": "^0.1.7",
     "vanjs-lucide": "^0.0.7",
     "vike": "0.4.258",
-    "vite": "^8.0.8",
-    "vite-plugin-vanjs": "^0.1.14",
+    "vite": "^8.0.9",
+    "vite-plugin-vanjs": "^0.1.15",
     "vite-vanjs-svg": "^0.0.14"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^25.6.0",
     "typescript": "^6.0.3"
   }

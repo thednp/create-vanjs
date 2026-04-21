@@ -13,13 +13,13 @@
     "start": "NODE_ENV=production node server"
   },
   "dependencies": {
-    "@tailwindcss/vite": "4.2.2",
+    "@tailwindcss/vite": "4.2.4",
     "compression": "^1.8.1",
     "daisyui": "5.5.19",
     "express": "^5.2.1",
     "mini-van-plate": "^0.6.3",
     "sirv": "^3.0.2",
-    "tailwindcss": "4.2.2",
+    "tailwindcss": "4.2.4",
     "vanjs-core": "^1.6.0",
     "vanjs-ext": "^0.6.3",
     "vanjs-feather": "^0.1.7",

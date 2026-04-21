@@ -1,5 +1,5 @@
 import { Meta, Title } from "@vanjs/meta";
-import { A, navigate, RouteEntry} from "@vanjs/router";
+import { A, navigate, RouteEntry } from "@vanjs/router";
 
 export const route = {
   preload: async (params: RouteEntry["params"]) => {

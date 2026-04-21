@@ -12,14 +12,14 @@ export const route = {
     // Load data if needed
     // you might want to cache this data
     console.log("About load triggered", params);
-    },
+  },
 };
 
 export const Page = () => {
   const { div, h1, p, button } = van.tags;
   Title("About Page");
   Meta({ name: "description", content: "About description" });
-    return [
+  return [
     div(
       { class: "flex h-screen" },
       div(
@@ -28,9 +28,9 @@ export const Page = () => {
         p({ class: "mb-4" }, "This is the about page"),
         button(
           { class: "btn mr-2", onclick: () => navigate("/") },
-              "Go home",
+          "Go home",
         ),
-              A(
+        A(
           { class: "btn", href: "/not-found" },
           "Not found",
         ),
