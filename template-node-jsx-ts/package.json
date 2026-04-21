@@ -11,13 +11,13 @@
     "serve": "vite serve dist/ --host --port 4173"
   },
   "devDependencies": {
-    "typescript": "^6.0.2",
-    "vite": "^8.0.3"
+    "typescript": "^6.0.3",
+    "vite": "^8.0.8"
   },
   "dependencies": {
     "mini-van-plate": "^0.6.3",
     "vanjs-core": "^1.6.0",
     "vanjs-ext": "^0.6.3",
-    "vite-plugin-vanjs": "^0.1.14"
+    "vite-plugin-vanjs": "^0.1.15"
   }
 }

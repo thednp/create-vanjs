@@ -7,11 +7,15 @@
     "serve": "deno run -A npm:vite serve dist/ --host --port 4173"
   },
   "compilerOptions": {
-    "lib": ["ESNext", "DOM", "DOM.Iterable"]
+    "lib": [
+      "ESNext",
+      "DOM",
+      "DOM.Iterable"
+    ]
   },
   "imports": {
-    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.0",
-    "vite": "npm:vite@^8.0.3",
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^2.0.2",
+    "vite": "npm:vite@^8.0.8",
     "vanjs-core": "npm:vanjs-core@^1.6.0"
   }
 }

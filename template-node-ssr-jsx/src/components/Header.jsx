@@ -1,6 +1,7 @@
 import { A } from "@vanjs/router";
 import { ThemeToggle } from "./ui/ThemeController";
-import { Github, Menu } from "vanjs-lucide";
+import { Github } from "vanjs-feather";
+import { Menu } from "vanjs-lucide";
 import VanJSLogo from "/vanjs-cone.svg?van";
 
 export const Nav = () => {
@@ -11,7 +12,7 @@ export const Nav = () => {
         <Menu />
       </button>
       <ul
-        class="dropdown-content menu w-48 my-2 md:my-auto bg-base-200 rounded md:bg-transparent md:w-auto md:!flex md:!relative md:menu-horizontal md:!opacity-100 md:!scale-100"
+        class="dropdown-content menu w-48 my-2 md:my-auto bg-base-200 rounded md:bg-transparent md:w-auto md:flex! md:relative! md:menu-horizontal md:opacity-100! md:scale-100!"
         tabindex="0"
       >
         <li>

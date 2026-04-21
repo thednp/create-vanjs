@@ -39,7 +39,7 @@ const systemTheme = van.state<Theme>(getSystemTheme());
 const isConnected = van.state(false);
 
 export const ThemeController = (
-  { /*theme,*/ ...rest }: ThemeControllerProps,
+  { ...rest }: ThemeControllerProps,
   ...children: ChildDom[]
 ) => {
   const props = Object.fromEntries(
@@ -74,8 +74,8 @@ export const ThemeController = (
   van.derive(() => {
     if (!isClient()) return;
 
+    mediaTarget?.addEventListener("change", themeCallback);
     if (isConnected.val) {
-      mediaTarget?.addEventListener("change", themeCallback);
     } else {
       mediaTarget?.removeEventListener("change", themeCallback);
     }

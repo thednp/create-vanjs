@@ -22,6 +22,7 @@
     "noUncheckedSideEffectImports": true,
     "jsx": "preserve",
     "jsxImportSource": "@vanjs/jsx"
+    // "jsxImportSource": "vite-plugin-vanjs"
   },
-  "include": ["src"]
+  "include": ["src", "src/vite-env.d.ts"]
 }

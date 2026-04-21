@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { A } from "@vanjs/router";
+import { A } from "vite-plugin-vanjs/router";
 
 export const Footer = () => {
   const { footer, span } = van.tags;

@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
@@ -42,17 +42,21 @@
     "format": "deno fmt .",
     "clean": "rm -rf vanjs-project template-*/dist template-*/node_modules template-*/package-lock.json template-*/pnpm-lock.yaml template-*/bun.lockb template-*/deno.lock",
     "lint": "deno lint --rules-exclude=require-await,jsx-key template-*/src",
-    "prepublishOnly": "pnpm update-deps && pnpm lint && pnpm format",
-    "update-deps": "pnpm update -r --latest && node update-deno-deps.js"
+    "prepublishOnly": "pnpm up-deps && pnpm lint && pnpm format",
+    "up-node": "for dir in template-node-*; do (cd \"$dir\" && pnpm update --latest); done;",
+    "up-vike": "for dir in template-vike*; do (cd \"$dir\" && pnpm update --latest); done;",
+    "up-deno": "for dir in template-deno-*; do (cd \"$dir\" && deno update --latest); done;",
+    "up-deps": "pnpm update --latest && pnpm up-node && pnpm up-vike && pnpm up-deno",
+    "test": "node dev-test.js"
   },
   "dependencies": {
-    "@clack/prompts": "^1.1.0",
+    "@clack/prompts": "^1.2.0",
     "cross-spawn": "^7.0.6",
     "minimist": "^1.2.8",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0"
+    "@types/node": "^25.6.0"
   },
   "packageManager": "pnpm@10.33.0"
 }

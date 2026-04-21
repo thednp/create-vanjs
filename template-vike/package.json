@@ -15,9 +15,10 @@
     "tailwindcss": "^4.2.2",
     "vanjs-core": "^1.6.0",
     "vanjs-ext": "^0.6.3",
+    "vanjs-feather": "^0.1.7",
     "vanjs-lucide": "^0.0.7",
-    "vike": "0.4.255",
-    "vite": "^8.0.3",
+    "vike": "0.4.258",
+    "vite": "^8.0.8",
     "vite-plugin-vanjs": "^0.1.14",
     "vite-vanjs-svg": "^0.0.14"
   },

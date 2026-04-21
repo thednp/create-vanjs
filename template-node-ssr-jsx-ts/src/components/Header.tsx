@@ -1,6 +1,7 @@
 import { A } from "@vanjs/router";
 import { /*ThemeToggle,*/ ThemeDropdown } from "./ui/ThemeController";
-import { Github, Menu } from "vanjs-lucide";
+import { Github } from "vanjs-feather";
+import { Menu } from "vanjs-lucide";
 import VanJSLogo from "/vanjs-cone.svg?van";
 
 export const Nav = () => {

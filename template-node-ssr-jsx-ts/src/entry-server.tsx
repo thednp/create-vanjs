@@ -10,6 +10,7 @@ export async function render(url: string, manifest: Record<string, string[]>) {
   setRouterState(url);
 
   const main = await renderToString(<App />);
+  // const main = await renderToString(App());
   const head = await renderToString(Head());
   const header = await renderToString(<Header />);
   const footer = await renderToString(<Footer />);

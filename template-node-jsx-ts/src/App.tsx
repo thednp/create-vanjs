@@ -2,7 +2,7 @@ import van from "vanjs-core";
 import Counter from "./components/Counter";
 import "./App.css";
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <a href="https://vite.dev" target="_blank">
@@ -36,4 +36,4 @@ export const App = () => {
 
 const root = document.getElementById("app") as HTMLElement;
 
-van.add(root, <App /> as Element);
+van.add(root, <App />);

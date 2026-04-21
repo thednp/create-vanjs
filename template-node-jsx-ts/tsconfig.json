@@ -21,7 +21,8 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
     "jsx": "preserve",
-    "jsxImportSource": "@vanjs/jsx"
+    // "jsxImportSource": "@vanjs/jsx"
+    "jsxImportSource": "vite-plugin-vanjs"
   },
-  "include": ["src", "vite-vanjs-svg"]
+  "include": ["src"]
 }

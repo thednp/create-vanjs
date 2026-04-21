@@ -1,6 +1,7 @@
 import van from "vanjs-core";
 import { /*ThemeDropdown,*/ ThemeToggle } from "./ui/ThemeController";
-import { Github, Menu } from "vanjs-lucide";
+import { Github } from "vanjs-feather";
+import { Menu } from "vanjs-lucide";
 import VanJSLogo from "/vanjs-cone.svg?van";
 import { Link } from "./Link";
 
@@ -18,7 +19,7 @@ export const Nav = () => {
     ul(
       {
         class:
-          "dropdown-content menu w-48 my-2 md:my-auto bg-base-200 rounded md:bg-transparent md:w-auto md:!flex md:!relative md:menu-horizontal md:!opacity-100 md:!scale-100",
+          "dropdown-content menu w-48 my-2 md:my-auto bg-base-200 rounded md:bg-transparent md:w-auto md:flex! md:relative! md:menu-horizontal md:opacity-100! md:scale-100!",
         tabindex: "0",
       },
       li(
