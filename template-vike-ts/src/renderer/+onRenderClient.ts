@@ -1,17 +1,16 @@
 export { onRenderClient };
 
-import van from "vanjs-core";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
-import type { OnRenderClientAsync } from "vike/types";
+import type { PageContextClient } from "vike/types";
 import { hydrate } from "@vanjs/client";
 import { Header } from "../components/Header";
 // import { Footer } from "../components/Footer";
 import { setPageContext } from "./usePageContext";
 import { applyMeta } from "../util/applyMeta";
 
-const onRenderClient: OnRenderClientAsync = async (
-  pageContext,
+const onRenderClient = async (
+  pageContext: PageContextClient,
 ) => {
   const { Page } = pageContext;
   const main = document.getElementById("main") as HTMLElement;
@@ -27,13 +26,9 @@ const onRenderClient: OnRenderClientAsync = async (
     return Layout({ Page, pageContext });
   };
 
-  van.hydrate(main, (mainDom) => {
-    van.hydrate(header, (dom) => hydrate(dom, Header()));
-    // only hydrate if you have interactive/dynamic elements in Footer
-    // van.hydrate(footer, (dom) => hydrate(dom, Footer()));
-
-    return hydrate(mainDom, App());
-  });
+  hydrate(header, Header())
+  hydrate(main, App);
+  // hydrate(footer, Footer());
 
   applyMeta(pageContext);
 };

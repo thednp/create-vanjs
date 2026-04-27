@@ -1,22 +1,27 @@
 import van from "vanjs-core";
 import { Meta, Title } from "@vanjs/meta";
+import { useRouteData } from "@vanjs/router";
+import { getArticles } from "@/api";
+
+type Article = {
+  id: string;
+  title: string;
+  category: string;
+  author: string;
+}
+
+export const route = {
+  load: async (_params?: Record<string, string>) => {
+    return await getArticles();
+  },
+};
 
 export const Page = () => {
   const {
-    h1,
-    button,
-    div,
-    input,
-    label,
-    span,
-    table,
-    tbody,
-    td,
-    tfoot,
-    th,
-    thead,
-    tr,
+    h1, button, div, input, label, span, table, tbody, td, tfoot, th, thead, tr,
   } = van.tags;
+
+  const data = useRouteData<Article[]>();
 
   Title("Articles");
   Meta({ name: "description", content: "Articles description" });
@@ -33,11 +38,7 @@ export const Page = () => {
             { class: "table" },
             thead(
               tr(
-                th(
-                  label(
-                    input({ type: "checkbox", class: "checkbox" }),
-                  ),
-                ),
+                th(label(input({ type: "checkbox", class: "checkbox" }))),
                 th("Title"),
                 th("Category"),
                 th("Author"),
@@ -45,115 +46,25 @@ export const Page = () => {
               ),
             ),
             tbody(
-              tr(
-                th(
-                  label(
-                    input({ type: "checkbox", class: "checkbox" }),
-                  ),
-                ),
-                td(
-                  div(
-                    { class: "flex items-center gap-3" },
-                    div(
+              (() => {
+                return (data || []).map((article) =>
+                  tr(
+                    th(label(input({ type: "checkbox", class: "checkbox" }))),
+                    td(
                       div(
-                        { class: "font-bold" },
-                        "Silicone fabs are running out of water",
+                        { class: "flex items-center gap-3" },
+                        div(div({ class: "font-bold" }, article.title)),
                       ),
                     ),
+                    td(span({ class: "badge badge-ghost badge-sm" }, article.category)),
+                    td(article.author),
+                    th(button({ class: "btn btn-ghost btn-xs" }, "details")),
                   ),
-                ),
-                td(
-                  span({ class: "badge badge-ghost badge-sm" }, "Tech"),
-                ),
-                td("Jane Doe"),
-                th(
-                  button({ class: "btn btn-ghost btn-xs" }, "details"),
-                ),
-              ),
-              tr(
-                th(
-                  label(
-                    input({ type: "checkbox", class: "checkbox" }),
-                  ),
-                ),
-                td(
-                  div(
-                    { class: "flex items-center gap-3" },
-                    div(
-                      div(
-                        { class: "font-bold" },
-                        "WEF to hold the annual meeting later than originally planned",
-                      ),
-                    ),
-                  ),
-                ),
-                td(
-                  span({ class: "badge badge-ghost badge-sm" }, "Economics"),
-                ),
-                td("Yannik Eisen"),
-                th(
-                  button({ class: "btn btn-ghost btn-xs" }, "details"),
-                ),
-              ),
-              tr(
-                th(
-                  label(
-                    input({ type: "checkbox", class: "checkbox" }),
-                  ),
-                ),
-                td(
-                  div(
-                    { class: "flex items-center gap-3" },
-                    div(
-                      div(
-                        { class: "font-bold" },
-                        "Relativity theory challenged by young student",
-                      ),
-                    ),
-                  ),
-                ),
-                td(
-                  span({ class: "badge badge-ghost badge-sm" }, "Science"),
-                ),
-                td("Mara Lane"),
-                th(
-                  button({ class: "btn btn-ghost btn-xs" }, "details"),
-                ),
-              ),
-              tr(
-                th(
-                  label(
-                    input({ type: "checkbox", class: "checkbox" }),
-                  ),
-                ),
-                td(
-                  div(
-                    { class: "flex items-center gap-3" },
-                    div(
-                      div(
-                        { class: "font-bold" },
-                        "Last chance to join the 8th of March event",
-                      ),
-                    ),
-                  ),
-                ),
-                td(
-                  span({ class: "badge badge-ghost badge-sm" }, "Community"),
-                ),
-                td("Jimmy Delores"),
-                th(
-                  button({ class: "btn btn-ghost btn-xs" }, "details"),
-                ),
-              ),
+                );
+              })(),
             ),
             tfoot(
-              tr(
-                th(),
-                th("Title"),
-                th("Category"),
-                th("Author"),
-                th("Details"),
-              ),
+              tr(th(), th("Title"), th("Category"), th("Author"), th("Details")),
             ),
           ),
         ),

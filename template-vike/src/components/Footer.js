@@ -1,11 +1,11 @@
 import van from "vanjs-core";
-import { Link } from "./Link";
+import { A } from "@vanjs/router";
 
 export const Footer = () => {
   const { footer, span } = van.tags;
   return footer(
     { id: "app-footer", class: "flex p-4 bg-base-100" },
-    Link({ href: "/" }, span({ class: "font-bold" }, "VanJS"), " App"),
+    A({ href: "/" }, span({ class: "font-bold" }, "VanJS"), " App"),
     span(
       { class: "ml-auto flex gap-1" },
       span({ class: "font-bold" }, "author"),

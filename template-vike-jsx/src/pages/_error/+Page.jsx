@@ -1,4 +1,4 @@
-import { Link } from "../../components/Link";
+import { A } from "@vanjs/router";
 import { usePageContext } from "../../renderer/usePageContext";
 
 export function Page() {
@@ -22,7 +22,7 @@ export function Page() {
           {pageTitle()}
         </h1>
         <p class="mb-4">This is a sample error page</p>
-        <Link class="btn" href="/">Go Back Home</Link>
+        <A class="btn" href="/">Go Back Home</A>
       </div>
     </div>
   );

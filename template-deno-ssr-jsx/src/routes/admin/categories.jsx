@@ -1,8 +1,17 @@
 import { Meta, Title } from "@vanjs/meta";
+import { useRouteData } from "@vanjs/router";
+import { getCategories } from "@/api";
+
+export const route = {
+  load: async (_params) => {
+    return await getCategories();
+  },
+};
 
 export const Page = () => {
   Title("Categories");
   Meta({ name: "description", content: "Categories description" });
+  const data = useRouteData();
 
   return [
     <div class="h-screen">
@@ -23,96 +32,30 @@ export const Page = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">Science</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Jane Doe</span>
-                </td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">Economics</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Jim Cramer</span>
-                </td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">Health</div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Waren Lee</span>
-                </td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">
-                        Sports
+              {(data || []).map((cat) => (
+                <tr>
+                  <th>
+                    <label>
+                      <input type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div>
+                        <div class="font-bold">{cat.title}</div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Jane Doe</span>
-                </td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
+                  </td>
+                  <td>
+                    <span class="badge badge-ghost badge-sm">{cat.author}</span>
+                  </td>
+                  <th>
+                    <button type="button" class="btn btn-ghost btn-xs">
+                      details
+                    </button>
+                  </th>
+                </tr>
+              ))}
             </tbody>
             <tfoot>
               <tr>

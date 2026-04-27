@@ -1,6 +1,6 @@
 import van from "vanjs-core";
 
-const Counter = () => {
+export const Counter = () => {
   const counter = van.state(0);
   return (
     <button type="button" class="btn" onClick={() => ++counter.val}>
@@ -8,5 +8,3 @@ const Counter = () => {
     </button>
   );
 };
-
-export default Counter;

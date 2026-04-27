@@ -1,11 +1,11 @@
-import { Link } from "../components/Link";
+import { A } from "@vanjs/router";
 
 export const Footer = () => {
   return (
     <footer id="app-footer" class="flex p-4 bg-base-100">
-      <Link href="/">
+      <A href="/">
         <span class="font-bold">VanJS</span> App
-      </Link>
+      </A>
       <span class="ml-auto flex gap-1">
         <span class="font-bold">author</span>
         <span>©</span>

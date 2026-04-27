@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { Link } from "./Link";
+import { A } from "@vanjs/router";
 import type { LayoutProps } from "../types/types";
 
 export const Layout = ({ Page /* pageContext */ }: LayoutProps) => {
@@ -71,7 +71,7 @@ export const Layout = ({ Page /* pageContext */ }: LayoutProps) => {
           ul(
             { class: "menu w-full z-10" },
             li(
-              Link(
+              A(
                 {
                   href: "/admin",
                   class:
@@ -83,7 +83,7 @@ export const Layout = ({ Page /* pageContext */ }: LayoutProps) => {
               ),
             ),
             li(
-              Link(
+              A(
                 {
                   href: "/admin/articles",
                   class:
@@ -93,7 +93,7 @@ export const Layout = ({ Page /* pageContext */ }: LayoutProps) => {
                   "Articles",
                 ),
               ),
-              Link(
+              A(
                 {
                   href: "/admin/categories",
                   class:
@@ -103,7 +103,7 @@ export const Layout = ({ Page /* pageContext */ }: LayoutProps) => {
                   "Categories",
                 ),
               ),
-              Link(
+              A(
                 {
                   href: "/admin/users",
                   class:

@@ -1,4 +1,4 @@
-import { Link } from "../../../components/Link";
+import { A } from "@vanjs/router";
 
 export const Page = () => {
   return (
@@ -11,9 +11,9 @@ export const Page = () => {
               <div class="stat-title">This month sales</div>
               <div class="stat-value">$89,400</div>
               <div class="stat-actions">
-                <Link href="/admin/not-found" class="btn btn-xs">
+                <A href="/admin/not-found" class="btn btn-xs">
                   Not found
-                </Link>
+                </A>
               </div>
             </div>
             <div class="stat">

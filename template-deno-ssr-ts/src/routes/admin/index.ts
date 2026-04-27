@@ -1,9 +1,25 @@
 import van from "vanjs-core";
-import { A } from "@vanjs/router";
+import { A, useRouteData } from "@vanjs/router";
 import { Meta, Title } from "@vanjs/meta";
+import { getDashboardStats } from "@/api";
+
+export const route = {
+  load: async () => {
+    return await getDashboardStats();
+  },
+};
+
+type DashboardResults = {
+  monthlySales: string;
+  conversionRate: string;
+  monthlyViews: string;
+  todayViews: string;
+}
 
 export const Page = () => {
   const { div, button, h1 } = van.tags;
+  const data = useRouteData<DashboardResults>();
+
 
   Title("Dashboard");
   Meta({ name: "description", content: "Administrator description" });
@@ -23,7 +39,7 @@ export const Page = () => {
             div(
               { class: "stat" },
               div({ class: "stat-title" }, "This month sales"),
-              div({ class: "stat-value" }, "$89,400"),
+              div({ class: "stat-value" }, data?.monthlySales || "--"),
               div(
                 { class: "stat-actions" },
                 A(
@@ -35,7 +51,7 @@ export const Page = () => {
             div(
               { class: "stat" },
               div({ class: "stat-title" }, "Conversion rate"),
-              div({ class: "stat-value" }, "$576"),
+              div({ class: "stat-value" },  data?.conversionRate || "--"),
               div(
                 { class: "stat-actions" },
                 button({ class: "btn btn-xs btn-success" }, "Cashflow"),
@@ -50,7 +66,7 @@ export const Page = () => {
             div(
               { class: "stat" },
               div({ class: "stat-title" }, "Monthly Views"),
-              div({ class: "stat-value" }, "47,558"),
+              div({ class: "stat-value" }, data?.monthlyViews || "--"),
               div(
                 { class: "stat-actions" },
                 button({ class: "btn btn-xs" }, "Analytics"),
@@ -59,7 +75,7 @@ export const Page = () => {
             div(
               { class: "stat" },
               div({ class: "stat-title" }, "Today's Views"),
-              div({ class: "stat-value" }, "1,553"),
+              div({ class: "stat-value" }, data?.todayViews || "--"),
               div(
                 { class: "stat-actions" },
                 button({ class: "btn btn-xs" }, "Estaimated"),

@@ -1,6 +1,5 @@
 export { onRenderClient };
 
-import van from "vanjs-core";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { hydrate } from "@vanjs/client";
@@ -9,7 +8,9 @@ import { Header } from "../components/Header";
 import { setPageContext } from "./usePageContext";
 import { applyMeta } from "../util/applyMeta";
 
-const onRenderClient = async (pageContext) => {
+const onRenderClient = async (
+  pageContext,
+) => {
   const { Page } = pageContext;
   const main = document.getElementById("main");
   const header = document.getElementById("app-header");
@@ -18,19 +19,15 @@ const onRenderClient = async (pageContext) => {
 
   const App = () => {
     setPageContext(pageContext);
-    if (pageContext.pageId.includes("/admin")) {
+    if (pageContext.pageId?.includes("/admin")) {
       return LayoutAdmin({ Page, pageContext });
     }
     return Layout({ Page, pageContext });
   };
 
-  van.hydrate(main, (mainDom) => {
-    van.hydrate(header, (dom) => hydrate(dom, Header()));
-    // only hydrate if you have interactive/dynamic elements in Footer
-    // van.hydrate(footer, (dom) => hydrate(dom, Footer()));
-
-    return hydrate(mainDom, App());
-  });
+  hydrate(header, Header())
+  hydrate(main, App);
+  // hydrate(footer, Footer());
 
   applyMeta(pageContext);
 };

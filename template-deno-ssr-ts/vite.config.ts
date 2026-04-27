@@ -1,14 +1,35 @@
-import { defineConfig } from "npm:vite";
-import vanjs from "npm:vite-plugin-vanjs";
-import deno from "npm:@deno/vite-plugin";
-import vanSVG from "npm:vite-vanjs-svg";
-import tailwind from "npm:@tailwindcss/vite";
+import { defineConfig, type Plugin } from "vite";
+import vanjs from "vite-plugin-vanjs";
+import vanSVG from "vite-vanjs-svg";
+import tailwind from "@tailwindcss/vite";
 
-// https://vite.dev/config/
+export function isomorphicApi(): Plugin {
+  return {
+    name: "isomorphic-api",
+    enforce: "pre",
+    resolveId(id: string) {
+      if (id === "@/api") {
+        return id;
+      }
+      return null;
+    },
+    load(id: string, ops) {
+      if (id === "@/api") {
+        if (ops?.ssr) {
+          return `export * from "/src/api/server.ts";`;
+        } else {
+          return `export * from "/src/api/index.ts";`;
+        }
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
-    vanjs(),
-    deno(),
+    isomorphicApi(),
+    vanjs() as any,
     vanSVG(),
     tailwind(),
   ],

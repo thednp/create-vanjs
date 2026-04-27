@@ -1,11 +1,11 @@
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import { renderToString } from "@vanjs/server";
+import { renderToString, getDataPreload } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
-import "../assets/app.css";
+import "../assets/App.css";
 import { setPageContext } from "./usePageContext";
 
 const onRenderHtml = async (pageContext) => {
@@ -29,6 +29,7 @@ const onRenderHtml = async (pageContext) => {
   const footer = await renderToString(<Footer />);
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
+  const preload = getDataPreload();
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
@@ -45,6 +46,7 @@ const onRenderHtml = async (pageContext) => {
         ${dangerouslySkipEscape(header)}
         ${dangerouslySkipEscape(main)}
         ${dangerouslySkipEscape(footer)}
+        ${dangerouslySkipEscape(preload)}
       </body>
     </html>`;
 

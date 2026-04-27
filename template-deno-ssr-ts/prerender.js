@@ -64,6 +64,7 @@ const routesToPrerender = routesFolder
       .replace(`<!-- app-header -->`, rendered.header)
       .replace(`<!-- app-footer -->`, rendered.footer)
       .replace(`<!-- app-main -->`, rendered.main)
+      .replace(`<!-- preload -->`, rendered.preload)
       .replace(/\n\s*(?=\<?)|\n|\t/g, "");
 
     // Handle route path to file path conversion

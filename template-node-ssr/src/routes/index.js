@@ -1,10 +1,9 @@
-import van from "@vanjs/van";
+import van from "vanjs-core";
 import { Meta, Title } from "@vanjs/meta";
 import Counter from "../components/Counter";
 
 export default () => {
   const { div, h1, p } = van.tags;
-
   Title("VanJS + Vite Homepage");
   Meta({ name: "description", content: "Home description" });
 

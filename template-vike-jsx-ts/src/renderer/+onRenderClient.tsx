@@ -4,14 +4,13 @@ import van from "vanjs-core";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import type { PageContextCLIENT } from "../types/types";
-import type { OnRenderClientAsync } from "vike/types";
 import { hydrate } from "@vanjs/client";
 import { Header } from "../components/Header";
 // import { Footer } from "../components/Footer";
 import { setPageContext } from "./usePageContext";
 import { applyMeta } from "../util/applyMeta";
 
-const onRenderClient: OnRenderClientAsync = async (
+const onRenderClient = async (
   pageContext: PageContextCLIENT,
 ) => {
   const { Page } = pageContext;
@@ -36,13 +35,8 @@ const onRenderClient: OnRenderClientAsync = async (
     );
   };
 
-  van.hydrate(main, (mainDom) => {
-    van.hydrate(header, (dom) => hydrate(dom, <Header />));
-    // only hydrate if you have interactive/dynamic elements in Footer
-    // van.hydrate(footer, (dom) => hydrate(dom, <Footer />));
-
-    return hydrate(mainDom, <App />);
-  });
+  hydrate(header, <Header />)
+  hydrate(main, () => <App />);
 
   applyMeta(pageContext);
 };

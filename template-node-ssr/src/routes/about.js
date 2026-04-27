@@ -1,4 +1,5 @@
-import van from "vanjs-core";
+// import van from "vanjs-core";
+import van from "@vanjs/van";
 import { Meta, Title } from "@vanjs/meta";
 import { A, navigate } from "@vanjs/router";
 

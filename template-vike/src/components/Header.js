@@ -1,9 +1,9 @@
 import van from "vanjs-core";
+import { A } from "@vanjs/router"
 import { /*ThemeDropdown,*/ ThemeToggle } from "./ui/ThemeController";
 import { Github } from "vanjs-feather";
 import { Menu } from "vanjs-lucide";
 import VanJSLogo from "/vanjs-cone.svg?van";
-import { Link } from "./Link";
 
 export const Nav = () => {
   const { nav, ul, li, button, span } = van.tags;
@@ -23,17 +23,17 @@ export const Nav = () => {
         tabindex: "0",
       },
       li(
-        Link({ class: "aria-[current=page]:text-primary", href: "/" }, "Home"),
+        A({ class: "aria-[current=page]:text-primary", href: "/" }, "Home"),
       ),
       li(
-        Link(
+        A(
           { class: "aria-[current=page]:text-primary", href: "/about" },
           "About",
         ),
       ),
       li(
-        Link(
-          { class: "aria-[current=page]:text-primary", href: "/admin" },
+        A(
+          { class: "aria-[current=page]:text-primary aria-[current=location]:text-primary", href: "/admin" },
           "Admin",
         ),
       ),
@@ -45,7 +45,7 @@ export const Header = () => {
   const { header, a, span } = van.tags;
   return header(
     { id: "app-header", class: "navbar bg-base-100" },
-    Link(
+    A(
       { class: "py-0", href: "/" },
       VanJSLogo({ width: "2rem", height: "2rem", class: "w-8 h-8" }),
       span({ class: "sr-only" }, "My VanJS App"),

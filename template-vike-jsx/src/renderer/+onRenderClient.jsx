@@ -33,13 +33,9 @@ const onRenderClient = async (
     );
   };
 
-  van.hydrate(main, (mainDom) => {
-    van.hydrate(header, (dom) => hydrate(dom, <Header />));
-    // only hydrate if you have interactive/dynamic elements in Footer
-    // van.hydrate(footer, (dom) => hydrate(dom, <Footer />));
 
-    return hydrate(mainDom, <App />);
-  });
+  hydrate(header, <Header />);
+  hydrate(main, () => <App />);
 
   applyMeta(pageContext);
 };

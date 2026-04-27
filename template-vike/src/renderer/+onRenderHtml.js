@@ -1,29 +1,29 @@
 export { onRenderHtml };
 
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import { renderToString } from "@vanjs/server";
+import { renderToString, getDataPreload } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
-import { setPageContext } from "./usePageContext";
 import "../assets/App.css";
+import { setPageContext } from "./usePageContext";
 
 const onRenderHtml = async (pageContext) => {
   const { Page } = pageContext;
   setPageContext(pageContext);
-
-  const main = pageContext.pageId.includes("/admin")
+  const main = pageContext.pageId?.includes("/admin")
     ? await renderToString(LayoutAdmin({ Page, pageContext }))
     : await renderToString(Layout({ Page, pageContext }));
   const header = await renderToString(Header());
   const footer = await renderToString(Footer());
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
+  const preload = getDataPreload();
 
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="en" data-theme="system">
+    <html lang="en">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,6 +37,7 @@ const onRenderHtml = async (pageContext) => {
         ${dangerouslySkipEscape(header)}
         ${dangerouslySkipEscape(main)}
         ${dangerouslySkipEscape(footer)}
+        ${dangerouslySkipEscape(preload)}
       </body>
     </html>`;
 

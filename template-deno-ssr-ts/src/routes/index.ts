@@ -4,7 +4,6 @@ import Counter from "../components/Counter";
 
 export default () => {
   const { div, h1, p } = van.tags;
-
   Title("VanJS + Vite Homepage");
   Meta({ name: "description", content: "Home description" });
 

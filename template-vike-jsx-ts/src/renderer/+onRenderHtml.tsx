@@ -1,6 +1,5 @@
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import type { OnRenderHtmlAsync } from "vike/types";
-import { renderToString } from "@vanjs/server";
+import { getDataPreload, renderToString } from "@vanjs/server";
 import type { PageContextSERVER } from "../types/types";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
@@ -8,9 +7,9 @@ import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
 import { setPageContext } from "./usePageContext";
-import "../assets/app.css";
+import "../assets/App.css";
 
-const onRenderHtml: OnRenderHtmlAsync = async (
+const onRenderHtml = async (
   pageContext: PageContextSERVER,
 ) => {
   const { Page } = pageContext;
@@ -33,7 +32,8 @@ const onRenderHtml: OnRenderHtmlAsync = async (
   const footer = await renderToString(<Footer />);
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
-
+  const preload = getDataPreload();
+  
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -49,6 +49,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (
         ${dangerouslySkipEscape(header)}
         ${dangerouslySkipEscape(main)}
         ${dangerouslySkipEscape(footer)}
+        ${dangerouslySkipEscape(preload)}
       </body>
     </html>`;
 

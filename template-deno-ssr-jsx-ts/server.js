@@ -58,10 +58,64 @@ if (!isProduction) {
   app.use(base, sirv("./dist/client", { extensions: [] }));
 }
 
-// Serve HTML
-app.use("*all", async (req, res) => {
+app.get("/api", async (req, res) => {
   try {
-    const url = req.url.replace(base, "");
+    const { getData } = await import("./src/api/server.ts");
+    const data = await getData();
+    res.status(200).json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get("/api/dashboard-stats", async (req, res) => {
+  try {
+    const { getDashboardStats } = await import("./src/api/server.ts");
+    const data = await getDashboardStats();
+    res.status(200).json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get("/api/articles", async (req, res) => {
+  try {
+    const { getArticles } = await import("./src/api/server.ts");
+    const data = await getArticles();
+    res.status(200).json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get("/api/categories", async (req, res) => {
+  try {
+    const { getCategories } = await import("./src/api/server.ts");
+    const data = await getCategories();
+    res.status(200).json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+app.get("/api/users", async (req, res) => {
+  try {
+    const { getUsers } = await import("./src/api/server.ts");
+    const data = await getUsers();
+    res.status(200).json(data);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+// Serve HTML
+app.get("*all", async (req, res, next) => {
+  const url = req.url.replace(base, "");
+  if (url.startsWith("/api")) {
+    next();
+    return;
+  }
+  try {
     const urlParts = url.split("/").filter(Boolean);
 
     /** @type {string} */
@@ -121,6 +175,7 @@ app.use("*all", async (req, res) => {
         .replace(`<!-- app-header -->`, rendered.header)
         .replace(`<!-- app-footer -->`, rendered.footer)
         .replace(`<!-- app-main -->`, rendered.main)
+        .replace(`<!-- preload -->`, rendered.preload)
         .replace(/\n\s*(?=\<?)|\n|\t/g, "");
     }
 

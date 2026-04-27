@@ -13,7 +13,9 @@
       "ESNext",
       "DOM",
       "DOM.Iterable"
-    ]
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "@vanjs/jsx"
   },
   "lint": {
     "rules": {
@@ -35,10 +37,10 @@
     "tailwindcss": "npm:tailwindcss@^4.2.4",
     "vanjs-lucide": "npm:vanjs-lucide@^0.0.7",
     "vanjs-feather": "npm:vanjs-feather@^0.1.7",
-    "vite": "npm:vite@^8.0.9",
+    "vite": "npm:vite@^8.0.10",
     "vanjs-core": "npm:vanjs-core@^1.6.0",
     "vanjs-ext": "npm:vanjs-ext@^0.6.3",
-    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.16",
+    "vite-plugin-vanjs": "npm:vite-plugin-vanjs@^0.1.18",
     "vite-vanjs-svg": "npm:vite-vanjs-svg@^0.0.14"
   }
 }

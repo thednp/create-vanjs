@@ -13,7 +13,7 @@ export const route = {
   },
 };
 
-export const Page = (props?: { children?: JSX.Element }) => {
+export const Layout = (props?: { children?: JSX.Element }) => {
   const open = van.state(false);
   const onOpenChange = () => {
     const current = open.val;

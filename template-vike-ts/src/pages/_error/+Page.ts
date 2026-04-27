@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { Link } from "../../components/Link";
+import { A } from "@vanjs/router";
 import { usePageContext } from "../../renderer/usePageContext";
 
 export function Page() {
@@ -22,7 +22,7 @@ export function Page() {
           : "An Error has occured",
       ),
       p({ class: "mb-4" }, "This is an error page"),
-      Link({ class: "btn", href: "/" }, "Go Home"),
+      A({ class: "btn", href: "/" }, "Go Home"),
     ),
   );
 }

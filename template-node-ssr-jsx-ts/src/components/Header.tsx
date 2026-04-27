@@ -26,7 +26,7 @@ export const Nav = () => {
           </A>
         </li>
         <li>
-          <A class="aria-[current=page]:text-primary" href="/admin">
+          <A class="aria-[current=page]:text-primary aria-[current=location]:text-primary" href="/admin">
             Admin
           </A>
         </li>

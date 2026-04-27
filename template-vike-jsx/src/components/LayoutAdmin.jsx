@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { Link } from "../components/Link";
+import { A } from "@vanjs/router";
 
 export const Layout = ({ children } /* pageContext */) => {
   const open = van.state(false);
@@ -57,32 +57,32 @@ export const Layout = ({ children } /* pageContext */) => {
             </div>
             <ul class="menu w-full z-10">
               <li>
-                <Link
+                <A
                   href="/admin"
                   class="aria-[current=page]:bg-primary aria-[current=page]:text-primary-content"
                 >
                   <span>Dashboard</span>
-                </Link>
+                </A>
               </li>
               <li>
-                <Link
+                <A
                   href="/admin/articles"
                   class="aria-[current=page]:bg-primary aria-[current=page]:text-primary-content"
                 >
                   <span>Articles</span>
-                </Link>
-                <Link
+                </A>
+                <A
                   href="/admin/categories"
                   class="aria-[current=page]:bg-primary aria-[current=page]:text-primary-content"
                 >
                   <span>Categories</span>
-                </Link>
-                <Link
+                </A>
+                <A
                   href="/admin/users"
                   class="aria-[current=page]:bg-primary aria-[current=page]:text-primary-content"
                 >
                   <span>Users</span>
-                </Link>
+                </A>
               </li>
             </ul>
           </aside>

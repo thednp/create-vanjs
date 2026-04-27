@@ -8,13 +8,6 @@ const main = document.getElementById("main");
 const header = document.getElementById("app-header");
 const footer = document.getElementById("app-footer");
 
-van.hydrate(main, (mainDom) => {
-  van.hydrate(header, (dom) => {
-    return hydrate(dom, <Header />);
-  });
-  van.hydrate(footer, (dom) => {
-    return hydrate(dom, <Footer />);
-  });
-
-  return hydrate(mainDom, <App />);
-});
+hydrate(header, <Header />);
+hydrate(footer, <Footer />);
+hydrate(main, () => <App />);

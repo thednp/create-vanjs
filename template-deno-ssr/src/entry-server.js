@@ -1,5 +1,5 @@
 // entry-server.js
-import { renderPreloadLinks, renderToString } from "@vanjs/server";
+import { renderPreloadLinks, renderToString, getDataPreload } from "@vanjs/server";
 import { setRouterState } from "@vanjs/router";
 import { Head } from "@vanjs/meta";
 import { App } from "./App";
@@ -20,6 +20,7 @@ export async function render(url, manifest) {
     file !== undefined
   );
   const preloadLinks = renderPreloadLinks(manifestFiles, manifest);
+  const preload = getDataPreload();
 
-  return { head, main, header, footer, preloadLinks };
+  return { head, main, header, footer, preload, preloadLinks };
 }

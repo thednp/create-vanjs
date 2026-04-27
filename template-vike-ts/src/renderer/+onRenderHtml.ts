@@ -1,18 +1,17 @@
 export { onRenderHtml };
 
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import type { OnRenderHtmlAsync } from "vike/types";
-import { renderToString } from "@vanjs/server";
-import type { PageContextSERVER } from "../types/types";
+import type { PageContextServer } from "vike/types";
+import { renderToString, getDataPreload } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { getPageMeta } from "../util/getPageMeta";
-import "../assets/app.css";
+import "../assets/App.css";
 import { setPageContext } from "./usePageContext";
 
-const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
+const onRenderHtml = async (pageContext: PageContextServer) => {
   const { Page } = pageContext;
   setPageContext(pageContext);
   const main = pageContext.pageId?.includes("/admin")
@@ -22,6 +21,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
   const footer = await renderToString(Footer());
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
+  const preload = getDataPreload();
 
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
@@ -38,6 +38,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
         ${dangerouslySkipEscape(header)}
         ${dangerouslySkipEscape(main)}
         ${dangerouslySkipEscape(footer)}
+        ${dangerouslySkipEscape(preload)}
       </body>
     </html>`;
 
@@ -46,6 +47,6 @@ const onRenderHtml: OnRenderHtmlAsync = async (pageContext) => {
     pageContext: {
       title,
       description,
-    } as PageContextSERVER,
+    },
   };
 };

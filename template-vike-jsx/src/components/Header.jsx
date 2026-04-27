@@ -1,6 +1,7 @@
-import { Link } from "../components/Link";
+import { A } from "@vanjs/router"
 import { ThemeToggle } from "./ui/ThemeController";
-import { Github, Menu } from "vanjs-lucide";
+import { Menu } from "vanjs-lucide";
+import { Github } from "vanjs-feather";
 import VanJSLogo from "/vanjs-cone.svg?van";
 
 export const Nav = () => {
@@ -15,17 +16,17 @@ export const Nav = () => {
         tabindex="0"
       >
         <li>
-          <Link class="aria-[current=page]:text-primary" href="/">Home</Link>
+          <A class="aria-[current=page]:text-primary" href="/">Home</A>
         </li>
         <li>
-          <Link class="aria-[current=page]:text-primary" href="/about">
+          <A class="aria-[current=page]:text-primary" href="/about">
             About
-          </Link>
+          </A>
         </li>
         <li>
-          <Link class="aria-[current=page]:text-primary" href="/admin">
+          <A class="aria-[current=page]:text-primary aria-[current=location]:text-primary" href="/admin">
             Admin
-          </Link>
+          </A>
         </li>
       </ul>
     </nav>
@@ -35,10 +36,10 @@ export const Nav = () => {
 export const Header = () => {
   return (
     <header id="app-header" class="navbar bg-base-100">
-      <Link class="py-0" href="/">
+      <A class="py-0" href="/">
         <VanJSLogo width="2rem" height="2rem" class="w-8 h-8" />
         <span class="sr-only">My VanJS App</span>
-      </Link>
+      </A>
       <Nav />
       <a
         class="btn btn-ghost btn-square ml-auto"
