@@ -3,6 +3,13 @@ import { Meta, Title } from "@vanjs/meta";
 import { useRouteData } from "@vanjs/router";
 import { getArticles } from "@/api";
 
+type Article = {
+  id: number;
+  title: string;
+  category: string;
+  author: string;
+}
+
 export const route = {
   load: async (_params?: Record<string, string>) => {
     return await getArticles();
@@ -14,7 +21,7 @@ export const Page = () => {
     h1, button, div, input, label, span, table, tbody, td, tfoot, th, thead, tr,
   } = van.tags;
 
-  const data = useRouteData() as any;
+  const data = useRouteData<Article[]>();
 
   Title("Articles");
   Meta({ name: "description", content: "Articles description" });
@@ -40,8 +47,7 @@ export const Page = () => {
             ),
             tbody(
               (() => {
-                if (!data || !Array.isArray(data)) return tr(td({ colspan: "5" }, "Loading..."));
-                return data.map((article: any) =>
+                return (data || []).map((article) =>
                   tr(
                     th(label(input({ type: "checkbox", class: "checkbox" }))),
                     td(

@@ -1,4 +1,3 @@
-import van from "vanjs-core";
 import { hydrate } from "@vanjs/client";
 import { App } from "./App";
 import { Header } from "./components/Header";

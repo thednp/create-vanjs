@@ -9,12 +9,22 @@ export const route = {
   },
 };
 
+type User = {
+  id: number;
+  name: string;
+  country: string;
+  company: string;
+  job: string;
+  color: string;
+  avatar: string;
+}
+
 export const Page = () => {
   const {
     h1, br, button, div, img, input, label, span, table, tbody, td, tfoot, th, thead, tr,
   } = van.tags;
 
-  const data = useRouteData() as any;
+  const data = useRouteData<User[]>();
 
   Title("Users");
   Meta({ name: "description", content: "Users description" });
@@ -40,8 +50,7 @@ export const Page = () => {
             ),
             tbody(
               (() => {
-                if (!data || !Array.isArray(data)) return tr(td({ colspan: "5" }, "Loading..."));
-                return data.map((user: any) =>
+                return (data || []).map((user) =>
                   tr(
                     th(label(input({ type: "checkbox", class: "checkbox" }))),
                     td(

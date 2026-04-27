@@ -1,6 +1,5 @@
 export { onRenderClient };
 
-import van from "vanjs-core";
 import { Layout } from "../components/Layout";
 import { Layout as LayoutAdmin } from "../components/LayoutAdmin";
 import { hydrate } from "@vanjs/client";

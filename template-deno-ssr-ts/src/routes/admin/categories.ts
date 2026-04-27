@@ -9,12 +9,18 @@ export const route = {
   },
 };
 
+type Category = {
+  id: number;
+  title: string;
+  author: string;
+}
+
 export const Page = () => {
   const {
     h1, button, div, input, label, span, table, tbody, td, tfoot, th, thead, tr,
   } = van.tags;
 
-  const data = useRouteData() as any;
+  const data = useRouteData<Category[]>();
 
   Title("Categories");
   Meta({ name: "description", content: "Categories description" });
@@ -39,8 +45,7 @@ export const Page = () => {
             ),
             tbody(
               (() => {
-                if (!data || !Array.isArray(data)) return tr(td({ colspan: "4" }, "Loading..."));
-                return data.map((cat: any) =>
+                return (data || []).map((cat) =>
                   tr(
                     th(label(input({ type: "checkbox", class: "checkbox" }))),
                     td(
