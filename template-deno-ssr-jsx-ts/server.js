@@ -55,7 +55,8 @@ if (!isProduction) {
   const compression = (await import("npm:compression")).default;
   const sirv = (await import("npm:sirv")).default;
   app.use(compression());
-  app.use(base, sirv("./dist/client", { extensions: [] }));
+  const serveDir = isStatic ? "./dist/static" : "./dist/client";
+  app.use(base, sirv(serveDir, { extensions: [] }));
 }
 
 app.get("/api", async (req, res) => {
