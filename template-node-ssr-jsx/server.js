@@ -115,7 +115,7 @@ app.get("/api/users", async (req, res) => {
 
 // Serve HTML
 // app.get("{*path}", async (req, res) => {
-app.get("*all", async (req, res, next) => {
+app.get("{*all}", async (req, res, next) => {
   const url = req.originalUrl.replace(base, "");
   if (url.startsWith("/api")) {
     next();
