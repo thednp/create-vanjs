@@ -57,8 +57,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     devDependencies:
       vite:
         specifier: ^8.0.10
@@ -76,8 +76,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     devDependencies:
       vite:
         specifier: ^8.0.10
@@ -95,8 +95,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     devDependencies:
       vite:
         specifier: ^8.0.10
@@ -114,8 +114,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     devDependencies:
       typescript:
         specifier: ^6.0.3
@@ -136,8 +136,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     devDependencies:
       vite:
         specifier: ^8.0.10
@@ -155,8 +155,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     devDependencies:
       vite:
         specifier: ^8.0.10
@@ -198,8 +198,8 @@ importers:
         specifier: ^0.0.7
         version: 0.0.7(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -253,8 +253,8 @@ importers:
         specifier: ^0.0.7
         version: 0.0.7(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -308,8 +308,8 @@ importers:
         specifier: ^0.0.7
         version: 0.0.7(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -363,8 +363,8 @@ importers:
         specifier: ^0.0.7
         version: 0.0.7(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -412,8 +412,8 @@ importers:
         specifier: ^8.0.10
         version: 8.0.10(@types/node@25.6.0)(esbuild@0.28.0)(jiti@2.6.1)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -452,8 +452,8 @@ importers:
         specifier: ^8.0.10
         version: 8.0.10(@types/node@25.6.0)(esbuild@0.28.0)(jiti@2.6.1)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -498,8 +498,8 @@ importers:
         specifier: ^8.0.10
         version: 8.0.10(@types/node@25.6.0)(esbuild@0.28.0)(jiti@2.6.1)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -544,8 +544,8 @@ importers:
         specifier: ^8.0.10
         version: 8.0.10(@types/node@25.6.0)(esbuild@0.28.0)(jiti@2.6.1)
       vite-plugin-vanjs:
-        specifier: ^0.1.20
-        version: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+        specifier: ^0.1.21
+        version: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
       vite-vanjs-svg:
         specifier: ^0.0.14
         version: 0.0.14
@@ -1790,8 +1790,8 @@ packages:
       vite:
         optional: true
 
-  vite-plugin-vanjs@0.1.20:
-    resolution: {integrity: sha512-LhRIEIOcISMNvPNrcKIIHCI89ZhH+y/nz8nSCjypNbuXtaMiyOP+YZUcqYFNAyzPPLGwmpJ+2Ihim94kEyEOBQ==}
+  vite-plugin-vanjs@0.1.21:
+    resolution: {integrity: sha512-Clxl8+8AEJD5xDcCxUVIUEQfy/YtW6ZSMQo+ZXxc/hMfCz5ATQIBg4UWMOfjyUEu63MY0bo42HbApr53sTdvzw==}
     engines: {node: '>=20', pnpm: '>=8.6.0'}
     peerDependencies:
       csstype: '*'
@@ -2980,7 +2980,7 @@ snapshots:
   vanjs-feather@0.1.7(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3):
     dependencies:
       vanjs-core: 1.6.0
-      vite-plugin-vanjs: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+      vite-plugin-vanjs: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     transitivePeerDependencies:
       - csstype
       - mini-van-plate
@@ -2989,7 +2989,7 @@ snapshots:
   vanjs-lucide@0.0.7(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3):
     dependencies:
       vanjs-core: 1.6.0
-      vite-plugin-vanjs: 0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
+      vite-plugin-vanjs: 0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3)
     transitivePeerDependencies:
       - csstype
       - mini-van-plate
@@ -3035,7 +3035,7 @@ snapshots:
       - srvx
       - supports-color
 
-  vite-plugin-vanjs@0.1.20(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3):
+  vite-plugin-vanjs@0.1.21(csstype@3.2.3)(mini-van-plate@0.6.3)(vanjs-core@1.6.0)(vanjs-ext@0.6.3):
     dependencies:
       csstype: 3.2.3
       mini-van-plate: 0.6.3
