@@ -1,7 +1,7 @@
 // import van from "vanjs-core";
 import van from "@vanjs/van";
 import { Meta, Title } from "@vanjs/meta";
-import { A, navigate, RouterState } from "@vanjs/router";
+import { A, navigate } from "@vanjs/router";
 
 export const route = {
   preload: async () => {

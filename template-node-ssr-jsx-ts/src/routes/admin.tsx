@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { A, type RouterState } from "@vanjs/router";
+import { A } from "@vanjs/router";
 
 export const route = {
   preload: async () => {
