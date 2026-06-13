@@ -1,8 +1,11 @@
 import van from "vanjs-core";
 import { A } from "@vanjs/router";
+import { usePageContext } from "../../../renderer/usePageContext";
 
 export const Page = () => {
   const { div, button, h1 } = van.tags;
+  const ctx = usePageContext();
+  const data = ctx.data;
 
   return div(
     { class: "h-screen" },
@@ -18,7 +21,7 @@ export const Page = () => {
           div(
             { class: "stat" },
             div({ class: "stat-title" }, "This month sales"),
-            div({ class: "stat-value" }, "$89,400"),
+            div({ class: "stat-value" }, data?.monthlySales ?? "$89,400"),
             div(
               { class: "stat-actions" },
               A(
@@ -30,7 +33,7 @@ export const Page = () => {
           div(
             { class: "stat" },
             div({ class: "stat-title" }, "Conversion rate"),
-            div({ class: "stat-value" }, "$576"),
+            div({ class: "stat-value" }, data?.conversionRate ?? "$576"),
             div(
               { class: "stat-actions" },
               button({ class: "btn btn-xs btn-success" }, "Cashflow"),
@@ -45,7 +48,7 @@ export const Page = () => {
           div(
             { class: "stat" },
             div({ class: "stat-title" }, "Monthly Views"),
-            div({ class: "stat-value" }, "47,558"),
+            div({ class: "stat-value" }, data?.monthlyViews ?? "47,558"),
             div(
               { class: "stat-actions" },
               button({ class: "btn btn-xs" }, "Analytics"),
@@ -54,7 +57,7 @@ export const Page = () => {
           div(
             { class: "stat" },
             div({ class: "stat-title" }, "Today's Views"),
-            div({ class: "stat-value" }, "1,553"),
+            div({ class: "stat-value" }, data?.todayViews ?? "1,553"),
             div(
               { class: "stat-actions" },
               button({ class: "btn btn-xs" }, "Estaimated"),

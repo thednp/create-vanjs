@@ -1,5 +1,9 @@
 // entry-server.js
-import { renderPreloadLinks, renderToString, getDataPreload } from "@vanjs/server";
+import {
+  getDataPreload,
+  renderPreloadLinks,
+  renderToString,
+} from "@vanjs/server";
 import { setRouterState } from "@vanjs/router";
 import { Head } from "@vanjs/meta";
 import { App } from "./App";

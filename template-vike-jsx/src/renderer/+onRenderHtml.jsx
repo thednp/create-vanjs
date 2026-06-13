@@ -1,5 +1,5 @@
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import { renderToString, getDataPreload } from "@vanjs/server";
+import { getDataPreload, renderToString } from "@vanjs/server";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { Layout } from "../components/Layout";

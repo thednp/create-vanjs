@@ -1,10 +1,10 @@
 import { Meta, Title } from "@vanjs/meta";
-import {Counter} from "../components/Counter";
+import { Counter } from "../components/Counter";
 
 export default () => {
   Title("VanJS + Vite Homepage");
   Meta({ name: "description", content: "Home description" });
- 
+
   return [
     <div class="flex h-screen">
       <div class="container mx-auto p-4">

@@ -16,9 +16,9 @@ export function isomorphicApi(): Plugin {
     load(id: string, ops) {
       if (id === "@/api") {
         if (ops?.ssr) {
-          return `export * from "/src/api/server.ts";`;
+          return `export * from "/src/api/server.js";`;
         } else {
-          return `export * from "/src/api/index.ts";`;
+          return `export * from "/src/api/index.js";`;
         }
       }
       return null;

@@ -1,6 +1,10 @@
 import van from "vanjs-core";
+import { usePageContext } from "../../../renderer/usePageContext";
 
 export const Page = () => {
+  const pc = usePageContext();
+  const categories = pc.data;
+
   const {
     h1,
     button,
@@ -17,6 +21,20 @@ export const Page = () => {
     tr,
   } = van.tags;
 
+  const rows = categories?.map((cat) =>
+    tr(
+      th(label(input({ type: "checkbox", class: "checkbox" }))),
+      td(
+        div(
+          { class: "flex items-center gap-3" },
+          div(div({ class: "font-bold" }, cat.title)),
+        ),
+      ),
+      td(span({ class: "badge badge-ghost badge-sm" }, cat.author)),
+      th(button({ class: "btn btn-ghost btn-xs" }, "details")),
+    )
+  ) ?? [];
+
   return div(
     { class: "h-screen" },
     div(
@@ -28,105 +46,13 @@ export const Page = () => {
           { class: "table" },
           thead(
             tr(
-              th(
-                label(
-                  input({ type: "checkbox", class: "checkbox" }),
-                ),
-              ),
+              th(label(input({ type: "checkbox", class: "checkbox" }))),
               th("Title"),
               th("Author"),
               th("Details"),
             ),
           ),
-          tbody(
-            tr(
-              th(
-                label(
-                  input({ type: "checkbox", class: "checkbox" }),
-                ),
-              ),
-              td(
-                div(
-                  { class: "flex items-center gap-3" },
-                  div(
-                    div({ class: "font-bold" }, "Science"),
-                  ),
-                ),
-              ),
-              td(
-                span({ class: "badge badge-ghost badge-sm" }, "Jane Doe"),
-              ),
-              th(
-                button({ class: "btn btn-ghost btn-xs" }, "details"),
-              ),
-            ),
-            tr(
-              th(
-                label(
-                  input({ type: "checkbox", class: "checkbox" }),
-                ),
-              ),
-              td(
-                div(
-                  { class: "flex items-center gap-3" },
-                  div(
-                    div({ class: "font-bold" }, "Economics"),
-                  ),
-                ),
-              ),
-              td(
-                span({ class: "badge badge-ghost badge-sm" }, "Jim Cramer"),
-              ),
-              th(
-                button({ class: "btn btn-ghost btn-xs" }, "details"),
-              ),
-            ),
-            tr(
-              th(
-                label(
-                  input({ type: "checkbox", class: "checkbox" }),
-                ),
-              ),
-              td(
-                div(
-                  { class: "flex items-center gap-3" },
-                  div(
-                    div({ class: "font-bold" }, "Health"),
-                  ),
-                ),
-              ),
-              td(
-                span({ class: "badge badge-ghost badge-sm" }, "Waren Lee"),
-              ),
-              th(
-                button({ class: "btn btn-ghost btn-xs" }, "details"),
-              ),
-            ),
-            tr(
-              th(
-                label(
-                  input({ type: "checkbox", class: "checkbox" }),
-                ),
-              ),
-              td(
-                div(
-                  { class: "flex items-center gap-3" },
-                  div(
-                    div(
-                      { class: "font-bold" },
-                      "Sports",
-                    ),
-                  ),
-                ),
-              ),
-              td(
-                span({ class: "badge badge-ghost badge-sm" }, "Jane Doe"),
-              ),
-              th(
-                button({ class: "btn btn-ghost btn-xs" }, "details"),
-              ),
-            ),
-          ),
+          tbody(...rows),
           tfoot(
             tr(
               th(),

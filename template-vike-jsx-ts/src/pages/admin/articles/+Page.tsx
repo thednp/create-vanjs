@@ -1,4 +1,10 @@
+import { usePageContext } from "../../../renderer/usePageContext";
+import type { Article } from "./+data";
+
 export const Page = () => {
+  const { data } = usePageContext();
+  const articles = data as Article[];
+
   return (
     <div class="h-screen">
       <div class="p-4 m-auto">
@@ -19,107 +25,33 @@ export const Page = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">
-                        Silicone fabs are running out of water
+              {articles?.map((article) => (
+                <tr>
+                  <th>
+                    <label>
+                      <input type="checkbox" class="checkbox" />
+                    </label>
+                  </th>
+                  <td>
+                    <div class="flex items-center gap-3">
+                      <div>
+                        <div class="font-bold">{article.title}</div>
                       </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Tech</span>
-                </td>
-                <td>Jane Doe</td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">
-                        WEF to hold the annual meeting later than originally
-                        planned
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Economics</span>
-                </td>
-                <td>Yannik Eisen</td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">
-                        Relativity theory challenged by young student
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Science</span>
-                </td>
-                <td>Mara Lane</td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
-              <tr>
-                <th>
-                  <label>
-                    <input type="checkbox" class="checkbox" />
-                  </label>
-                </th>
-                <td>
-                  <div class="flex items-center gap-3">
-                    <div>
-                      <div class="font-bold">
-                        Last chance to join the 8th of March event
-                      </div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge badge-ghost badge-sm">Community</span>
-                </td>
-                <td>Jimmy Delores</td>
-                <th>
-                  <button type="button" class="btn btn-ghost btn-xs">
-                    details
-                  </button>
-                </th>
-              </tr>
+                  </td>
+                  <td>
+                    <span class="badge badge-ghost badge-sm">
+                      {article.category}
+                    </span>
+                  </td>
+                  <td>{article.author}</td>
+                  <th>
+                    <button type="button" class="btn btn-ghost btn-xs">
+                      details
+                    </button>
+                  </th>
+                </tr>
+              ))}
             </tbody>
             <tfoot>
               <tr>

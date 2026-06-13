@@ -65,7 +65,7 @@ if (!isProduction) {
 
 app.get("/api", async (req, res) => {
   try {
-    const { getData } = await import("./src/api/server.ts");
+    const { getData } = await import("./src/api/server.js");
     const data = await getData();
     res.status(200).json(data);
   } catch (e) {
@@ -75,7 +75,7 @@ app.get("/api", async (req, res) => {
 
 app.get("/api/dashboard-stats", async (req, res) => {
   try {
-    const { getDashboardStats } = await import("./src/api/server.ts");
+    const { getDashboardStats } = await import("./src/api/server.js");
     const data = await getDashboardStats();
     res.status(200).json(data);
   } catch (e) {
@@ -85,7 +85,7 @@ app.get("/api/dashboard-stats", async (req, res) => {
 
 app.get("/api/articles", async (req, res) => {
   try {
-    const { getArticles } = await import("./src/api/server.ts");
+    const { getArticles } = await import("./src/api/server.js");
     const data = await getArticles();
     res.status(200).json(data);
   } catch (e) {
@@ -95,7 +95,7 @@ app.get("/api/articles", async (req, res) => {
 
 app.get("/api/categories", async (req, res) => {
   try {
-    const { getCategories } = await import("./src/api/server.ts");
+    const { getCategories } = await import("./src/api/server.js");
     const data = await getCategories();
     res.status(200).json(data);
   } catch (e) {
@@ -105,7 +105,7 @@ app.get("/api/categories", async (req, res) => {
 
 app.get("/api/users", async (req, res) => {
   try {
-    const { getUsers } = await import("./src/api/server.ts");
+    const { getUsers } = await import("./src/api/server.js");
     const data = await getUsers();
     res.status(200).json(data);
   } catch (e) {

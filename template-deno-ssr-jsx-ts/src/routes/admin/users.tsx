@@ -10,7 +10,7 @@ type User = {
   job: string;
   color: string;
   avatar: string;
-}
+};
 
 export const route = {
   load: async (_params?: Record<string, string>) => {
@@ -43,7 +43,7 @@ export const Page = () => {
               </tr>
             </thead>
             <tbody>
-              {(data || []).map(user => (
+              {(data || []).map((user) => (
                 <tr>
                   <th>
                     <label>
@@ -67,7 +67,8 @@ export const Page = () => {
                     </div>
                   </td>
                   <td>
-                    {user.company}<br />
+                    {user.company}
+                    <br />
                     <span class="badge badge-ghost badge-sm">
                       {user.job}
                     </span>

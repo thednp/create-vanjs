@@ -1,7 +1,7 @@
 // https://vike.dev/config
 export const config = {
   // prerender: true,
-  passToClient: ["someAsyncProps", "title", "description"],
+  passToClient: ["data", "title", "description"],
   clientRouting: true,
   hydrationCanBeAborted: true,
   // https://vike.dev/meta

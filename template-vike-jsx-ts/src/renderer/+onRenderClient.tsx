@@ -34,8 +34,9 @@ const onRenderClient = async (
     );
   };
 
-  hydrate(header, <Header />)
+  hydrate(header, <Header />);
   hydrate(main, () => <App />);
+  // hydrate(footer, <Footer />)
 
   applyMeta(pageContext);
 };

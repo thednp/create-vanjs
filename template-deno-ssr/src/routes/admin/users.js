@@ -11,7 +11,21 @@ export const route = {
 
 export const Page = () => {
   const {
-    h1, br, button, div, img, input, label, span, table, tbody, td, tfoot, th, thead, tr,
+    h1,
+    br,
+    button,
+    div,
+    img,
+    input,
+    label,
+    span,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr,
   } = van.tags;
 
   const data = useRouteData();
@@ -40,7 +54,9 @@ export const Page = () => {
             ),
             tbody(
               (() => {
-                if (!data || !Array.isArray(data)) return tr(td({ colspan: "5" }, "Loading..."));
+                if (!data || !Array.isArray(data)) {
+                  return tr(td({ colspan: "5" }, "Loading..."));
+                }
                 return data.map((user) =>
                   tr(
                     th(label(input({ type: "checkbox", class: "checkbox" }))),
@@ -51,7 +67,10 @@ export const Page = () => {
                           { class: "avatar" },
                           div(
                             { class: "mask mask-squircle h-12 w-12" },
-                            img({ src: user.avatar, alt: "Avatar Tailwind CSS Component" }),
+                            img({
+                              src: user.avatar,
+                              alt: "Avatar Tailwind CSS Component",
+                            }),
                           ),
                         ),
                         div(
@@ -67,7 +86,7 @@ export const Page = () => {
                     ),
                     td(user.color),
                     th(button({ class: "btn btn-ghost btn-xs" }, "details")),
-                  ),
+                  )
                 );
               })(),
             ),

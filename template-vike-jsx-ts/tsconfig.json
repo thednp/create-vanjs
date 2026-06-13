@@ -5,11 +5,11 @@
     "moduleResolution": "bundler",
     "target": "ES2020",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["vite/client", "vite-plugin-vanjs", "vite-vanjs-svg"],
+    // "types": ["vite/client", "vite-plugin-vanjs", "vite-vanjs-svg"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "@vanjs/jsx"
   },
-  "include": ["src"]
+  "include": ["src", "vite-env.d.ts"]
 }

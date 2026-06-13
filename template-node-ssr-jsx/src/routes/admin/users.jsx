@@ -2,8 +2,6 @@ import { Meta, Title } from "@vanjs/meta";
 import { useRouteData } from "@vanjs/router";
 import { getUsers } from "@/api";
 
-
-
 export const route = {
   load: async (_params) => {
     return await getUsers();
@@ -35,7 +33,7 @@ export const Page = () => {
               </tr>
             </thead>
             <tbody>
-              {(data || []).map(user => (
+              {(data || []).map((user) => (
                 <tr>
                   <th>
                     <label>
@@ -59,7 +57,8 @@ export const Page = () => {
                     </div>
                   </td>
                   <td>
-                    {user.company}<br />
+                    {user.company}
+                    <br />
                     <span class="badge badge-ghost badge-sm">
                       {user.job}
                     </span>

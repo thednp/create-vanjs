@@ -6,7 +6,7 @@ type Category = {
   id: string;
   title: string;
   author: string;
-}
+};
 
 export const route = {
   load: async (_params?: Record<string, string>) => {

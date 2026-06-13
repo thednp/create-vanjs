@@ -8,7 +8,7 @@ type Article = {
   title: string;
   category: string;
   author: string;
-}
+};
 
 export const route = {
   load: async (_params?: Record<string, string>) => {
@@ -18,7 +18,19 @@ export const route = {
 
 export const Page = () => {
   const {
-    h1, button, div, input, label, span, table, tbody, td, tfoot, th, thead, tr,
+    h1,
+    button,
+    div,
+    input,
+    label,
+    span,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr,
   } = van.tags;
 
   const data = useRouteData<Article[]>();
@@ -56,15 +68,26 @@ export const Page = () => {
                         div(div({ class: "font-bold" }, article.title)),
                       ),
                     ),
-                    td(span({ class: "badge badge-ghost badge-sm" }, article.category)),
+                    td(
+                      span(
+                        { class: "badge badge-ghost badge-sm" },
+                        article.category,
+                      ),
+                    ),
                     td(article.author),
                     th(button({ class: "btn btn-ghost btn-xs" }, "details")),
-                  ),
+                  )
                 );
               })(),
             ),
             tfoot(
-              tr(th(), th("Title"), th("Category"), th("Author"), th("Details")),
+              tr(
+                th(),
+                th("Title"),
+                th("Category"),
+                th("Author"),
+                th("Details"),
+              ),
             ),
           ),
         ),

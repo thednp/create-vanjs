@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import { A } from "@vanjs/router"
+import { A } from "@vanjs/router";
 import { /*ThemeDropdown,*/ ThemeToggle } from "./ui/ThemeController";
 import { Github } from "vanjs-feather";
 import { Menu } from "vanjs-lucide";
@@ -33,7 +33,11 @@ export const Nav = () => {
       ),
       li(
         A(
-          { class: "aria-[current=page]:text-primary aria-[current=location]:text-primary", href: "/admin" },
+          {
+            class:
+              "aria-[current=page]:text-primary aria-[current=location]:text-primary",
+            href: "/admin",
+          },
           "Admin",
         ),
       ),

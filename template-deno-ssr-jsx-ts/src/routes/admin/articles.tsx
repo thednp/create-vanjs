@@ -7,14 +7,13 @@ type Article = {
   title: string;
   category: string;
   author: string;
-}
+};
 
 export const route = {
   load: async (_params?: Record<string, string>) => {
     return await getArticles();
   },
 };
-
 
 export const Page = () => {
   Title("Articles");
@@ -58,7 +57,9 @@ export const Page = () => {
                     </div>
                   </td>
                   <td>
-                    <span class="badge badge-ghost badge-sm">{article.category}</span>
+                    <span class="badge badge-ghost badge-sm">
+                      {article.category}
+                    </span>
                   </td>
                   <td>{article.author}</td>
                   <th>

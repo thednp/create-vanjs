@@ -1,6 +1,10 @@
 import { A } from "@vanjs/router";
+import { usePageContext } from "../../../renderer/usePageContext";
 
 export const Page = () => {
+  const pageContext = usePageContext();
+  const data = pageContext.data;
+
   return (
     <div class="h-screen">
       <div class="p-4 m-auto">
@@ -9,7 +13,7 @@ export const Page = () => {
           <div class="w-full lg:w-1/2 stats bg-base-100 border border-base-300">
             <div class="stat">
               <div class="stat-title">This month sales</div>
-              <div class="stat-value">$89,400</div>
+              <div class="stat-value">{data?.monthlySales ?? "$89,400"}</div>
               <div class="stat-actions">
                 <A href="/admin/not-found" class="btn btn-xs">
                   Not found
@@ -18,7 +22,7 @@ export const Page = () => {
             </div>
             <div class="stat">
               <div class="stat-title">Conversion rate</div>
-              <div class="stat-value">$576</div>
+              <div class="stat-value">{data?.conversionRate ?? "$576"}</div>
               <div class="stat-actions">
                 <button type="button" class="btn btn-xs btn-success">
                   Cashflow
@@ -30,14 +34,14 @@ export const Page = () => {
           <div class="w-full lg:w-1/2 stats bg-base-100 border border-base-300">
             <div class="stat">
               <div class="stat-title">Monthly Views</div>
-              <div class="stat-value">47,558</div>
+              <div class="stat-value">{data?.monthlyViews ?? "47,558"}</div>
               <div class="stat-actions">
                 <button type="button" class="btn btn-xs">Analytics</button>
               </div>
             </div>
             <div class="stat">
               <div class="stat-title">Today's Views</div>
-              <div class="stat-value">1,553</div>
+              <div class="stat-value">{data?.todayViews ?? "1,553"}</div>
               <div class="stat-actions">
                 <button type="button" class="btn btn-xs">Estaimated</button>
               </div>

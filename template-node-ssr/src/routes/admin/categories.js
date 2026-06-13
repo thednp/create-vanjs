@@ -11,7 +11,19 @@ export const route = {
 
 export const Page = () => {
   const {
-    h1, button, div, input, label, span, table, tbody, td, tfoot, th, thead, tr,
+    h1,
+    button,
+    div,
+    input,
+    label,
+    span,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr,
   } = van.tags;
 
   const data = useRouteData();
@@ -39,7 +51,9 @@ export const Page = () => {
             ),
             tbody(
               (() => {
-                if (!data || !Array.isArray(data)) return tr(td({ colspan: "4" }, "Loading..."));
+                if (!data || !Array.isArray(data)) {
+                  return tr(td({ colspan: "4" }, "Loading..."));
+                }
                 return data.map((cat) =>
                   tr(
                     th(label(input({ type: "checkbox", class: "checkbox" }))),
@@ -49,9 +63,11 @@ export const Page = () => {
                         div(div({ class: "font-bold" }, cat.title)),
                       ),
                     ),
-                    td(span({ class: "badge badge-ghost badge-sm" }, cat.author)),
+                    td(
+                      span({ class: "badge badge-ghost badge-sm" }, cat.author),
+                    ),
                     th(button({ class: "btn btn-ghost btn-xs" }, "details")),
-                  ),
+                  )
                 );
               })(),
             ),

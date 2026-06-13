@@ -1,5 +1,5 @@
 import van from "vanjs-core";
-import {Counter} from "../../components/Counter";
+import { Counter } from "../../components/Counter";
 
 export const Page = () => {
   const { div, h1, p } = van.tags;

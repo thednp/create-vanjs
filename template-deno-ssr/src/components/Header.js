@@ -33,7 +33,11 @@ export const Nav = () => {
       ),
       li(
         A(
-          { class: "aria-[current=page]:text-primary aria-[current=location]:text-primary", href: "/admin" },
+          {
+            class:
+              "aria-[current=page]:text-primary aria-[current=location]:text-primary",
+            href: "/admin",
+          },
           "Admin",
         ),
       ),

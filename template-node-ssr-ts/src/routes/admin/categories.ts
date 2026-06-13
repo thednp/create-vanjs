@@ -7,7 +7,7 @@ type Category = {
   id: string;
   title: string;
   author: string;
-}
+};
 
 export const route = {
   load: async (_params?: Record<string, string>) => {
@@ -17,7 +17,19 @@ export const route = {
 
 export const Page = () => {
   const {
-    h1, button, div, input, label, span, table, tbody, td, tfoot, th, thead, tr,
+    h1,
+    button,
+    div,
+    input,
+    label,
+    span,
+    table,
+    tbody,
+    td,
+    tfoot,
+    th,
+    thead,
+    tr,
   } = van.tags;
 
   const data = useRouteData<Category[]>();
@@ -54,9 +66,11 @@ export const Page = () => {
                         div(div({ class: "font-bold" }, cat.title)),
                       ),
                     ),
-                    td(span({ class: "badge badge-ghost badge-sm" }, cat.author)),
+                    td(
+                      span({ class: "badge badge-ghost badge-sm" }, cat.author),
+                    ),
                     th(button({ class: "btn btn-ghost btn-xs" }, "details")),
-                  ),
+                  )
                 );
               })(),
             ),

@@ -7,7 +7,7 @@ type DashboardResults = {
   conversionRate: string;
   monthlyViews: string;
   todayViews: string;
-}
+};
 
 export const route = {
   load: async () => {

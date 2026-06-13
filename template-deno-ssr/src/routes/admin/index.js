@@ -13,7 +13,6 @@ export const Page = () => {
   const { div, button, h1 } = van.tags;
   const data = useRouteData();
 
-
   Title("Dashboard");
   Meta({ name: "description", content: "Administrator description" });
 
@@ -44,7 +43,7 @@ export const Page = () => {
             div(
               { class: "stat" },
               div({ class: "stat-title" }, "Conversion rate"),
-              div({ class: "stat-value" },  data?.conversionRate || "--"),
+              div({ class: "stat-value" }, data?.conversionRate || "--"),
               div(
                 { class: "stat-actions" },
                 button({ class: "btn btn-xs btn-success" }, "Cashflow"),

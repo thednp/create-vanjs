@@ -2,7 +2,6 @@ import { A, useRouteData } from "@vanjs/router";
 import { Meta, Title } from "@vanjs/meta";
 import { getDashboardStats } from "@/api";
 
-
 export const route = {
   load: async () => {
     return await getDashboardStats();

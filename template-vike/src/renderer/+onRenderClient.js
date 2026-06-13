@@ -25,7 +25,7 @@ const onRenderClient = async (
     return Layout({ Page, pageContext });
   };
 
-  hydrate(header, Header())
+  hydrate(header, Header());
   hydrate(main, App);
   // hydrate(footer, Footer());
 

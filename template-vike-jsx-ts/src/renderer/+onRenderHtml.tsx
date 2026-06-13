@@ -33,7 +33,7 @@ const onRenderHtml = async (
   const title = getPageMeta(pageContext, "title");
   const description = getPageMeta(pageContext, "description");
   const preload = getDataPreload();
-  
+
   const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>

@@ -2,13 +2,11 @@ import { Meta, Title } from "@vanjs/meta";
 import { useRouteData } from "@vanjs/router";
 import { getArticles } from "@/api";
 
-
 export const route = {
   load: async (_params) => {
     return await getArticles();
   },
 };
-
 
 export const Page = () => {
   Title("Articles");
@@ -52,7 +50,9 @@ export const Page = () => {
                     </div>
                   </td>
                   <td>
-                    <span class="badge badge-ghost badge-sm">{article.category}</span>
+                    <span class="badge badge-ghost badge-sm">
+                      {article.category}
+                    </span>
                   </td>
                   <td>{article.author}</td>
                   <th>
