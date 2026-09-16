@@ -3,6 +3,7 @@ experiments
 template-experimental
 /template-*/dist
 /template-*/pnpm-lock.yaml
+/template-*/pnpm-workspace.yaml
 /template-*/deno.lock
 /template-*/yarn.lock
 /template-*/bun.lockb

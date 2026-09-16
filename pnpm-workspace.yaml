@@ -1,2 +1,10 @@
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - "@thednp/domparser@0.2.0"
+  - "@types/node@26.6.0"
+  - vanjs-feather@0.2.0
+  - vanjs-lucide@0.1.0
+  - vite-plugin-vanjs@0.2.1
+  - vite-plugin-vanjs@0.2.2
+  - vite-vanjs-svg@0.1.0

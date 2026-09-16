@@ -121,45 +121,62 @@ for (const template of templates) {
     let devProc;
 
     if (isNode) {
-      const hasNodeModules = await fs
-        .stat(path.join(templatePath, "node_modules"))
-        .then(() => true)
-        .catch(() => false);
+      const localWorkspaceFile = path.join(templatePath, "pnpm-workspace.yaml");
+      await fs.writeFile(localWorkspaceFile, "allowBuilds:\n  esbuild: true\n");
 
-      const workspaceFile = path.join(cwd, "pnpm-workspace.yaml");
-      const tempWorkspaceFile = path.join(cwd, "pnpm-workspace.yaml.bak");
-      let movedWorkspace = false;
-      if (await fs.stat(workspaceFile).then(() => true).catch(() => false)) {
-        await fs.rename(workspaceFile, tempWorkspaceFile);
-        movedWorkspace = true;
-      }
+      console.log(`[${template}] Installing dependencies...`);
+      await run(
+        "pnpm",
+        ["install", "--no-frozen-lockfile", "--trust-lockfile"],
+        {
+          cwd: templatePath,
+          env: { ...process.env, CI: "true" },
+        },
+        120_000,
+      );
 
-      try {
-        if (hasNodeModules) {
-          console.log(`[${template}] Updating dependencies...`);
-          await run("pnpm", ["update"], {
-            cwd: templatePath,
-            env: { ...process.env, CI: "true" },
-          }, 120_000);
-        } else {
-          console.log(`[${template}] Installing dependencies...`);
-          await run("pnpm", ["install"], {
-            cwd: templatePath,
-            env: { ...process.env, CI: "true" },
-          }, 120_000);
-        }
-      } finally {
-        if (movedWorkspace) {
-          await fs.rename(tempWorkspaceFile, workspaceFile);
-        }
-      }
       console.log(`[${template}] Starting dev server...`);
       devProc = spawn("pnpm", ["run", "dev"], {
         cwd: templatePath,
         stdio: "pipe",
         detached: true,
+        env: { ...process.env, CI: "true" },
       });
-    } else if (isDeno) {
+
+      let stderr = "";
+      devProc.stderr?.on("data", (d) => (stderr += d.toString()));
+
+      await waitForPort(PORT, 15_000);
+
+      const exited = new Promise((resolve) => {
+        devProc.on("close", resolve);
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, WAIT_MS));
+
+      // check if still alive
+      if (devProc.exitCode !== null) {
+        throw new Error(
+          `Dev server exited early with code ${devProc.exitCode}\n${stderr}`,
+        );
+      }
+
+      killProcessTree(devProc);
+      await exited.catch(() => {});
+
+      const duration = `${Date.now() - start}ms`;
+      console.log(`[${template}] Passed (${duration})`);
+      results.push({
+        template,
+        type: "node",
+        status: "pass",
+        duration,
+        error: "",
+      });
+      continue;
+    }
+
+    if (isDeno) {
       const hasNodeModules = await fs
         .stat(path.join(templatePath, "node_modules"))
         .then(() => true)
@@ -187,45 +204,45 @@ for (const template of templates) {
         stdio: "pipe",
         detached: true,
       });
-    } else {
+
+      let stderr = "";
+      devProc.stderr?.on("data", (d) => (stderr += d.toString()));
+
+      await waitForPort(PORT, 15_000);
+
+      const exited = new Promise((resolve) => {
+        devProc.on("close", resolve);
+      });
+
+      await new Promise((resolve) => setTimeout(resolve, WAIT_MS));
+
+      // check if still alive
+      if (devProc.exitCode !== null) {
+        throw new Error(
+          `Dev server exited early with code ${devProc.exitCode}\n${stderr}`,
+        );
+      }
+
+      killProcessTree(devProc);
+      await exited.catch(() => {});
+
+      const duration = `${Date.now() - start}ms`;
+      console.log(`[${template}] Passed (${duration})`);
       results.push({
         template,
-        type: "unknown",
-        status: "skip",
-        duration: "0ms",
+        type: "deno",
+        status: "pass",
+        duration,
         error: "",
       });
       continue;
     }
 
-    let stderr = "";
-    devProc.stderr?.on("data", (d) => (stderr += d.toString()));
-
-    await waitForPort(PORT, 15_000);
-
-    const exited = new Promise((resolve) => {
-      devProc.on("close", resolve);
-    });
-
-    await new Promise((resolve) => setTimeout(resolve, WAIT_MS));
-
-    // check if still alive
-    if (devProc.exitCode !== null) {
-      throw new Error(
-        `Dev server exited early with code ${devProc.exitCode}\n${stderr}`,
-      );
-    }
-
-    killProcessTree(devProc);
-    await exited.catch(() => {});
-
-    const duration = `${Date.now() - start}ms`;
-    console.log(`[${template}] Passed (${duration})`);
     results.push({
       template,
-      type: isNode ? "node" : "deno",
-      status: "pass",
-      duration,
+      type: "unknown",
+      status: "skip",
+      duration: "0ms",
       error: "",
     });
   } catch (err) {
@@ -233,7 +250,7 @@ for (const template of templates) {
     console.error(`[${template}] Failed (${duration}): ${err.message}`);
     results.push({
       template,
-      type: isNode ? "node" : "deno",
+      type: isNode ? "node" : isDeno ? "deno" : "unknown",
       status: "fail",
       duration,
       error: err.message.split("\n")[0],

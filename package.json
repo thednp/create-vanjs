@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.1.15",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
@@ -44,20 +44,20 @@
     "lint": "deno lint --rules-exclude=require-await,jsx-key template-*/src",
     "fix:ts": "deno lint --fix --rules-exclude=require-await,jsx-key template-*/src",
     "prepublishOnly": "pnpm up-deps && pnpm lint && pnpm format",
-    "up-node": "for dir in template-node-*; do (cd \"$dir\" && pnpm update --latest); done;",
-    "up-vike": "for dir in template-vike*; do (cd \"$dir\" && pnpm update --latest); done;",
-    "up-deno": "for dir in template-deno-*; do (cd \"$dir\" && deno update --latest); done;",
-    "up-deps": "pnpm update --latest && pnpm up-node && pnpm up-vike && pnpm up-deno",
+    "up-node": "for dir in template-node-*; do echo \"[$dir]\"; echo 'allowBuilds:' > \"$dir/pnpm-workspace.yaml\"; echo '  esbuild: true' >> \"$dir/pnpm-workspace.yaml\"; (cd \"$dir\" && pnpm up --latest --trust-lockfile); done",
+    "up-vike": "for dir in template-vike*; do echo \"[$dir]\"; echo 'allowBuilds:' > \"$dir/pnpm-workspace.yaml\"; echo '  esbuild: true' >> \"$dir/pnpm-workspace.yaml\"; (cd \"$dir\" && pnpm up --latest --trust-lockfile); done",
+    "up-deno": "for dir in template-deno-*; do echo \"[$dir]\"; (cd \"$dir\" && deno update --latest); done",
+    "up-deps": "pnpm up-node && pnpm up-vike && pnpm up-deno",
     "test": "node dev-test.js"
   },
   "dependencies": {
-    "@clack/prompts": "^1.5.1",
+    "@clack/prompts": "^1.8.1",
     "cross-spawn": "^7.0.6",
     "minimist": "^1.2.8",
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^25.9.3"
+    "@types/node": "^26.6.0"
   },
-  "packageManager": "pnpm@10.33.0"
+  "packageManager": "pnpm@12.4.2"
 }
