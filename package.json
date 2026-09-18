@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
@@ -28,7 +28,7 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": "^18.0.0 || ^20.0.0 || >=22.0.0"
+    "node": "^20.0.0 || >=22.0.0"
   },
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
     "prepublishOnly": "pnpm up-deps && pnpm lint && pnpm format",
     "up-node": "for dir in template-node-*; do echo \"[$dir]\"; echo 'allowBuilds:' > \"$dir/pnpm-workspace.yaml\"; echo '  esbuild: true' >> \"$dir/pnpm-workspace.yaml\"; (cd \"$dir\" && pnpm up --latest --trust-lockfile); done",
     "up-vike": "for dir in template-vike*; do echo \"[$dir]\"; echo 'allowBuilds:' > \"$dir/pnpm-workspace.yaml\"; echo '  esbuild: true' >> \"$dir/pnpm-workspace.yaml\"; (cd \"$dir\" && pnpm up --latest --trust-lockfile); done",
-    "up-deno": "for dir in template-deno-*; do echo \"[$dir]\"; (cd \"$dir\" && deno update --latest); done",
+    "up-deno": "for dir in template-deno-*; do echo \"[$dir]\"; (cd \"$dir\" && deno update --latest --min-dep-age 0); done",
     "up-deps": "pnpm up-node && pnpm up-vike && pnpm up-deno",
     "test": "node dev-test.js"
   },

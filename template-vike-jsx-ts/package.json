@@ -10,21 +10,21 @@
     "preview": "vike build && vike preview --port 5173"
   },
   "dependencies": {
-    "daisyui": "^5.7.38",
+    "daisyui": "^5.7.40",
     "mini-van-plate": "^0.6.3",
     "tailwindcss": "^4.3.3",
     "vanjs-core": "^1.6.1",
     "vanjs-ext": "^0.6.3",
-    "vanjs-feather": "^0.1.7",
-    "vanjs-lucide": "^0.0.7",
+    "vanjs-feather": "^0.2.0",
+    "vanjs-lucide": "^0.1.0",
     "vike": "0.4.266",
     "vite": "^8.3.0",
-    "vite-plugin-vanjs": "^0.2.2",
-    "vite-vanjs-svg": "^0.0.14"
+    "vite-plugin-vanjs": "^0.2.3",
+    "vite-vanjs-svg": "^0.1.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^25.9.6",
+    "@types/node": "^26.6.1",
     "typescript": "^7.0.2"
   }
 }

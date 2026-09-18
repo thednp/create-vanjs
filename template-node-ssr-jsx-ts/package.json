@@ -15,17 +15,17 @@
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",
     "compression": "^1.8.2",
-    "daisyui": "5.7.38",
+    "daisyui": "5.7.40",
     "express": "^5.2.1",
     "mini-van-plate": "^0.6.3",
     "sirv": "^3.0.2",
     "tailwindcss": "4.3.3",
     "vanjs-core": "^1.6.1",
     "vanjs-ext": "^0.6.3",
-    "vanjs-feather": "^0.1.7",
-    "vanjs-lucide": "^0.0.7",
-    "vite-plugin-vanjs": "^0.2.2",
-    "vite-vanjs-svg": "^0.0.14"
+    "vanjs-feather": "^0.2.0",
+    "vanjs-lucide": "^0.1.0",
+    "vite-plugin-vanjs": "^0.2.3",
+    "vite-vanjs-svg": "^0.1.0"
   },
   "devDependencies": {
     "@types/compression": "^1.8.1",
