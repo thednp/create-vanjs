@@ -1,7 +1,7 @@
 {
   "name": "create-vanjs",
   "description": "🍦 Quick tool for scaffolding your first VanJS project",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "type": "module",
   "license": "MIT",
   "author": "thednp",
@@ -57,7 +57,7 @@
     "picocolors": "^1.1.1"
   },
   "devDependencies": {
-    "@types/node": "^26.6.0"
+    "@types/node": "^26.6.1"
   },
   "packageManager": "pnpm@12.4.2"
 }

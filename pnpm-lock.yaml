@@ -206,8 +206,8 @@ importers:
         version: 1.1.1
     devDependencies:
       "@types/node":
-        specifier: ^26.6.0
-        version: 26.6.0
+        specifier: ^26.6.1
+        version: 26.6.1
 
 packages:
   "@clack/core@1.5.1":
@@ -222,9 +222,9 @@ packages:
     }
     engines: { node: ">= 20.12.0" }
 
-  "@types/node@26.6.0":
+  "@types/node@26.6.1":
     resolution: {
-      integrity: sha512-FWWQhDlKSnEJVe+CTJCQL8Fol7s1MKo3Ud0fjryxoOoH+hwMIPxol0MguYrLi2I0VvIFwOU2DwdWET2+px15qg==,
+      integrity: sha512-VqGJBMCtdhqkBUCcBLvywI0NJ+KLuVzgNnlBUNFOQjqVxzo2lxLUNg1DSey8+u2u6ktswSAxg+s68QLzWHNOuA==,
     }
 
   cross-spawn@7.0.6:
@@ -311,7 +311,7 @@ snapshots:
       fast-wrap-ansi: 0.2.2
       sisteransi: 1.0.5
 
-  "@types/node@26.6.0":
+  "@types/node@26.6.1":
     dependencies:
       undici-types: 8.9.0
 

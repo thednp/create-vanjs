@@ -5,7 +5,5 @@ minimumReleaseAgeExclude:
   - "@types/node@26.6.0"
   - vanjs-feather@0.2.0
   - vanjs-lucide@0.1.0
-  - vite-plugin-vanjs@0.2.1
-  - vite-plugin-vanjs@0.2.2
-  - vite-plugin-vanjs@0.2.3
+  - vite-plugin-vanjs@0.2.4
   - vite-vanjs-svg@0.1.0
